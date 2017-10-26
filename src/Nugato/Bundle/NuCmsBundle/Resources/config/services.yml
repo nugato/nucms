@@ -1,0 +1,7 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+#    nugato_nu_cms.example:
+#        class: Nugato\Bundle\NuCmsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -48,20 +48,18 @@
     },
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "Nugato\\Bundle\\": "src/Nugato/Bundle/"
         },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
+        "exclude-from-classmap": [
+            "src/Nugato/*/*/Tests/"
         ]
     },
+
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Nugato\\Tests\\": "tests/"
         },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
-        ]
+        "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },
     "config": {
         "sort-packages": true,

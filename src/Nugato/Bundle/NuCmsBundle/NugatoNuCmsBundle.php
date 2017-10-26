@@ -11,8 +11,10 @@
 
 declare(strict_types=1);
 
-use Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache;
+namespace Nugato\Bundle\NuCmsBundle;
 
-class AppCache extends HttpCache
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class NugatoNuCmsBundle extends Bundle
 {
 }

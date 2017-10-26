@@ -1,0 +1,7 @@
+/vendor/
+/bin/
+
+/composer.lock
+
+/phpunit.xml
+/phpspec.yml

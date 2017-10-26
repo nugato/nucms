@@ -1,4 +1,9 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
 imports:
+    - { resource: "@NugatoNuCmsBundle/Resources/config/config.yml" }
+
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }

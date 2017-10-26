@@ -1,0 +1,2 @@
+[2017-10-26 21:46:18] request.INFO: Matched route "nugato_nu_cms_homepage". {"route":"nugato_nu_cms_homepage","route_parameters":{"_controller":"Nugato\\Bundle\\NuCmsBundle\\Controller\\DefaultController::indexAction","_route":"nugato_nu_cms_homepage"},"request_uri":"http://nucms.dev/app_dev.php/","method":"GET"} []
+[2017-10-26 21:46:18] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
