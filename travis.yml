@@ -1,0 +1,28 @@
+language: php
+
+dist: precise
+
+sudo: required
+
+php:
+    - 7.1
+env:
+    global:
+        - NUCMS_CACHE_DIR=$HOME/.nucms-cache
+        - NUCMS_BUILD_DIR=etc/build
+        - TRAVIS_NODE_VERSION="7.5"
+
+cache:
+    yarn: true
+    directories:
+        - ~/.composer/cache/files
+        - ~/.cache/pip
+        - vendor
+        - node_modules
+        - NUCMS_CACHE_DIR
+
+install:
+    - composer update --prefer-dist
+
+script:
+    - composer validate --strict

@@ -1,7 +1,7 @@
 {
     "name": "nugato/nucms",
     "type": "project",
-    "Description": "Cms platform for PHP, based on Symfony framework and Sylius components"
+    "Description": "Cms platform for PHP, based on Symfony framework and Sylius components",
     "license": "MIT",
     "homepage": "http://www.nugato.pl",
     "authors": [
@@ -64,7 +64,8 @@
         ]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",

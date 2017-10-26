@@ -16,6 +16,10 @@
 /vendor
 /node_modules
 
+# Bin
+/bin/*
+!/bin/console
+
 # Ide's
 .idea
 
