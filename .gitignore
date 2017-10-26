@@ -1,0 +1,24 @@
+# Files
+/app/config/parameters.yml
+/behat.yml
+/phpunit.xml
+/phpspec.yml
+/.web-server-pid
+
+# Directories
+/web/assets
+/web/bundles
+/web/css
+/web/js
+/web/media
+/var/*
+!/var/.gitkeep
+/vendor
+/node_modules
+
+# Ide's
+.idea
+
+# CI
+/etc/build/*
+!/etc/build/.gitkeep
