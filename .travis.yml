@@ -22,7 +22,7 @@ cache:
         - NUCMS_CACHE_DIR
 
 install:
-    - composer update --prefer-dist
+    - composer update
 
 script:
     - composer validate --strict
