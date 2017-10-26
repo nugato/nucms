@@ -1,7 +1,7 @@
 {
     "name": "nugato/nucms",
     "type": "project",
-    "Description": "Cms platform for PHP, based on Symfony framework and Sylius components",
+    "description": "Cms platform for PHP, based on Symfony framework and Sylius components",
     "license": "MIT",
     "homepage": "http://www.nugato.pl",
     "authors": [
