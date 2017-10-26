@@ -78,8 +78,5 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": null
-    },
-    "branch-alias": {
-        "dev-master": "0.1.0-dev"
     }
 }
