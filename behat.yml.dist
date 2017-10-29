@@ -1,0 +1,35 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+default:
+    suites:
+        admin_ui:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nugato\Behat\Context\Ui\Admin\LoginContext
+            filters:
+                tags: "@admin_ui && @ui"
+
+        web_ui:
+            contexts:
+                - Behat\MinkExtension\Context\MinkContext
+                - Nugato\Behat\Context\Ui\Web\HomeContext
+            filters:
+                tags: "@web_ui && @ui"
+
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://nucms.dev/app_test.php
+            goutte: ~
+            browser_name: chrome
+            selenium2:
+                wd_host: "http://127.0.0.1:4444/wd/hub"
+
+        Behat\Symfony2Extension: ~
+        SensioLabs\Behat\PageObjectExtension: ~
+
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false
