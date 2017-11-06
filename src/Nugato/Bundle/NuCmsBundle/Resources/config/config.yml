@@ -3,3 +3,15 @@
 
 imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
+
+fos_rest:
+    exception: ~
+    view:
+        formats:
+            json: true
+        empty_content: 204
+    format_listener:
+        rules:
+            - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: true }
+            - { path: '^/', stop: true }

@@ -1,0 +1,14 @@
+nucms_admin_page:
+    prefix: /admin
+    resource: |
+        alias: nucms.page
+        section: admin
+        templates: NugatoNuCmsBundle:Admin/Page
+    type: sylius.resource
+
+nucms_api_page:
+    prefix: /api/v1
+    resource: |
+        alias: nucms.page
+        serialization_version: 1
+    type: sylius.resource_api

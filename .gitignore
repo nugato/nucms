@@ -19,6 +19,7 @@
 # Bin
 /bin/*
 !/bin/console
+docker
 
 # Ide's
 .idea

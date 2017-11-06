@@ -4,3 +4,6 @@
 nugato_nu_cms_homepage:
     path:     /
     defaults: { _controller: NugatoNuCmsBundle:Default:index }
+
+nucms_page:
+    resource: routing/page.yml
