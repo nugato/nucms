@@ -4,6 +4,7 @@
 imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/grids/grids.yml" }
 
 fos_rest:
     exception: ~

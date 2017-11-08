@@ -1,0 +1,9 @@
+{% set definition = resources.definition %} {# Grid data (limits, fields, filters) #}
+{% set data = resources.data %} {# Grid data from passed entity #}
+{% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory) #}
+{% set vars = configuration.vars %} {# Additional variables passed from yml #}
+
+{{ sylius_grid_render(resources, 'NugatoNuCmsBundle:Admin/Crud/partial:_header.html.twig') }}
+
+{{ dump() }}
+{{ vars.header|trans }}

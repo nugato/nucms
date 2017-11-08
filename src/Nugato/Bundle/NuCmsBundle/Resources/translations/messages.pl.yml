@@ -1,0 +1,8 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms:
+    ui:
+        page: Strona
+        pages: Strony
+        title: Tytuł

@@ -1,0 +1,12 @@
+{% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory)#}
+{% set vars = configuration.vars %} {# Additional variables passed from yml #}
+
+{{ form_start(form) }}
+
+{{ form_widget(form) }}
+
+<button type="submit">Add</button>
+
+{{ form_end(form) }}
+
+{{ dump() }}

@@ -1,14 +1,22 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
 nucms_admin_page:
+    type: sylius.resource
     prefix: /admin
     resource: |
         alias: nucms.page
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Page
-    type: sylius.resource
+        templates: NugatoNuCmsBundle:Admin/Crud
+        grid: nucms_admin_page
+        redirect: update
+        vars:
+            all:
+                header: nucms.ui.pages
 
 nucms_api_page:
+    type: sylius.resource_api
     prefix: /api/v1
     resource: |
         alias: nucms.page
         serialization_version: 1
-    type: sylius.resource_api

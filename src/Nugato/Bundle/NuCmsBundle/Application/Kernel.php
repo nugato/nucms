@@ -47,6 +47,8 @@ class Kernel extends HttpKernel
             new \WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new \Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new \winzou\Bundle\StateMachineBundle\winzouStateMachineBundle(),
+
+            new \Sylius\Bundle\GridBundle\SyliusGridBundle(),
             new \Nugato\Bundle\NuCmsBundle\NugatoNuCmsBundle(),
         ];
 
