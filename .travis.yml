@@ -6,6 +6,12 @@ sudo: required
 
 php:
     - 7.1
+
+branches:
+    only:
+    - master
+    - dev
+
 env:
     global:
         - NUCMS_CACHE_DIR=$HOME/.nucms-cache
