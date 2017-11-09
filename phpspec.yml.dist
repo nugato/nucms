@@ -1,0 +1,6 @@
+suites:
+    UserBundle:
+        namespace: Nugato\Bundle\NuCmsBundle
+        psr4_prefix: Nugato\Bundle\NuCmsBundle
+        spec_path: src/Nugato/Bundle/NuCmsBundle
+        src_path: src/Nugato/Bundle/NuCmsBundle

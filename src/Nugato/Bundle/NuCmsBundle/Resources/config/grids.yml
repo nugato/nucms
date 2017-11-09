@@ -2,4 +2,4 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'admin/page.yml' }
+    - { resource: 'grids/admin/page.yml' }

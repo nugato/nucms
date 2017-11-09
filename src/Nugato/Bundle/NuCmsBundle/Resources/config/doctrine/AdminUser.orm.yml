@@ -1,0 +1,18 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\AdminUser:
+    type: entity
+    table: nucms_admin_user
+    repositoryClass: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
+    fields:
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255
+        localeCode:
+            type: string
+            length: 12
+    lifecycleCallbacks: {  }

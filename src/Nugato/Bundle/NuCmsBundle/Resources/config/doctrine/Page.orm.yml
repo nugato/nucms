@@ -1,6 +1,9 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
 Nugato\Bundle\NuCmsBundle\Entity\Page:
     type: entity
-    table: null
+    table: nucms_page
     repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\PageRepository
     id:
         id:

@@ -4,8 +4,10 @@
 imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
-    - { resource: "@NugatoNuCmsBundle/Resources/config/grids/grids.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/grids.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/users.yml" }
 
+# FosRestBundle Configuration
 fos_rest:
     exception: ~
     view:
@@ -16,3 +18,9 @@ fos_rest:
         rules:
             - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
+
+# StofDoctrineExtensionsBundle Configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
