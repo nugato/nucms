@@ -8,6 +8,8 @@ sylius_user:
             user:
                 classes:
                     model: Nugato\Bundle\NuCmsBundle\Entity\User\User
+                    repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
+                    # @todo with _remember_me form
                     interface: Sylius\Component\User\Model\UserInterface
         oauth:
             user:

@@ -1,12 +1,19 @@
+{% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
+
 {% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory)#}
 {% set vars = configuration.vars %} {# Additional variables passed from yml #}
 
-{{ form_start(form) }}
 
-{{ form_widget(form) }}
+{% block content %}
 
-<button type="submit">Add</button>
+    {{ form_start(form) }}
 
-{{ form_end(form) }}
+    {{ form_widget(form) }}
 
-{{ dump() }}
+    <button type="submit">Add</button>
+
+    {{ form_end(form) }}
+
+    {{ dump() }}
+
+{% endblock %}

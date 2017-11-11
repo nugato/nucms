@@ -1,0 +1,14 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_dashboard:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: NugatoNuCmsBundle:Admin\Dashboard:index
+
+nucms_admin_page:
+    resource: admin/page.yml
+
+nucms_admin_security:
+    resource: admin/security.yml

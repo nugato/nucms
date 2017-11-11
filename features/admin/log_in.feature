@@ -7,8 +7,7 @@ Feature: Log in to the admin dashboard
     @ui
     Scenario: Log in with valid email and password
         Given I want to log in
-        Then I fill username field with "admin"
-        And I fill password field with "password"
+        Then I specify login data "admin" "password"
         And I log in
         Then I should be logged in
         And I should see welcome dashboard page

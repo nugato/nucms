@@ -18,6 +18,26 @@ use Nugato\Behat\Page\Page;
 class LoginPage extends Page implements LoginPageInterface
 {
     /**
+     * @var string|null
+     */
+    protected $path = '/admin/login';
+
+    /**
+     * @param string $login
+     * @param string $password
+     */
+    public function specifyLoginData(string $login, string $password): void
+    {
+        $this->fillField('Login', $login);
+        $this->fillField('Password', $password);
+    }
+
+    public function logIn(): void
+    {
+        $this->pressButton('Login');
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getRouteName()

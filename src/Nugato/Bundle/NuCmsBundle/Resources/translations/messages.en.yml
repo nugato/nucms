@@ -6,3 +6,8 @@ nucms:
         page: Page
         pages: Pages
         title: Title
+
+sylius:
+    form:
+        user:
+            email: Login

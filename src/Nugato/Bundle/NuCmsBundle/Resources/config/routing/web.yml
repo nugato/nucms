@@ -1,0 +1,6 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_web_homepage:
+    path:     /
+    defaults: { _controller: NugatoNuCmsBundle:Default:index }

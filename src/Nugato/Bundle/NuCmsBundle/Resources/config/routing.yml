@@ -1,9 +1,17 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-nugato_nu_cms_homepage:
-    path:     /
-    defaults: { _controller: NugatoNuCmsBundle:Default:index }
+# Admin routing
+nucms_admin:
+    prefix: /admin
+    resource: routing/admin.yml
 
-nucms_page:
-    resource: routing/page.yml
+# Web routing
+nucms_web:
+    prefix: /
+    resource: routing/web.yml
+
+# Api routing
+nucms_api:
+    prefix: /api/v1
+    resource: routing/api.yml

@@ -1,0 +1,23 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_login:
+    path: /login
+    methods: [GET]
+    defaults:
+#        _controller: sylius.controller.security:loginAction
+        _controller: sylius.controller.user_security:loginAction
+        _sylius:
+            template: NugatoNuCmsBundle:Admin/Security:login.html.twig
+            permission: true
+            logged_in_route: sylius_admin_dashboard
+
+nucms_admin_login_check:
+    path: /login-check
+    methods: [POST]
+    defaults:
+        _controller: sylius.controller.user_security:checkAction
+
+nucms_admin_logout:
+    path: /logout
+    methods: [GET]

@@ -17,5 +17,11 @@ use Nugato\Behat\Page\PageInterface;
 
 interface LoginPageInterface extends PageInterface
 {
+    /**
+     * @param string $login
+     * @param string $password
+     */
+    public function specifyLoginData(string $login, string $password): void;
 
+    public function logIn(): void;
 }

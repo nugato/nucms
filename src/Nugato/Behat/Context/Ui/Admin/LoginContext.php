@@ -35,23 +35,15 @@ class LoginContext implements Context
      */
     public function iWantToLogIn()
     {
-        throw new PendingException();
+        $this->loginPage->open();
     }
 
     /**
-     * @Then I fill username field with :username
+     * @Then I specify login data :login :password
      */
-    public function iFillUsernameFieldWith($username)
+    public function iSpecifyLoginData($login, $password)
     {
-        throw new PendingException();
-    }
-
-    /**
-     * @Then I fill password field with :password
-     */
-    public function iFillPasswordFieldWith($password)
-    {
-        throw new PendingException();
+        $this->loginPage->specifyLoginData($login, $password);
     }
 
     /**
@@ -59,7 +51,7 @@ class LoginContext implements Context
      */
     public function iLogIn()
     {
-        throw new PendingException();
+        $this->loginPage->logIn();
     }
 
     /**

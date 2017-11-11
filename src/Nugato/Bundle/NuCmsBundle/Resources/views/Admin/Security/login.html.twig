@@ -1,0 +1,28 @@
+{% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
+
+{% block content %}
+
+    {{ dump() }}
+    {% if error %}
+        <div>
+            {{ error.message }}
+        </div>
+    {% endif %}
+
+    {{ form_start(form, {'action': path('nucms_admin_login_check'), 'attr': {'novalidate': 'novalidate'}}) }}
+
+    <div>
+        {{ form_row(form._username, {'value': last_username|default('')}) }}
+        {{ form_row(form._password) }}
+        {#{{ form_row(form._remember_me) }}#}
+
+        <input type="hidden" name="_csrf_admin_security_token" value="{{ csrf_token('admin_authenticate') }}">
+        <button type="submit">Login</button>
+    </div>
+
+
+    {{ form_end(form, {'render_rest': false}) }}
+
+    {{ dump() }}
+
+{% endblock %}
