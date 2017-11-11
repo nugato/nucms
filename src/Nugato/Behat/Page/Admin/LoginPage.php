@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Behat\Page\Admin;
 
 use Nugato\Behat\Page\Page;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Element;
 
 class LoginPage extends Page implements LoginPageInterface
 {
@@ -21,6 +22,13 @@ class LoginPage extends Page implements LoginPageInterface
      * @var string|null
      */
     protected $path = '/admin/login';
+
+    /**
+     * @var array
+     */
+    protected $elements = [
+        'Error message' => 'div.page-error_msg',
+    ];
 
     /**
      * @param string $login
@@ -32,16 +40,19 @@ class LoginPage extends Page implements LoginPageInterface
         $this->fillField('Password', $password);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function logIn(): void
     {
         $this->pressButton('Login');
     }
 
     /**
-     * {@inheritdoc}
+     * @return Element
      */
-    public function getRouteName()
+    public function getErrorMessageElement(): Element
     {
-        return 'nucms_admin_login';
+        return $this->getElement('Error message');
     }
 }

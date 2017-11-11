@@ -1,4 +1,4 @@
-@web_ui
+@web
 Feature: View homepage
     In order to view the homepage
     As a visitor

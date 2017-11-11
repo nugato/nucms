@@ -18,7 +18,10 @@ use SensioLabs\Behat\PageObjectExtension\PageObject\Page as BasePage;
 abstract class Page extends BasePage implements PageInterface
 {
     /**
-     * {@inheritdoc}
+     * @param array $urlParameters
      */
-    abstract public function getRouteName();
+    public function verify(array $urlParameters = []): void
+    {
+        parent::verify($urlParameters);
+    }
 }

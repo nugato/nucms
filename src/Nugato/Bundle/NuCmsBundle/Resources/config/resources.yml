@@ -7,3 +7,7 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Page
+        nucms.user:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\User\User

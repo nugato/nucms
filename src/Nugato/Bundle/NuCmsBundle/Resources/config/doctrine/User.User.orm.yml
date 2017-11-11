@@ -9,9 +9,11 @@ Nugato\Bundle\NuCmsBundle\Entity\User\User:
         firstName:
             type: string
             length: 255
+            nullable: true
         lastName:
             type: string
             length: 255
+            nullable: true
         localeCode:
             type: string
             length: 12

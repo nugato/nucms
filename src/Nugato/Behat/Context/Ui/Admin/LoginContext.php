@@ -14,9 +14,8 @@ declare(strict_types=1);
 namespace Nugato\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
+use Nugato\Behat\Page\Admin\DashboardPage;
 use Nugato\Behat\Page\Admin\LoginPage;
-use Webmozart\Assert\Assert;
 
 class LoginContext implements Context
 {
@@ -25,9 +24,15 @@ class LoginContext implements Context
      */
     private $loginPage;
 
-    public function __construct(LoginPage $loginPage)
+    /**
+     * @var DashboardPage
+     */
+    private $dashboardPage;
+
+    public function __construct(LoginPage $loginPage, DashboardPage $dashboardPage)
     {
         $this->loginPage = $loginPage;
+        $this->dashboardPage = $dashboardPage;
     }
 
     /**
@@ -59,14 +64,22 @@ class LoginContext implements Context
      */
     public function iShouldBeLoggedIn()
     {
-        throw new PendingException();
+        $this->dashboardPage->verify();
     }
 
     /**
-     * @Then I should see welcome dashboard page
+     * @Then I should not be logged in
      */
-    public function iShouldSeeWelcomeDashboardPage()
+    public function iShouldNotBeLoggedIn()
     {
-        throw new PendingException();
+        $this->loginPage->verify();
+    }
+
+    /**
+     * @Then I should see error message
+     */
+    public function iShouldSeeErrorMessage()
+    {
+        $this->loginPage->getErrorMessageElement();
     }
 }

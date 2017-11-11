@@ -15,8 +15,4 @@ namespace Nugato\Behat\Page;
 
 interface PageInterface
 {
-    /**
-     * @return string
-     */
-    public function getRouteName();
 }
