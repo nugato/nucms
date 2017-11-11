@@ -11,23 +11,17 @@
 
 declare(strict_types=1);
 
-namespace spec\Nugato\Bundle\NuCmsBundle\Entity;
+namespace spec\Nugato\Bundle\NuCmsBundle\Entity\User;
 
-use Nugato\Bundle\NuCmsBundle\Entity\AdminUserInterface;
+use Nugato\Bundle\NuCmsBundle\Entity\User\UserInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\User\Model\User;
-use Sylius\Component\User\Model\UserInterface;
 
-class AdminUserSpec extends ObjectBehavior
+class UserSpec extends ObjectBehavior
 {
     function it_extends_a_base_user_model(): void
     {
         $this->shouldHaveType(User::class);
-    }
-
-    function it_implements_an_admin_user_interface(): void
-    {
-        $this->shouldImplement(AdminUserInterface::class);
     }
 
     function it_implements_a_user_interface(): void

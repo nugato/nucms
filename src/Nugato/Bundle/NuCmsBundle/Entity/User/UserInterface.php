@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Entity;
+namespace Nugato\Bundle\NuCmsBundle\Entity\User;
 
-use Sylius\Component\User\Model\UserInterface;
+use Sylius\Component\User\Model\UserInterface as BaseUserInterface;
 
-interface AdminUserInterface extends UserInterface
+interface UserInterface extends BaseUserInterface
 {
     public const DEFAULT_ROLE_ADMIN = 'ROLE_ADMIN';
 

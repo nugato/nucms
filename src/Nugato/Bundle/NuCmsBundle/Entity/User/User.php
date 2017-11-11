@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Entity;
+namespace Nugato\Bundle\NuCmsBundle\Entity\User;
 
-use Sylius\Component\User\Model\User;
+use Sylius\Component\User\Model\User as BaseUser;
 
-class AdminUser extends User implements AdminUserInterface
+class User extends BaseUser implements UserInterface
 {
     /**
      * @var string
@@ -36,7 +36,7 @@ class AdminUser extends User implements AdminUserInterface
     {
         parent::__construct();
 
-        $this->roles = [AdminUserInterface::DEFAULT_ROLE_ADMIN];
+        $this->roles = [UserInterface::DEFAULT_ROLE_ADMIN];
     }
 
     /**

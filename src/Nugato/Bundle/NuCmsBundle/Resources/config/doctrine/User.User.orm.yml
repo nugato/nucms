@@ -1,9 +1,9 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\AdminUser:
+Nugato\Bundle\NuCmsBundle\Entity\User\User:
     type: entity
-    table: nucms_admin_user
+    table: nucms_user
     repositoryClass: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
     fields:
         firstName:

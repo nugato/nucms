@@ -7,12 +7,10 @@ sylius_user:
         admin:
             user:
                 classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\AdminUser
-                    repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
-                    form: Sylius\Bundle\UserBundle\Form\Type\UserType
+                    model: Nugato\Bundle\NuCmsBundle\Entity\User\User
+                    interface: Sylius\Component\User\Model\UserInterface
         oauth:
             user:
                 classes:
-                    model: Sylius\Component\User\Model\UserOAuth
+                    model: Nugato\Bundle\NuCmsBundle\Entity\User\UserOAuth
                     interface: Sylius\Component\User\Model\UserOAuthInterface
-                    controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController

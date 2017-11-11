@@ -13,47 +13,26 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
-use Sylius\Component\Resource\Model\ResourceInterface;
-
-class Page implements ResourceInterface, PageInterface
+interface PageInterface
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $title;
-
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    public function getId();
 
     /**
      * Set title
      *
      * @param string $title
      */
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
+    public function setTitle(string $title): void;
 
     /**
      * Get title
      *
      * @return string
      */
-    public function getTitle(): ?string
-    {
-        return $this->title;
-    }
+    public function getTitle(): ?string;
 }
