@@ -5,22 +5,29 @@ default:
     suites:
         admin_ui:
             contexts:
+                # setup
                 - Behat\MinkExtension\Context\MinkContext
+                - Nugato\Behat\Context\Setup\DoctrineContext:
+                    entityManager: '@doctrine.orm.entity_manager'
+                - Nugato\Behat\Context\Setup\Admin\UserContext:
+                    userFactory: '@nucms.factory.user'
+                    userRepository: '@sylius.repository.admin_user'
+
+                # ui
                 - Nugato\Behat\Context\Ui\Admin\LoginContext
             filters:
-                tags: "@admin_ui && @ui"
+                tags: "@admin && @ui"
 
         web_ui:
             contexts:
                 - Behat\MinkExtension\Context\MinkContext
                 - Nugato\Behat\Context\Ui\Web\HomeContext
             filters:
-                tags: "@web_ui && @ui"
+                tags: "@web && @ui"
 
     extensions:
         Behat\MinkExtension:
-            base_url: http://nucms.dev/app_test.php
-            base_url: "http://localhost:8080/app_test.php"
+            base_url: http://127.0.0.1:8080/app_test.php
             goutte: ~
             browser_name: chrome
             selenium2:
