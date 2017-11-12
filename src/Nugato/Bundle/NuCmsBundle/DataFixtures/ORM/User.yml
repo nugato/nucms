@@ -1,3 +1,6 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
 Nugato\Bundle\NuCmsBundle\Entity\User\User:
     user_admin_{1..5}:
         email: admin<current()>@nucms.com

@@ -15,7 +15,6 @@ namespace Nugato\Bundle\NuCmsBundle\Application;
 
 use Symfony\Component\HttpKernel\Kernel as HttpKernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
-
 use \PSS\SymfonyMockerContainer\DependencyInjection\MockerContainer;
 
 class Kernel extends HttpKernel
