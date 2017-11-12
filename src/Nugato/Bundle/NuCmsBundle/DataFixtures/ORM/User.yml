@@ -1,0 +1,10 @@
+Nugato\Bundle\NuCmsBundle\Entity\User\User:
+    user_admin_{1..5}:
+        email: admin<current()>@nucms.com
+        emailCanonical: admin<current()>@nucms.com
+        username: admin<current()>
+        usernameCanonical: admin<current()>
+        enabled: 1
+        plainPassword: admin
+        roles: ['ROLE_ADMIN']
+        localeCode: en_US
