@@ -41,7 +41,6 @@ before_script:
     - bin/console assets:install web --env=test
 
     # Run webserver
-    - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1
     - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1 &
 
 script:
