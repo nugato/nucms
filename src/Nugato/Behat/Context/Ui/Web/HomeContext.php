@@ -28,4 +28,14 @@ class HomeContext implements Context
     {
         $this->homePage = $homePage;
     }
+
+    /**
+     * @Given I am on the homepage for specific locale :locale
+     *
+     * @param string $locale
+     */
+    public function iAmOnTheHomepageForSpecificLocale(string $locale)
+    {
+        $this->homePage->openLocale($locale);
+    }
 }

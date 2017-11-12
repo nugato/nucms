@@ -12,3 +12,6 @@ nucms_admin_page:
 
 nucms_admin_security:
     resource: admin/security.yml
+
+nucms_admin_locale:
+    resource: admin/locale.yml

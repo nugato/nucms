@@ -2,5 +2,11 @@
 # (c) Jacek Bednarek
 
 nucms_web_homepage:
-    path:     /
+    path: /
     defaults: { _controller: NugatoNuCmsBundle:Default:index }
+
+nucms_web_homepage_locale:
+    path: /{_locale}/
+    defaults: { _controller: NugatoNuCmsBundle:Default:index, _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$

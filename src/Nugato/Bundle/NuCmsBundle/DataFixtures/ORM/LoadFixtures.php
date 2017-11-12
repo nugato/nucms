@@ -24,6 +24,7 @@ class LoadFixtures implements FixtureInterface
         Fixtures::load(
             [
                 __DIR__ . '/User.yml',
+                __DIR__ . '/Locale.yml',
             ],
             $manager,
             [

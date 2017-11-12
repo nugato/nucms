@@ -1,0 +1,12 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    nucms.context.locale.request_based_with_default:
+        class: Nugato\Bundle\NuCmsBundle\Context\RequestBasedWithDefaultLocaleContext
+        arguments:
+            - '@request_stack'
+            - '@sylius.locale_provider'
+        tags: ['sylius.context.locale']
+
+    nucms.context.locale: '@nucms.context.locale.request_based_with_default'

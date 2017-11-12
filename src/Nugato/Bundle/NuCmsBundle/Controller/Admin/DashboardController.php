@@ -23,6 +23,7 @@ class DashboardController extends Controller
      */
     public function indexAction(): Response
     {
+        $this->get('nucms.repository.locale');
         return $this->render('NugatoNuCmsBundle:Admin/Dashboard:index.html.twig');
     }
 }

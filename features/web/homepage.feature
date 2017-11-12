@@ -4,7 +4,15 @@ Feature: View homepage
     As a visitor
     I want to be able to see homepage
 
+    Background:
+        Given There are defined locales "en_US,pl_PL"
+
     @ui
     Scenario: See the homepage
         Given I am on the homepage
+        Then I should see "Hello"
+
+    @ui
+    Scenario: See the homepage for specified locale
+        Given I am on the homepage for specific locale "pl_PL"
         Then I should see "Hello"

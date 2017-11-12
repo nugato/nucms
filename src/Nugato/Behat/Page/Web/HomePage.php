@@ -15,13 +15,25 @@ namespace Nugato\Behat\Page\Web;
 
 use Nugato\Behat\Page\Page;
 
-class HomePage extends Page
+class HomePage extends Page implements HomePageInterface
 {
     /**
-     * {@inheritdoc}
+     * @var string|null
      */
-    public function getRouteName()
+    protected $path = '/';
+
+    /**
+     * @param string $locale
+     * @param array $urlParameters
+     *
+     * @return $this
+     */
+    public function openLocale(string $locale, array $urlParameters = [])
     {
-        return 'nucms_homepage';
+        $url = $this->getUrl($urlParameters) . $locale . '/';
+
+        $this->getDriver()->visit($url);
+
+        return $this;
     }
 }

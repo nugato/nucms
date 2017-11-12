@@ -3,16 +3,16 @@
 
 sylius_grid:
     grids:
-        nucms_admin_page:
+        nucms_admin_locale:
             driver:
                 name: doctrine/orm
                 options:
-                    class: Nugato\Bundle\NuCmsBundle\Entity\Page
+                    class: Nugato\Bundle\NuCmsBundle\Entity\Locale
             fields:
-                title:
+                code:
                     type: string
-                    label: nucms.ui.title
+                    label: sylius.form.locale.name
                     sortable: ~
             filters:
-                title:
+                code:
                     type: string

@@ -9,6 +9,10 @@ default:
                 - Behat\MinkExtension\Context\MinkContext
                 - Nugato\Behat\Context\Setup\DoctrineContext:
                     entityManager: '@doctrine.orm.entity_manager'
+
+                - Nugato\Behat\Context\Setup\LocaleContext:
+                    localeFactory: '@nucms.factory.locale'
+                    localeRepository: '@nucms.repository.locale'
                 - Nugato\Behat\Context\Setup\Admin\UserContext:
                     userFactory: '@nucms.factory.user'
                     userRepository: '@sylius.repository.admin_user'
@@ -20,7 +24,16 @@ default:
 
         web_ui:
             contexts:
+                # setup
                 - Behat\MinkExtension\Context\MinkContext
+                - Nugato\Behat\Context\Setup\DoctrineContext:
+                    entityManager: '@doctrine.orm.entity_manager'
+
+                - Nugato\Behat\Context\Setup\LocaleContext:
+                    localeFactory: '@nucms.factory.locale'
+                    localeRepository: '@nucms.repository.locale'
+
+                # ui
                 - Nugato\Behat\Context\Ui\Web\HomeContext
             filters:
                 tags: "@web && @ui"

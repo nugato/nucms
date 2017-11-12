@@ -19,7 +19,7 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 
 class PageSpec extends ObjectBehavior
 {
-    function it_implements_a_papge_and_resource_interface(): void
+    function it_implements_a_page_and_resource_interface(): void
     {
         $this->shouldImplement(PageInterface::class);
         $this->shouldImplement(ResourceInterface::class);

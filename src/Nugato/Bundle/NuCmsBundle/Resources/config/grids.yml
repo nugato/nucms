@@ -3,3 +3,4 @@
 
 imports:
     - { resource: 'grids/admin/page.yml' }
+    - { resource: 'grids/admin/locale.yml' }

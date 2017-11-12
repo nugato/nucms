@@ -10,6 +10,9 @@
     {{ sylius_grid_render(resources, 'NugatoNuCmsBundle:Admin/Crud/partial:_header.html.twig') }}
 
     {{ dump() }}
-    {{ vars.header|trans }}
+
+    {% if vars.header is defined %}
+        {{ vars.header|trans }}
+    {% endif %}
 
 {% endblock %}

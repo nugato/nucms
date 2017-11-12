@@ -11,14 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Behat\Page\Web;
+namespace Nugato\Bundle\NuCmsBundle\Entity;
 
-use Nugato\Behat\Page\PageInterface;
+use Sylius\Component\Locale\Model\Locale as BaseLocale;
 
-interface HomePageInterface extends PageInterface
+class Locale extends BaseLocale
 {
-    /**
-     * @param string $locale
-     */
-    public function openLocale(string $locale);
 }

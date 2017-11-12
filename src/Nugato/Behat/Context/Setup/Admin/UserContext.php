@@ -21,14 +21,14 @@ use Sylius\Component\Resource\Factory\Factory;
 class UserContext implements Context
 {
     /**
-     * @var UserRepository
-     */
-    private $userRepository;
-
-    /**
      * @var Factory
      */
     private $userFactory;
+
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
 
     /**
      * @param Factory $userFactory
@@ -42,8 +42,11 @@ class UserContext implements Context
 
     /**
      * @Given There is an administrator user :email identified by :password
+     *
+     * @param string $email
+     * @param string $password
      */
-    public function thereIsAnAdministratorUserIdentifiedBy($email, $password)
+    public function thereIsAnAdministratorUserIdentifiedBy(string $email, string $password): void
     {
         /** @var UserInterface $adminUser */
         $adminUser = $this->userFactory->createNew();
