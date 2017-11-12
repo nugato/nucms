@@ -31,11 +31,17 @@ install:
     - composer update
 
 before_script:
+    # Create config files
     - cp phpspec.yml.dist phpspec.yml
     - cp app/config/parameters.yml.travis app/config/parameters.yml
+
+    # Build database and assets
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:create --env=test
     - bin/console assets:install web --env=test
+
+    # Run webserver
+    - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1
 
 script:
     - composer validate --strict
