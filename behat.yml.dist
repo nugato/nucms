@@ -20,6 +20,7 @@ default:
     extensions:
         Behat\MinkExtension:
             base_url: http://nucms.dev/app_test.php
+            base_url: "http://localhost:8080/app_test.php"
             goutte: ~
             browser_name: chrome
             selenium2:

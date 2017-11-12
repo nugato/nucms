@@ -31,6 +31,7 @@ install:
     - composer update
 
 before_script:
+    - cp phpspec.yml.dist phpspec.yml
     - cp app/config/parameters.yml.travis app/config/parameters.yml
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:create --env=test
