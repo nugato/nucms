@@ -14,46 +14,56 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TranslatableInterface;
+use Sylius\Component\Resource\Model\TranslatableTrait;
 
-class Page implements ResourceInterface, PageInterface
+class Page implements ResourceInterface, TranslatableInterface, PageInterface
 {
+    use TranslatableTrait {
+        __construct as private initializeTranslationsCollection;
+    }
+
     /**
      * @var int
      */
     private $id;
 
-    /**
-     * @var string
-     */
-    private $title;
+    public function __construct()
+    {
+        $this->initializeTranslationsCollection();
+    }
 
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set title
-     *
+     * @return null|string
+     */
+    public function getTitle(): ?string
+    {
+        return $this->getTranslation()->getTitle();
+    }
+
+    /**
      * @param string $title
      */
     public function setTitle(string $title): void
     {
-        $this->title = $title;
+        $this->getTranslation()->setTitle($title);
     }
 
     /**
-     * Get title
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getTitle(): ?string
+    protected function createTranslation(): PageTranslation
     {
-        return $this->title;
+        return new PageTranslation();
     }
 }

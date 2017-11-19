@@ -11,7 +11,7 @@ sylius_grid:
             fields:
                 code:
                     type: string
-                    label: sylius.form.locale.name
+                    label: nucms.ui.locale.name
                     sortable: ~
             filters:
                 code:

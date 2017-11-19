@@ -6,10 +6,10 @@ nucms:
         page: Strona
         pages: Strony
         title: Tytuł
+        locale:
+            name: Nazwa
 
 sylius:
     form:
         user:
             email: Login
-        locale:
-            name: Nazwa

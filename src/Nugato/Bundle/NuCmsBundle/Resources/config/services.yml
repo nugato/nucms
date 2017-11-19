@@ -3,3 +3,4 @@
 
 imports:
     - { resource: "services/locale.yml" }
+    - { resource: "services/page.yml" }

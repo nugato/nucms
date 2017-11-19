@@ -16,21 +16,13 @@ namespace spec\Nugato\Bundle\NuCmsBundle\Entity;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\TranslatableInterface;
 
-class PageSpec extends ObjectBehavior
+class PageTranslationSpec extends ObjectBehavior
 {
-    function let()
-    {
-        $this->setCurrentLocale('en_US');
-        $this->setFallbackLocale('en_US');
-    }
-
-    function it_implements_all_needed_interface(): void
+    function it_implements_a_page_and_resource_interface(): void
     {
         $this->shouldImplement(PageInterface::class);
         $this->shouldImplement(ResourceInterface::class);
-        $this->shouldImplement(TranslatableInterface::class);
     }
 
     function it_has_all_fields_mutable(): void

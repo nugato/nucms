@@ -5,3 +5,7 @@ imports:
     - { resource: 'resources/user.yml' }
     - { resource: 'resources/locale.yml' }
     - { resource: 'resources/page.yml' }
+
+sylius_resource:
+    translation:
+        locale_provider: 'nucms.translation_locale_provider'

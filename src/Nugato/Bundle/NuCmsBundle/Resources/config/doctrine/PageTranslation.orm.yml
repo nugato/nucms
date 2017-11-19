@@ -1,14 +1,17 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\Page:
+Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
     type: entity
-    table: nucms_page
-    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\PageRepository
+    table: nucms_page_translation
     id:
         id:
             type: integer
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

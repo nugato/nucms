@@ -37,7 +37,7 @@ interface UserInterface extends BaseUserInterface
     /**
      * @return string
      */
-    public function getLocaleCode(): string;
+    public function getLocaleCode(): ?string;
 
     /**
      * @param string $localeCode

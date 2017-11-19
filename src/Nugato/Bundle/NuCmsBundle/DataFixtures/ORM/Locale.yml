@@ -5,4 +5,4 @@ Nugato\Bundle\NuCmsBundle\Entity\Locale:
     locale_enUS:
         code: en_US
     locale_pl:
-        code: pl_PL
+        code: pl

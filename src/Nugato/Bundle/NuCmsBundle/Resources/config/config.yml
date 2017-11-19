@@ -1,6 +1,9 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
+parameters:
+    admin_prefix: 'admin'
+
 imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }

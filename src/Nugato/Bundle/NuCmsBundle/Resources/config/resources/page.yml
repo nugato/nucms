@@ -7,3 +7,8 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Page
+                form: Nugato\Bundle\NuCmsBundle\Form\PageType
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Entity\PageTranslation
+                    form: Nugato\Bundle\NuCmsBundle\Form\PageTranslationType

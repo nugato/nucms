@@ -7,6 +7,7 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Locale
+                form: Sylius\Bundle\LocaleBundle\Form\Type\LocaleType
 
 sylius_locale:
     driver: doctrine/orm

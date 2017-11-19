@@ -6,6 +6,54 @@
 
 {% block content %}
 
+    {#{{ dump(app.flashes) }}#}
+
+    {#{% if app.session is not null and app.session.started %}#}
+        {#{% for type in ['success', 'error', 'info', 'warning'] %}#}
+            {#{% for flash in app.session.flashbag.get(type) %}#}
+                {#{% if 'error' == type %}#}
+                    {#{% set result = 'negative' %}#}
+                    {#{% set icon = 'remove' %}#}
+                {#{% endif %}#}
+                {#{% if 'info' == type %}#}
+                    {#{% set result = 'info' %}#}
+                    {#{% set icon = 'info' %}#}
+                {#{% endif %}#}
+                {#<div class="ui icon {{ result|default('positive') }} message sylius-flash-message">#}
+                    {#<i class="close icon"></i>#}
+                    {#<i class="{{ icon|default('checkmark') }} icon"></i>#}
+                    {#<div class="content">#}
+                        {#<div class="header">#}
+                            {#{% set header = 'sylius.ui.'~type %}#}
+                            {#{{ header|trans }}#}
+                        {#</div>#}
+                        {#<p>#}
+                            {#{% if flash is iterable %}#}
+                                {#{{ flash.message|trans(flash.parameters, 'flashes') }}#}
+                            {#{% else %}#}
+                                {#{{ flash|trans({}, 'flashes') }}#}
+                            {#{% endif %}#}
+                        {#</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#{% endfor %}#}
+        {#{% endfor %}#}
+    {#{% endif %}#}
+
+    {% for label, messages in app.flashes(['success', 'warning', 'error']) %}
+        {% for flash in messages %}
+            <div class="alert alert-{{ label }}">
+
+                {{ dump(flash) }}
+                {% if flash is iterable %}
+                    {{ flash.message|trans(flash.parameters, 'flashes') }}
+                {% else %}
+                    {{ flash|trans({}, 'flashes') }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
     {{ form_start(form, {'action': path(route, {'id': resource.id}), 'attr': {'class': '', 'novalidate': 'novalidate'}}) }}
 
     {{ form_widget(form) }}
@@ -14,7 +62,5 @@
     <input type="hidden" name="_method" value="PUT"/>
 
     {{ form_end(form) }}
-
-    {{ dump() }}
 
 {% endblock %}

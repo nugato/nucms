@@ -6,6 +6,8 @@ nucms:
         page: Page
         pages: Pages
         title: Title
+        locale:
+            name: Name
 
 sylius:
     form:

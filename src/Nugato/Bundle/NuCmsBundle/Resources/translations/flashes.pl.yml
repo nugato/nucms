@@ -1,0 +1,6 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius:
+    resource:
+        update: 'Dane zostały zaktualizowane.'

@@ -66,7 +66,7 @@ class User extends BaseUser implements UserInterface
     /**
      * @return string
      */
-    public function getLocaleCode(): string
+    public function getLocaleCode(): ?string
     {
         return $this->localeCode;
     }
