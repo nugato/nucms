@@ -28,7 +28,7 @@ cache:
         - NUCMS_CACHE_DIR
 
 install:
-    - composer update
+    - composer install
 
 before_script:
     # Create config files

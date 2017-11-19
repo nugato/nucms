@@ -46,7 +46,12 @@ default:
             selenium2:
                 wd_host: "http://127.0.0.1:4444/wd/hub"
 
-        Behat\Symfony2Extension: ~
+        Behat\Symfony2Extension:
+            kernel:
+                class: AppKernel
+                path: app/AppKernel.php
+                bootstrap: vendor/autoload.php
+
         SensioLabs\Behat\PageObjectExtension: ~
 
     formatters:
