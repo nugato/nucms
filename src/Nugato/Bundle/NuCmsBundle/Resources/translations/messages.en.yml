@@ -8,6 +8,9 @@ nucms:
         title: Title
         locale:
             name: Name
+        login:
+            login: Log in
+            header: nucms
 
 sylius:
     form:

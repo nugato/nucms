@@ -5,7 +5,7 @@
     I want to be able to log in into admin dashboard
 
     Background:
-        Given There are defined locales "en_US,pl_PL"
+        Given There are defined locales "en,pl"
 
     @ui
     Scenario: Log in with valid email and password

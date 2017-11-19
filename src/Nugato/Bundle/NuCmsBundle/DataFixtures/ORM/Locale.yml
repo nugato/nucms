@@ -2,7 +2,7 @@
 # (c) Jacek Bednarek
 
 Nugato\Bundle\NuCmsBundle\Entity\Locale:
-    locale_enUS:
-        code: en_US
+    locale_en:
+        code: en
     locale_pl:
         code: pl

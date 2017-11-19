@@ -27,7 +27,8 @@ class LoginPage extends Page implements LoginPageInterface
      * @var array
      */
     protected $elements = [
-        'Error message' => 'div.page-error_msg',
+        'Error message' => 'div.t-error_msg',
+        'Login button' => '.t-login_button',
     ];
 
     /**
@@ -45,7 +46,7 @@ class LoginPage extends Page implements LoginPageInterface
      */
     public function logIn(): void
     {
-        $this->pressButton('Login');
+        $this->getElement('Login button')->press();
     }
 
     /**

@@ -1,27 +1,31 @@
 {% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
 
+{% form_theme form '@NugatoNuCms/Admin/Form/theme.html.twig' %}
+
 {% block content %}
 
-    {{ dump() }}
-    {% if error %}
-        <div class="page-error_msg">
-            {{ error.message }}
-        </div>
-    {% endif %}
+    <div class="uk-position-center">
+        <h1 class="uk-heading-divider">{{ 'nucms.ui.login.header'|trans }}</h1>
 
-    {{ form_start(form, {'action': path('nucms_admin_login_check'), 'attr': {'novalidate': 'novalidate'}}) }}
+        {% if error %}
 
-    <div>
-        {{ form_row(form._username, {'value': last_username|default('')}) }}
-        {{ form_row(form._password) }}
+            <div class="t-error_msg uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{ error.message }}</p>
+            </div>
+
+        {% endif %}
+
+        {{ form_start(form, {'action': path('nucms_admin_login_check'), 'attr': {'novalidate': 'novalidate', 'class': 'uk-form-stacked'}}) }}
+
+        {{ form_row(form._username, {'value': last_username|default(''), 'attr': {'class': 'uk-form-width-large'}}) }}
+        {{ form_row(form._password, {'attr': {'class': 'uk-form-width-large'}}) }}
 
         <input type="hidden" name="_csrf_admin_security_token" value="{{ csrf_token('admin_authenticate') }}">
-        <button type="submit">Login</button>
+
+        <button class="t-login_button uk-button uk-button-primary">{{ 'nucms.ui.login.login'|trans }}</button>
+
+        {{ form_end(form, {'render_rest': false}) }}
     </div>
-
-
-    {{ form_end(form, {'render_rest': false}) }}
-
-    {{ dump() }}
 
 {% endblock %}

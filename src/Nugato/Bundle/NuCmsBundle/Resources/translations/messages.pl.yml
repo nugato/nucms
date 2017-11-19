@@ -8,6 +8,9 @@ nucms:
         title: Tytuł
         locale:
             name: Nazwa
+        login:
+            login: Zaloguj
+            header: nucms
 
 sylius:
     form:
