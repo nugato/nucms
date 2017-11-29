@@ -15,7 +15,7 @@ namespace Nugato\Behat\Page\Admin;
 
 use Nugato\Behat\Page\Page;
 
-class DashboardPage extends Page
+class DashboardPage extends Page implements DashboardPageInterface
 {
     /**
      * @var string|null
@@ -23,10 +23,17 @@ class DashboardPage extends Page
     protected $path = '/admin/';
 
     /**
-     * {@inheritdoc}
+     * @var array
      */
-    public function getRouteName()
+    protected $elements = [
+        'Logout button' => '.t-logout_button',
+    ];
+
+    /**
+     * Click the logout button
+     */
+    public function logOut(): void
     {
-        return 'nucms_admin_dashboard';
+        $this->getElement('Logout button')->press();
     }
 }

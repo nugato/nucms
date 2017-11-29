@@ -1,61 +1,6 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-default:
-    suites:
-        admin_ui:
-            contexts:
-                # setup
-                - Behat\MinkExtension\Context\MinkContext
-                - Nugato\Behat\Context\Setup\DoctrineContext:
-                    entityManager: '@doctrine.orm.entity_manager'
-
-                - Nugato\Behat\Context\Setup\LocaleContext:
-                    localeFactory: '@nucms.factory.locale'
-                    localeRepository: '@nucms.repository.locale'
-                - Nugato\Behat\Context\Setup\Admin\UserContext:
-                    userFactory: '@nucms.factory.user'
-                    userRepository: '@sylius.repository.admin_user'
-
-                # ui
-                - Nugato\Behat\Context\Ui\Admin\LoginContext
-            filters:
-                tags: "@admin && @ui"
-
-        web_ui:
-            contexts:
-                # setup
-                - Behat\MinkExtension\Context\MinkContext
-                - Nugato\Behat\Context\Setup\DoctrineContext:
-                    entityManager: '@doctrine.orm.entity_manager'
-
-                - Nugato\Behat\Context\Setup\LocaleContext:
-                    localeFactory: '@nucms.factory.locale'
-                    localeRepository: '@nucms.repository.locale'
-
-                # ui
-                - Nugato\Behat\Context\Ui\Web\HomeContext
-            filters:
-                tags: "@web && @ui"
-
-    extensions:
-        Behat\MinkExtension:
-            base_url: http://127.0.0.1:8080/app_test.php
-            goutte: ~
-            browser_name: chrome
-            selenium2:
-                wd_host: "http://127.0.0.1:4444/wd/hub"
-
-        Behat\Symfony2Extension:
-            kernel:
-                class: AppKernel
-                path: app/AppKernel.php
-                bootstrap: vendor/autoload.php
-
-        SensioLabs\Behat\PageObjectExtension: ~
-
-    formatters:
-        pretty:
-            verbose: true
-            paths: false
-            snippets: false
+imports:
+    - src/Nugato/Behat/Resources/config/profiles/travis.yml
+    - src/Nugato/Behat/Resources/config/suites.yml

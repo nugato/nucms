@@ -1,4 +1,4 @@
-@admin
+@admin_security
     Feature: Log in to the admin dashboard
     In order to view admin dashboard
     As a visitor
@@ -22,3 +22,11 @@
         And I log in
         Then I should not be logged in
         And I should see error message
+
+    @ui
+    Scenario: Log out from admin panel
+        Given I am login as "admin@nucms.com" identified by "password"
+        And I am on the dashboard page
+        When I log out
+        Then I should see the login page
+        And I should not be able to visit dashboard page

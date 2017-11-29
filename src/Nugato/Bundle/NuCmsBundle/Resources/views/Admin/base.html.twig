@@ -15,11 +15,42 @@
     {% block stylesheets %}
 
         <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css"/>
 
     {% endblock %}
 </head>
 <body>
+
+{% block navbar %}
+
+    <nav class="uk-navbar uk-navbar-container" uk-navbar>
+
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+        </div>
+
+        {% if app.user %}
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li class="uk-active">
+                    <a href="#">
+                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
+                        <span class="uk-text-lowercase">{{ app.user.email }}</span>
+                    </a>
+                    <div class="uk-navbar-dropdown">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-nav-divider"></li>
+                            <li><a class="t-logout_button" href="{{ path('nucms_admin_logout') }}">{{ 'nucms.ui.login.logout'|trans }}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+    </nav>
+
+{% endblock %}
+
 {% block content %}
 {% endblock %}
 

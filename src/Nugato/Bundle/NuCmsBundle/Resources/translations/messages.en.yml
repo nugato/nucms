@@ -10,6 +10,7 @@ nucms:
             name: Name
         login:
             login: Log in
+            logout: Log out
             header: nucms
 
 sylius:

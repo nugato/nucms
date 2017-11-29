@@ -14,10 +14,11 @@ declare(strict_types=1);
 namespace Nugato\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
+use Behat\MinkExtension\Context\RawMinkContext;
 use Nugato\Behat\Page\Admin\DashboardPage;
 use Nugato\Behat\Page\Admin\LoginPage;
 
-class LoginContext implements Context
+class SecurityContext extends RawMinkContext implements Context
 {
     /**
      * @var LoginPage
@@ -29,6 +30,12 @@ class LoginContext implements Context
      */
     private $dashboardPage;
 
+    /**
+     * SecurityContext constructor.
+     *
+     * @param LoginPage $loginPage
+     * @param DashboardPage $dashboardPage
+     */
     public function __construct(LoginPage $loginPage, DashboardPage $dashboardPage)
     {
         $this->loginPage = $loginPage;
@@ -81,5 +88,13 @@ class LoginContext implements Context
     public function iShouldSeeErrorMessage()
     {
         $this->loginPage->getErrorMessageElement();
+    }
+
+    /**
+     * @Given I am on the dashboard page
+     */
+    public function iAmOnTheDashboardPage()
+    {
+        $this->dashboardPage->open();
     }
 }

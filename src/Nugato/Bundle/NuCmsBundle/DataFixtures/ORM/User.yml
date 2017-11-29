@@ -10,4 +10,4 @@ Nugato\Bundle\NuCmsBundle\Entity\User\User:
         enabled: 1
         plainPassword: admin
         roles: ['ROLE_ADMIN']
-        localeCode: en_US
+        localeCode: en

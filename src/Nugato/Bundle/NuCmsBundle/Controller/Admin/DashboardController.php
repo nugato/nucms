@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends Controller
@@ -23,7 +24,6 @@ class DashboardController extends Controller
      */
     public function indexAction(): Response
     {
-        $this->get('nucms.repository.locale');
         return $this->render('NugatoNuCmsBundle:Admin/Dashboard:index.html.twig');
     }
 }
