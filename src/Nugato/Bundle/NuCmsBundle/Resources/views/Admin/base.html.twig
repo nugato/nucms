@@ -23,36 +23,27 @@
 
 {% block navbar %}
 
-    <nav class="uk-navbar uk-navbar-container" uk-navbar>
-
-        <div class="uk-navbar-left">
-            <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
-        </div>
-
-        {% if app.user %}
-        <div class="uk-navbar-right">
-            <ul class="uk-navbar-nav">
-                <li class="uk-active">
-                    <a href="#">
-                        <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
-                        <span class="uk-text-lowercase">{{ app.user.email }}</span>
-                    </a>
-                    <div class="uk-navbar-dropdown">
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li class="uk-nav-divider"></li>
-                            <li><a class="t-logout_button" href="{{ path('nucms_admin_logout') }}">{{ 'nucms.ui.login.logout'|trans }}</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        {% endif %}
-    </nav>
+    {% include 'NugatoNuCmsBundle:Admin/Dashboard:_navbar.html.twig' %}
 
 {% endblock %}
 
-{% block content %}
+{% block sidebar %}
+
+    {% include 'NugatoNuCmsBundle:Admin/Dashboard:_sidebar.html.twig' %}
+
 {% endblock %}
+
+<div class="uk-offcanvas-content">
+{% block layout %}
+
+    <div class="uk-padding">
+
+        {% block content %}
+        {% endblock %}
+    </div>
+
+{% endblock %}
+</div>
 
 {% block javascripts %}
 
