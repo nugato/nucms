@@ -12,6 +12,11 @@ nucms:
             login: Log in
             logout: Log out
             header: nucms
+        menu:
+            label: Menu
+            items:
+                dashboard: Dashboard
+                pages: Pages
 
 sylius:
     form:

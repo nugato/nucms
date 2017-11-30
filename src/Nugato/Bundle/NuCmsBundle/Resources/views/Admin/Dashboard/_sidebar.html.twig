@@ -1,21 +1,15 @@
 <div id="offcanvas-nav" uk-offcanvas="mode: push">
     <div class="uk-offcanvas-bar">
 
-        <ul class="uk-nav uk-nav-default">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li class="uk-parent">
-                <a href="#">Parent</a>
-                <ul class="uk-nav-sub">
-                    <li><a href="#">Sub item</a></li>
-                    <li><a href="#">Sub item</a></li>
-                </ul>
-            </li>
-            <li class="uk-nav-header">Header</li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-            <li class="uk-nav-divider"></li>
-            <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
-        </ul>
+        {{ knp_menu_render('NugatoNuCmsBundle:AdminBuilder:build', {'template': '@NugatoNuCms/Admin/Menu/sidebar_menu.html.twig'}) }}
 
+        <ul class="uk-nav uk-nav-default">
+            <li class="uk-nav-divider"></li>
+            <li>
+                <a href="{{ path('nucms_admin_logout') }}">
+                    <span class="uk-margin-small-right" uk-icon="icon: sign-out"></span> {{ 'nucms.ui.login.logout'|trans }}
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
