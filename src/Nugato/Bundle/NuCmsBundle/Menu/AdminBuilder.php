@@ -45,6 +45,12 @@ class AdminBuilder implements ContainerAwareInterface
             'extras' => ['icon' => ' copy'],
         ]);
 
+        $menu->addChild('locale', [
+            'label' => 'nucms.ui.menu.items.locales',
+            'route' => 'nucms_admin_locale_index',
+            'extras' => ['icon' => ' hashtag'],
+        ]);
+
         $this->container->get('event_dispatcher')->dispatch(
             AdminMenuBuilderEvent::BUILDER,
             new AdminMenuBuilderEvent($factory, $menu)

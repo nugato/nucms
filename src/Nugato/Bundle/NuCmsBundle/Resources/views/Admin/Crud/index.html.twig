@@ -1,18 +1,57 @@
 {% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
 
+{% import 'NugatoNuCmsBundle:Admin/Macro:sorting.html.twig' as sorting %}
+
 {% set definition = resources.definition %} {# Grid data (limits, fields, filters) #}
-{% set data = resources.data %} {# Grid data from passed entity #}
+{% set data = resources.data %}  {# Grid data from passed entity #}
 {% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory) #}
 {% set vars = configuration.vars %} {# Additional variables passed from yml #}
+{% set grid = resources %} {# grid alias #}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.ui.'~metadata.pluralName) %}
 
 {% block content %}
 
-    {{ sylius_grid_render(resources, 'NugatoNuCmsBundle:Admin/Crud/partial:_header.html.twig') }}
+    <h1>{{ header|trans }}</h1>
 
-    {{ dump() }}
+    {% if data|length > 0 %}
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                {# Headers #}
+                {% for field in definition.fields %}
+                    {% if field.enabled %}
+                        {% if field.isSortable %}
+                            {{ sorting.tableHeader(grid, field, app.request.attributes) }}
+                        {% else %}
+                            <th class="table-column-{{ field.name }}">{{ field.label|trans }}</th>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for row in data %}
+                <tr>
+                    {# Data #}
+                    {% for field in definition.enabledFields %}
+                        <td>{{ sylius_grid_render_field(grid, field, row) }}</td>
+                    {% endfor %}
 
-    {% if vars.header is defined %}
-        {{ vars.header|trans }}
+                    {# Actions #}
+                    {% if definition.actionGroups.item is defined and definition.getEnabledActions('item')|length > 0 %}
+                        <td class="uk-width-small uk-text-right">
+                            {% for action in definition.getEnabledActions('item') %}
+                                {{ sylius_grid_render_action(grid, action, row) }}
+                            {% endfor %}
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {# @todo info about no records #}
     {% endif %}
 
 {% endblock %}

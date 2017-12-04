@@ -11,4 +11,16 @@ Nugato\Bundle\NuCmsBundle\Entity\Page:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
     lifecycleCallbacks: {  }

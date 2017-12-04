@@ -6,7 +6,11 @@ nucms:
         page: Strona
         pages: Strony
         title: Tytuł
-        locale:
+        create: Utwórz
+        edit: Edytuj
+        locales: Języki
+        createdAt: Utworzono
+        locales_fields:
             name: Nazwa
         login:
             login: Zaloguj
@@ -17,6 +21,7 @@ nucms:
             items:
                 dashboard: Panel
                 pages: Strony
+                locales: Języki
 
 sylius:
     form:

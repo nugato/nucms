@@ -4,3 +4,8 @@
 imports:
     - { resource: 'grids/admin/page.yml' }
     - { resource: 'grids/admin/locale.yml' }
+
+sylius_grid:
+    templates:
+        action:
+            update: '@NugatoNuCms/Admin/Crud/Action/update.html.twig'

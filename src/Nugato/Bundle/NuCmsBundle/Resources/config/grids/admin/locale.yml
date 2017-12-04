@@ -8,11 +8,30 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: Nugato\Bundle\NuCmsBundle\Entity\Locale
+            sorting:
+                id: desc
             fields:
+                id:
+                    type: string
+                    sortable: true
                 code:
                     type: string
-                    label: nucms.ui.locale.name
-                    sortable: ~
+                    label: nucms.ui.locales_fields.name
+                    sortable: true
             filters:
                 code:
                     type: string
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        label: nucms.ui.edit
+                        enabled: true
+                        position: 100
+                        options: { }

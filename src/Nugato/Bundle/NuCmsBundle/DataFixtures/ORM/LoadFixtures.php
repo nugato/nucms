@@ -25,6 +25,7 @@ class LoadFixtures implements FixtureInterface
             [
                 __DIR__ . '/User.yml',
                 __DIR__ . '/Locale.yml',
+                __DIR__ . '/Page.yml',
             ],
             $manager,
             [

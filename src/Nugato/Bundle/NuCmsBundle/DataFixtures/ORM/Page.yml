@@ -1,0 +1,16 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\Page:
+    page_{1..15}:
+
+Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
+    page_translation_en_{1..15}:
+        title: '<text(50)> en'
+        translatable: '@page_<current()>'
+        locale: 'en'
+
+    page_translation_pl_{1..15}:
+        title: '<text(50)> pl'
+        translatable: '@page_<current()>'
+        locale: 'pl'

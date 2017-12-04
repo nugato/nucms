@@ -8,11 +8,34 @@ sylius_grid:
                 name: doctrine/orm
                 options:
                     class: Nugato\Bundle\NuCmsBundle\Entity\Page
+                    repository:
+                        method: createListQueryBuilder
+                        arguments: ["%locale%"]
+            sorting:
+                createdAt: desc
             fields:
                 title:
                     type: string
                     label: nucms.ui.title
-                    sortable: ~
+                    sortable: translation.title
+                createdAt:
+                    type: datetime
+                    label: nucms.ui.createdAt
+                    sortable: true
             filters:
                 title:
                     type: string
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        label: nucms.ui.edit
+                        enabled: true
+                        position: 100
+                        options: { }

@@ -13,8 +13,25 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
+use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-class PageRepository extends EntityRepository
+class PageRepository extends EntityRepository implements PageRepositoryInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function createListQueryBuilder(string $locale): QueryBuilder
+    {
+        $queryBuilder = $this->createQueryBuilder('o')
+            ->addSelect('translation')
+            ->innerJoin(
+                'o.translations',
+                'translation',
+                'WITH', 'translation.locale = :locale'
+            )
+            ->setParameter('locale', $locale);
+
+        return $queryBuilder;
+    }
 }
