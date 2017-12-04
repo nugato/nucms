@@ -5,8 +5,8 @@
 
 {% block content %}
 
-    {{ dump() }}
+    {% include('NugatoNuCmsBundle:Admin/Alerts:_flashes.html.twig') %}
 
-    {{ page.title }}
+    {{ dump() }}
 
 {% endblock %}

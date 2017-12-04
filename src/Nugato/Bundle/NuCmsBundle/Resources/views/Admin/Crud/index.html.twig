@@ -14,6 +14,8 @@
 
     <h1>{{ header|trans }}</h1>
 
+    {% include('NugatoNuCmsBundle:Admin/Alerts:_flashes.html.twig') %}
+
     {# Actions - main #}
     <div>
         {% if definition.actionGroups.main is defined %}

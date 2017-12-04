@@ -3,4 +3,10 @@
 
 sylius:
     resource:
-        update: 'Dane zostały zaktualizowane.'
+        create: 'Element %resource% został pomyślnie utworzony.'
+        update: 'Dane zostały pomyślnie zapisane.'
+        delete: 'Element %resource% został pomyślnie usunięty.'
+
+# resources
+Page: Strona
+Locale: Język

@@ -3,4 +3,10 @@
 
 sylius:
     resource:
+        create: '%resource% has been successfully created.'
         update: '%resource% has been successfully updated.'
+        delete: '%resource% has been successfully deleted.'
+
+# resources
+Page: Page
+Locale: Locale
