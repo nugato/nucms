@@ -4,11 +4,7 @@
 sylius_resource:
     resources:
         nucms.page:
-            driver:
-                name: doctrine/orm
-                options:
-                    repository:
-                        method: createListQueryBuilder
+            driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Page
                 form: Nugato\Bundle\NuCmsBundle\Form\PageType

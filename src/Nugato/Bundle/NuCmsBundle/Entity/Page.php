@@ -62,6 +62,22 @@ class Page implements ResourceInterface, TranslatableInterface, PageInterface
     }
 
     /**
+     * @return null|string
+     */
+    public function getContent(): ?string
+    {
+        return $this->getTranslation()->getContent();
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent(string $content): void
+    {
+        $this->getTranslation()->setContent($content);
+    }
+
+    /**
      * {@inheritdoc}
      */
     protected function createTranslation(): PageTranslation

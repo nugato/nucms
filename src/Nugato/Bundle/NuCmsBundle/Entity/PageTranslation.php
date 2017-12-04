@@ -29,6 +29,11 @@ class PageTranslation extends AbstractTranslation implements ResourceInterface, 
     private $title;
 
     /**
+     * @var string
+     */
+    private $content;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -54,5 +59,21 @@ class PageTranslation extends AbstractTranslation implements ResourceInterface, 
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param string $content
+     */
+    public function setContent(string $content): void
+    {
+        $this->content = $content;
     }
 }

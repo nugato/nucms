@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Form;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -25,7 +26,9 @@ class PageTranslationType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class);
+            ->add('title', TextType::class, ['label' => 'nucms.ui.title'])
+            ->add('content', TextareaType::class, ['label' => 'nucms.ui.content'])
+        ;
     }
 
     /**

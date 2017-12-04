@@ -37,5 +37,8 @@ class PageSpec extends ObjectBehavior
     {
         $this->setTitle('Title');
         $this->getTitle()->shouldReturn('Title');
+
+        $this->setContent('Content');
+        $this->getContent()->shouldReturn('Content');
     }
 }

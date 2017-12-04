@@ -14,4 +14,7 @@ Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
         title:
             type: string
             length: 255
+        content:
+            type: text
+            nullable: true
     lifecycleCallbacks: {  }

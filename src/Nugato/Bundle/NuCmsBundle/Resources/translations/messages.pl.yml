@@ -10,6 +10,8 @@ nucms:
         edit: Edytuj
         locales: Języki
         createdAt: Utworzono
+        title: Tytuł
+        content: Treść
         locales_fields:
             name: Nazwa
         login:
