@@ -8,6 +8,7 @@ nucms:
         title: Title
         create: Create
         edit: Edit
+        delete: Delete
         locales: Locales
         createdAt: Created at
         title: Title

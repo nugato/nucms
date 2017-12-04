@@ -8,6 +8,7 @@ nucms:
         title: Tytuł
         create: Utwórz
         edit: Edytuj
+        delete: Usuń
         locales: Języki
         createdAt: Utworzono
         title: Tytuł

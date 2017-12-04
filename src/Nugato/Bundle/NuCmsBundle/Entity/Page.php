@@ -40,7 +40,7 @@ class Page implements ResourceInterface, TranslatableInterface, PageInterface
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

@@ -9,3 +9,4 @@ sylius_grid:
     templates:
         action:
             update: '@NugatoNuCms/Admin/Crud/Action/update.html.twig'
+            delete: '@NugatoNuCms/Admin/Crud/Action/delete.html.twig'
