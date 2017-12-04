@@ -14,6 +14,15 @@
 
     <h1>{{ header|trans }}</h1>
 
+    {# Actions - main #}
+    <div>
+        {% if definition.actionGroups.main is defined %}
+            {% for action in definition.getEnabledActions('main') %}
+                {{ sylius_grid_render_action(resources, action, null) }}
+            {% endfor %}
+        {% endif %}
+    </div>
+
     {% if data|length > 0 %}
         <table class="uk-table uk-table-striped">
             <thead>
@@ -38,12 +47,14 @@
                         <td>{{ sylius_grid_render_field(grid, field, row) }}</td>
                     {% endfor %}
 
-                    {# Actions #}
+                    {# Actions - item #}
                     {% if definition.actionGroups.item is defined and definition.getEnabledActions('item')|length > 0 %}
-                        <td class="uk-width-small uk-text-right">
-                            {% for action in definition.getEnabledActions('item') %}
-                                {{ sylius_grid_render_action(grid, action, row) }}
-                            {% endfor %}
+                        <td class="uk-width-medium uk-text-right">
+                            <div class="uk-button-group">
+                                {% for action in definition.getEnabledActions('item') %}
+                                    {{ sylius_grid_render_action(grid, action, row) }}
+                                {% endfor %}
+                            </div>
                         </td>
                     {% endif %}
                 </tr>

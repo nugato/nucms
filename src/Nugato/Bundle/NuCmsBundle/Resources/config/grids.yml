@@ -8,5 +8,6 @@ imports:
 sylius_grid:
     templates:
         action:
+            create: '@NugatoNuCms/Admin/Crud/Action/create.html.twig'
             update: '@NugatoNuCms/Admin/Crud/Action/update.html.twig'
             delete: '@NugatoNuCms/Admin/Crud/Action/delete.html.twig'

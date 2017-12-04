@@ -1,0 +1,5 @@
+{% set path = options.link.url|default(path(options.link.route|default(grid.requestConfiguration.getRouteName('create')))) %}
+
+<a href="{{ path }}" class="uk-button uk-button-primary uk-button-small uk-margin-right" uk-icon="icon: plus">
+    {{ (action.label is empty) ? 'nucms.ui.create'|trans : action.label|trans }}
+</a>
