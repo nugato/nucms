@@ -1,0 +1,5 @@
+{% macro simple(paginator, options) %}
+    {% if paginator.haveToPaginate() %}
+        {{ pagerfanta(paginator, 'ui_kit', options|default({})) }}
+    {% endif %}
+{% endmacro %}

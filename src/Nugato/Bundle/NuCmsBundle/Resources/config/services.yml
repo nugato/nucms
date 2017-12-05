@@ -4,3 +4,10 @@
 imports:
     - { resource: "services/locale.yml" }
     - { resource: "services/page.yml" }
+
+services:
+    pagerfanta.view.uikit:
+        class: Nugato\Bundle\NuCmsBundle\Pagination\UiKitView
+        public: false
+        tags:
+            - { name: 'pagerfanta.view', alias: 'ui_kit' }

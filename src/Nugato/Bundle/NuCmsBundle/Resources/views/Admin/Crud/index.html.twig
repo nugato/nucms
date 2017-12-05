@@ -1,6 +1,7 @@
 {% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
 
 {% import 'NugatoNuCmsBundle:Admin/Macro:sorting.html.twig' as sorting %}
+{% import 'NugatoNuCmsBundle:Admin/Macro:pagination.html.twig' as pagination %}
 
 {% set definition = resources.definition %} {# Grid data (limits, fields, filters) #}
 {% set data = resources.data %}  {# Grid data from passed entity #}
@@ -26,6 +27,10 @@
     </div>
 
     {% if data|length > 0 %}
+
+        {# Pagination - top #}
+        {{ pagination.simple(data) }}
+
         <table class="uk-table uk-table-striped">
             <thead>
             <tr>
@@ -63,6 +68,10 @@
             {% endfor %}
             </tbody>
         </table>
+
+        {# Pagination - bottom #}
+        {{ pagination.simple(data) }}
+
     {% else %}
         {# @todo info about no records #}
     {% endif %}
