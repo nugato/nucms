@@ -27,7 +27,6 @@ class EditPagePage extends Page implements EditPagePageInterface
      */
     protected $elements = [
         'Alerts success' => '.t-alert_flashes-success',
-        'Alerts error' => '.t-alert_flashes-error',
     ];
 
     /**
