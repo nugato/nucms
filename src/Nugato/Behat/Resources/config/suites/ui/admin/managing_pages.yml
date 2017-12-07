@@ -1,0 +1,22 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+default:
+    suites:
+        admin_managing_pages:
+            contexts:
+                - Nugato\Behat\Context\Setup\DoctrineContext:
+                    entityManager: '@doctrine.orm.entity_manager'
+
+                - Nugato\Behat\Context\Setup\LocaleContext:
+                    localeFactory: '@nucms.factory.locale'
+                    localeRepository: '@nucms.repository.locale'
+
+                - Nugato\Behat\Context\Setup\Admin\UserContext:
+                    userFactory: '@nucms.factory.user'
+                    userRepository: '@sylius.repository.admin_user'
+
+                - Nugato\Behat\Context\Ui\Admin\ManagingPagesContext:
+                    urlMatcher: '@router'
+            filters:
+                tags: "@admin_managing_pages && @ui"

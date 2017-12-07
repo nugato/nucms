@@ -14,11 +14,16 @@ default:
                 my_session:
                     symfony2: ~
 
+            default_session: my_session
+            javascript_session: selenium2
+
         Behat\Symfony2Extension:
             kernel:
                 class: AppKernel
                 path: app/AppKernel.php
                 bootstrap: vendor/autoload.php
+                env: test
+                debug: true
 
         SensioLabs\Behat\PageObjectExtension: ~
 
