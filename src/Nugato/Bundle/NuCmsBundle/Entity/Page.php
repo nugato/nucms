@@ -18,7 +18,7 @@ use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
-class Page implements ResourceInterface, TranslatableInterface, PageInterface
+class Page implements ResourceInterface, PageInterface, TranslatableInterface
 {
     use TimestampableTrait;
     use TranslatableTrait {
@@ -75,6 +75,22 @@ class Page implements ResourceInterface, TranslatableInterface, PageInterface
     public function setContent(string $content): void
     {
         $this->getTranslation()->setContent($content);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->getTranslation()->getSlug();
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->getTranslation()->setSlug($slug);
     }
 
     /**

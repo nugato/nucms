@@ -17,4 +17,18 @@ Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
         content:
             type: text
             nullable: true
+        slug:
+            type: string
+            length: 256
+            unique: true
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    updatable: false
+                    fields:
+                        - title
+    indexes:
+        search_idx:
+            columns: title, slug
     lifecycleCallbacks: {  }

@@ -32,5 +32,8 @@ class PageTranslationSpec extends ObjectBehavior
 
         $this->setContent('Content');
         $this->getContent()->shouldReturn('Content');
+
+        $this->setSlug('Slug');
+        $this->getSlug()->shouldReturn('Slug');
     }
 }

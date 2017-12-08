@@ -17,6 +17,17 @@ interface EditPagePageInterface
 {
     /**
      * Check is alerts with success message is visible
+     *
+     * @return bool
      */
-    public function isAlertsSuccessVisible();
+    public function isAlertsSuccessVisible(): bool;
+
+    /**
+     * Check equals value in slug input
+     *
+     * @param string $slug
+     *
+     * @return bool
+     */
+    public function isSlugHasValueInInput(string $slug): bool;
 }

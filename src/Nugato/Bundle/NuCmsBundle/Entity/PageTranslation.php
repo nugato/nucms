@@ -15,23 +15,29 @@ namespace Nugato\Bundle\NuCmsBundle\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\SlugAwareInterface;
 
 class PageTranslation extends AbstractTranslation implements ResourceInterface, PageInterface
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $title;
+    protected $title;
 
     /**
      * @var string
      */
-    private $content;
+    protected $content;
+
+    /**
+     * @var null|string
+     */
+    protected $slug;
 
     /**
      * @return int
@@ -75,5 +81,21 @@ class PageTranslation extends AbstractTranslation implements ResourceInterface, 
     public function setContent(string $content): void
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     */
+    public function setSlug(?string $slug): void
+    {
+        $this->slug = $slug;
     }
 }

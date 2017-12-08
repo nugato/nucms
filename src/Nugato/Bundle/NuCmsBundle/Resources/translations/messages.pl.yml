@@ -13,6 +13,7 @@ nucms:
         createdAt: Utworzono
         title: Tytuł
         content: Treść
+        slug: Adres URL
         locales_fields:
             name: Nazwa
         login:

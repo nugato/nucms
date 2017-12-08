@@ -28,6 +28,7 @@ class PageTranslationType extends AbstractResourceType
         $builder
             ->add('title', TextType::class, ['label' => 'nucms.ui.title'])
             ->add('content', TextareaType::class, ['label' => 'nucms.ui.content'])
+            ->add('slug', TextType::class, ['label' => 'nucms.ui.slug'])
         ;
     }
 

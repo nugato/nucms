@@ -27,13 +27,23 @@ class EditPagePage extends Page implements EditPagePageInterface
      */
     protected $elements = [
         'Alerts success' => '.t-alert_flashes-success',
+        'Slug input - en' => '#nucms_page_translations_en_slug',
+        'Slug input - pl' => '#nucms_page_translations_pl_slug',
     ];
 
     /**
      * {@inheritdoc}
      */
-    public function isAlertsSuccessVisible()
+    public function isAlertsSuccessVisible(): bool
     {
-        $this->hasElement('Alerts success');
+        return $this->hasElement('Alerts success');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isSlugHasValueInInput(string $slug): bool
+    {
+        return $slug == $this->getElement('Slug input - en')->getValue();
     }
 }

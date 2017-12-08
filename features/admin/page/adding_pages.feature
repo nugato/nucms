@@ -15,3 +15,4 @@ Feature: Managing pages in admin dashboard
         And I specify its content with "Some example description"
         And I create it
         Then I should be notified that it has been successfully created
+        And slug should be equals "super-page"

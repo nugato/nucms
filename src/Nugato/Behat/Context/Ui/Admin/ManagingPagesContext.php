@@ -98,12 +98,20 @@ class ManagingPagesContext extends RawMinkContext implements Context
     /**
      * @Then I should be notified that it has been successfully created
      */
-    public function iShouldBeNotifiedThatItHasBeenSuccessfullyCreated()
+    public function iShouldBeNotifiedThatItHasBeenSuccessfullyCreated(): void
     {
         $currentUrl = parse_url($this->getSession()->getCurrentUrl(), PHP_URL_PATH);
         $routeParams = $this->urlMatcher->match($currentUrl);
 
         $this->editPagePage->verify(['id' => $routeParams['id']]);
         $this->editPagePage->isAlertsSuccessVisible();
+    }
+
+    /**
+     * @Then slug should be equals :slug
+     */
+    public function slugShouldBeEquals(string $slug): void
+    {
+        $this->editPagePage->isSlugHasValueInInput($slug);
     }
 }

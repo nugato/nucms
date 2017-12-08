@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
-interface PageInterface
+use Sylius\Component\Resource\Model\SlugAwareInterface;
+
+interface PageInterface extends SlugAwareInterface
 {
     /**
      * Get id
@@ -35,4 +37,18 @@ interface PageInterface
      * @return string
      */
     public function getTitle(): ?string;
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     */
+    public function setContent(string $content): void;
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent(): ?string;
 }
