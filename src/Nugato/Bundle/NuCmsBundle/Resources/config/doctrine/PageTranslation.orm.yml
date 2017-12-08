@@ -19,7 +19,7 @@ Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
             nullable: true
         slug:
             type: string
-            length: 256
+            length: 255
             unique: true
             gedmo:
                 slug:

@@ -15,7 +15,6 @@ namespace Nugato\Bundle\NuCmsBundle\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
 use Sylius\Component\Resource\Model\ResourceInterface;
-use Sylius\Component\Resource\Model\SlugAwareInterface;
 
 class PageTranslation extends AbstractTranslation implements ResourceInterface, PageInterface
 {
