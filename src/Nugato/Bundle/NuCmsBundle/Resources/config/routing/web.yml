@@ -3,10 +3,16 @@
 
 nucms_web_homepage:
     path: /
-    defaults: { _controller: NugatoNuCmsBundle:Default:index }
+    defaults: { _controller: NugatoNuCmsBundle:Web\Page:homePage }
 
 nucms_web_homepage_locale:
     path: /{_locale}/
-    defaults: { _controller: NugatoNuCmsBundle:Default:index, _locale: '%locale%' }
+    defaults: { _controller: NugatoNuCmsBundle:Web\Page:homePage, _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_single_page:
+    path: /{_locale}/{slug}
+    defaults: { _controller: NugatoNuCmsBundle:Web\Page:singlePage, _locale: '%locale%' }
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$

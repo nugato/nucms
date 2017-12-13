@@ -15,22 +15,25 @@ namespace Nugato\Behat\Page\Web;
 
 use Nugato\Behat\Page\Page;
 
-class HomePage extends Page implements HomePageInterface
+class SinglePagePage extends Page implements SinglePageInterface
 {
     /**
      * @var string|null
      */
-    protected $path = '/';
+    protected $path = '/{slug}';
+
+    /**
+     * @var array
+     */
+    protected $elements = [
+        'Title div' => '.t-page_title_div',
+    ];
 
     /**
      * {@inheritdoc}
      */
-    public function openLocale(string $locale, array $urlParameters = [])
+    public function isTitleExists(): bool
     {
-        $url = $this->getUrl($urlParameters) . $locale . '/';
-
-        $this->getDriver()->visit($url);
-
-        return $this;
+        return $this->hasElement('Title div');
     }
 }

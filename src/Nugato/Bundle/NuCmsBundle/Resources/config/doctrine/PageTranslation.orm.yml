@@ -30,5 +30,5 @@ Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
                         - title
     indexes:
         search_idx:
-            columns: title, slug
+            columns: title, slug, locale
     lifecycleCallbacks: {  }

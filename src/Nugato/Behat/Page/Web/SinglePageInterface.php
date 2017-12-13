@@ -15,12 +15,12 @@ namespace Nugato\Behat\Page\Web;
 
 use Nugato\Behat\Page\PageInterface;
 
-interface HomePageInterface extends PageInterface
+interface SinglePageInterface extends PageInterface
 {
     /**
-     * Opening homepage with specified locale
+     * Checking if title div is exists in the page
      *
-     * @param string $locale
+     * @return bool
      */
-    public function openLocale(string $locale);
+    public function isTitleExists(): bool;
 }

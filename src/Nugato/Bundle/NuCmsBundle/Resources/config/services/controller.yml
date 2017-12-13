@@ -1,0 +1,7 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:
+        arguments: ['@nucms.context.locale.request_based_with_default']
+        tags: ['controller.service_arguments']

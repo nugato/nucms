@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Repository;
 
 use Doctrine\ORM\QueryBuilder;
+use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 
 interface PageRepositoryInterface
 {
@@ -23,4 +24,12 @@ interface PageRepositoryInterface
      * @return QueryBuilder
      */
     public function createListQueryBuilder(string $locale): QueryBuilder;
+
+    /**
+     * @param string $slug
+     * @param string $locale
+     *
+     * @return PageInterface|null
+     */
+    public function findBySlug(string $slug, string $locale): ?PageInterface;
 }
