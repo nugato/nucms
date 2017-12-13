@@ -15,7 +15,7 @@ namespace Nugato\Behat\Page\Web;
 
 use Nugato\Behat\Page\Page;
 
-class SinglePagePage extends Page implements SinglePageInterface
+class SinglePagePagePage extends Page implements SinglePagePageInterface
 {
     /**
      * @var string|null

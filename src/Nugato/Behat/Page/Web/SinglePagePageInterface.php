@@ -15,7 +15,7 @@ namespace Nugato\Behat\Page\Web;
 
 use Nugato\Behat\Page\PageInterface;
 
-interface SinglePageInterface extends PageInterface
+interface SinglePagePageInterface extends PageInterface
 {
     /**
      * Checking if title div is exists in the page

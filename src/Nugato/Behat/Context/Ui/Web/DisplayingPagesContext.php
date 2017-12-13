@@ -15,17 +15,17 @@ namespace Nugato\Behat\Context\Ui\Web;
 
 use Behat\Behat\Context\Context;
 use Nugato\Behat\Context\Setup\PageContext;
-use Nugato\Behat\Page\Web\SinglePagePage;
+use Nugato\Behat\Page\Web\SinglePagePagePage;
 use Webmozart\Assert\Assert;
 
 class DisplayingPagesContext implements Context
 {
     /**
-     * @var SinglePagePage
+     * @var SinglePagePagePage
      */
     private $singlePagePage;
 
-    public function __construct(SinglePagePage $singlePagePage)
+    public function __construct(SinglePagePagePage $singlePagePage)
     {
         $this->singlePagePage = $singlePagePage;
     }
