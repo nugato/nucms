@@ -20,7 +20,7 @@ class SinglePagePage extends Page implements SinglePageInterface
     /**
      * @var string|null
      */
-    protected $path = '/{slug}';
+    protected $path = '/{locale}/{slug}';
 
     /**
      * @var array

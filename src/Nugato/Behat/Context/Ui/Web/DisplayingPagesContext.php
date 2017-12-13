@@ -36,8 +36,10 @@ class DisplayingPagesContext implements Context
     public function iOpenThisPage()
     {
         $page = PageContext::$currentPage;
-        $slug = $page->getTranslation()->getLocale() . '/' . $page->getSlug();
-        $this->singlePagePage->open(['slug' => $slug]);
+        $this->singlePagePage->open([
+            'locale' => $page->getTranslation()->getLocale(),
+            'slug' => $page->getSlug()
+        ]);
     }
 
     /**
