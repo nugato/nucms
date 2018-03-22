@@ -18,9 +18,9 @@ use Nugato\Behat\Page\PageInterface;
 interface SinglePagePageInterface extends PageInterface
 {
     /**
-     * Checking if title div is exists in the page
+     * Get title text
      *
-     * @return bool
+     * @return string
      */
-    public function isTitleExists(): bool;
+    public function getTitleText(): string;
 }

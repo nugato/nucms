@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
+use Nugato\Bundle\NuCmsBundle\Repository\PageRepositoryInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,11 +28,17 @@ class PageController extends Controller
     private $localeContext;
 
     /**
+     * @var PageRepositoryInterface
+     */
+    private $pageRepository;
+
+    /**
      * @param LocaleContextInterface $localeContext
      */
-    public function __construct(LocaleContextInterface $localeContext)
+    public function __construct(LocaleContextInterface $localeContext, PageRepositoryInterface $pageRepository)
     {
         $this->localeContext = $localeContext;
+        $this->pageRepository = $pageRepository;
     }
 
     /**
@@ -49,9 +56,8 @@ class PageController extends Controller
      */
     public function singlePageAction(string $slug)
     {
-        $pageRepository = $this->get('nucms.repository.page');
         /** @var PageInterface $page */
-        $page = $pageRepository->findBySlug($slug, $this->localeContext->getLocaleCode());
+        $page = $this->pageRepository->findBySlug($slug, $this->localeContext->getLocaleCode());
 
         if (!$page) {
             throw new NotFoundHttpException();
