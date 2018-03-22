@@ -1,0 +1,7 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation:
+    type: entity
+    table: nucms_taxon_translation
+    lifecycleCallbacks: {  }

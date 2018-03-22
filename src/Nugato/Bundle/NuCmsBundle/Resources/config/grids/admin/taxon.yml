@@ -1,0 +1,18 @@
+sylius_grid:
+    grids:
+        nucms_admin_taxon:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                    repository:
+                        method: createListQueryBuilder
+            filters:
+                code:
+                    type: string
+                    options:
+                        fields: [code]
+                name:
+                    type: string
+                    options:
+                        fields: [translation.name]

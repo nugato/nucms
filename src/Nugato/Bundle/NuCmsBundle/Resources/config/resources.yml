@@ -5,6 +5,7 @@ imports:
     - { resource: 'resources/user.yml' }
     - { resource: 'resources/locale.yml' }
     - { resource: 'resources/page.yml' }
+    - { resource: 'resources/taxon.yml' }
 
 sylius_resource:
     translation:

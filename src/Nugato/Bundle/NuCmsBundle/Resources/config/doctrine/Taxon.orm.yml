@@ -1,0 +1,8 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\Taxon:
+    type: entity
+    table: nucms_taxon
+    repositoryClass: Sylius\Bundle\TaxonomyBundle\Doctrine\ORM\TaxonRepository
+    lifecycleCallbacks: {  }
