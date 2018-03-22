@@ -13,15 +13,17 @@ declare(strict_types=1);
 
 namespace spec\Nugato\Bundle\NuCmsBundle\Entity;
 
-use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
+use Nugato\Bundle\NuCmsBundle\Entity\PageTranslationInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
 class PageTranslationSpec extends ObjectBehavior
 {
     function it_implements_a_page_and_resource_interface(): void
     {
-        $this->shouldImplement(PageInterface::class);
+        $this->shouldImplement(PageTranslationInterface::class);
+        $this->shouldImplement(TranslationInterface::class);
         $this->shouldImplement(ResourceInterface::class);
     }
 

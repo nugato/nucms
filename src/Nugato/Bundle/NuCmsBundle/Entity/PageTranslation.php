@@ -14,9 +14,8 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
 use Sylius\Component\Resource\Model\AbstractTranslation;
-use Sylius\Component\Resource\Model\ResourceInterface;
 
-class PageTranslation extends AbstractTranslation implements ResourceInterface, PageInterface
+class PageTranslation extends AbstractTranslation implements PageTranslationInterface
 {
     /**
      * @var int
