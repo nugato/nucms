@@ -27,3 +27,6 @@ docker
 # CI
 /etc/build/*
 !/etc/build/.gitkeep
+
+# Deploy
+phploy.ini
