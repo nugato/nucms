@@ -2,8 +2,9 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'grids/admin/page.yml' }
     - { resource: 'grids/admin/locale.yml' }
+    - { resource: 'grids/admin/page.yml' }
+    - { resource: 'grids/admin/taxon.yml' }
 
 sylius_grid:
     templates:

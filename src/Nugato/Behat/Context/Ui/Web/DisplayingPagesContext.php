@@ -43,10 +43,12 @@ class DisplayingPagesContext implements Context
     }
 
     /**
-     * @Then I should see the title
+     * @Then I should see the title :title
+     *
+     * @param string $title
      */
-    public function iShouldSeeTheTitle()
+    public function iShouldSeeTheTitle(string $title)
     {
-        Assert::true($this->singlePagePage->isTitleExists());
+        Assert::eq($title, $this->singlePagePage->getTitleText());
     }
 }

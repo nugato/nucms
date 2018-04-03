@@ -15,9 +15,9 @@ namespace Nugato\Bundle\NuCmsBundle\Entity;
 
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
-use Sylius\Component\Resource\Model\TranslatableInterface;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
-interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface
+interface PageTranslationInterface extends SlugAwareInterface, ResourceInterface, TranslationInterface
 {
     /**
      * Get id

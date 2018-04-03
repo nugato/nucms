@@ -32,8 +32,8 @@ class SinglePagePagePage extends Page implements SinglePagePageInterface
     /**
      * {@inheritdoc}
      */
-    public function isTitleExists(): bool
+    public function getTitleText(): string
     {
-        return $this->hasElement('Title div');
+        return $this->getElement('Title div')->getText();
     }
 }

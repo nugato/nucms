@@ -13,12 +13,10 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
-use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
-use Sylius\Component\Resource\Model\TranslatableInterface;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
-class Page implements ResourceInterface, PageInterface, TranslatableInterface
+class Page implements PageInterface
 {
     use TimestampableTrait;
     use TranslatableTrait {

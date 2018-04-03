@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7c3838706dc7821e0b76a3c80d5e945",
+    "content-hash": "ff0a9cc7ff5432bae7ea5ee999e4f785",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3060,6 +3060,144 @@
                 "sylius"
             ],
             "time": "2017-11-17T09:55:22+00:00"
+        },
+        {
+            "name": "sylius/taxonomy",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/Taxonomy.git",
+                "reference": "b40340c6b91d9c704e3fe77615c2b5874c9e534a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sylius/Taxonomy/zipball/b40340c6b91d9c704e3fe77615c2b5874c9e534a",
+                "reference": "b40340c6b91d9c704e3fe77615c2b5874c9e534a",
+                "shasum": ""
+            },
+            "require": {
+                "behat/transliterator": "^1.1",
+                "php": "^7.1",
+                "sylius/resource": "^1.0",
+                "webmozart/assert": "^1.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sylius\\Component\\Taxonomy\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributions",
+                    "homepage": "http://github.com/Sylius/Sylius/contributors"
+                },
+                {
+                    "name": "Paweł Jędrzejewski",
+                    "homepage": "http://pjedrzejewski.com"
+                },
+                {
+                    "name": "Sylius project",
+                    "homepage": "http://sylius.com"
+                }
+            ],
+            "description": "Taxonomies - categorization of domain models in PHP projects.",
+            "homepage": "http://sylius.com",
+            "keywords": [
+                "categorization",
+                "classification",
+                "ecommerce",
+                "taxon",
+                "taxonomy"
+            ],
+            "time": "2018-02-08T16:38:47+00:00"
+        },
+        {
+            "name": "sylius/taxonomy-bundle",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Sylius/SyliusTaxonomyBundle.git",
+                "reference": "3d276b3373fc5e067f609d93f13135735c1b783d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Sylius/SyliusTaxonomyBundle/zipball/3d276b3373fc5e067f609d93f13135735c1b783d",
+                "reference": "3d276b3373fc5e067f609d93f13135735c1b783d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1",
+                "stof/doctrine-extensions-bundle": "^1.2",
+                "sylius/resource-bundle": "^1.0",
+                "sylius/taxonomy": "^1.0",
+                "symfony/framework-bundle": "^3.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.5.0",
+                "incenteev/composer-parameter-handler": "^2.1",
+                "phpspec/phpspec": "^4.0",
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "incenteev-parameters": {
+                    "file": "Tests/Functional/app/config/parameters.yml"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sylius\\Bundle\\TaxonomyBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sylius project",
+                    "homepage": "http://sylius.org"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "http://github.com/Sylius/Sylius/contributors"
+                },
+                {
+                    "name": "Paweł Jędrzejewski",
+                    "homepage": "http://pjedrzejewski.com"
+                }
+            ],
+            "description": "Flexible categorization system for Symfony2.",
+            "homepage": "http://sylius.org",
+            "keywords": [
+                "categorization",
+                "category",
+                "ecommerce",
+                "shop",
+                "sylius",
+                "taxonomies",
+                "taxonomy"
+            ],
+            "time": "2017-09-12T04:06:09+00:00"
         },
         {
             "name": "sylius/user",

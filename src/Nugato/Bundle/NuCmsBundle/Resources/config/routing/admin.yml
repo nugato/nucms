@@ -7,11 +7,14 @@ nucms_admin_dashboard:
     defaults:
         _controller: NugatoNuCmsBundle:Admin\Dashboard:index
 
-nucms_admin_page:
-    resource: admin/page.yml
-
 nucms_admin_security:
     resource: admin/security.yml
 
 nucms_admin_locale:
     resource: admin/locale.yml
+
+nucms_admin_page:
+    resource: admin/page.yml
+
+nucms_admin_taxon:
+    resource: admin/taxon.yml

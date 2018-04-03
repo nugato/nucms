@@ -46,6 +46,7 @@ class Kernel extends HttpKernel
             new \Sylius\Bundle\MailerBundle\SyliusMailerBundle(),
             new \Sylius\Bundle\UserBundle\SyliusUserBundle(),
             new \Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
+            new \Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle(),
 
             // Other bundles
             new \FOS\RestBundle\FOSRestBundle(),
@@ -59,7 +60,6 @@ class Kernel extends HttpKernel
 
             // Nucms bundles
             new \Nugato\Bundle\NuCmsBundle\NugatoNuCmsBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

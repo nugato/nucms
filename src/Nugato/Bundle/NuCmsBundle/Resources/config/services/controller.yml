@@ -3,5 +3,7 @@
 
 services:
     Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:
-        arguments: ['@nucms.context.locale.request_based_with_default']
+        arguments:
+            - '@nucms.context.locale.request_based_with_default'
+            - '@nucms.repository.page'
         tags: ['controller.service_arguments']

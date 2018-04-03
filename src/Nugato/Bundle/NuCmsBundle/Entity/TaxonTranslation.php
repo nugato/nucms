@@ -11,16 +11,10 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Behat\Page\Web;
+namespace Nugato\Bundle\NuCmsBundle\Entity;
 
-use Nugato\Behat\Page\PageInterface;
+use Sylius\Component\Taxonomy\Model\TaxonTranslation as BaseTaxonTranslation;
 
-interface SinglePagePageInterface extends PageInterface
+class TaxonTranslation extends BaseTaxonTranslation
 {
-    /**
-     * Get title text
-     *
-     * @return string
-     */
-    public function getTitleText(): string;
 }

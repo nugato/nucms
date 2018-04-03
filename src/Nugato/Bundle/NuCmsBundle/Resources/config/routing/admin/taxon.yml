@@ -1,0 +1,11 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_taxon:
+    type: sylius.resource
+    resource: |
+        alias: nucms.taxon
+        section: admin
+        templates: NugatoNuCmsBundle:Admin/Crud
+        grid: nucms_admin_taxon
+        redirect: update

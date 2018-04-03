@@ -45,6 +45,12 @@ class AdminBuilder implements ContainerAwareInterface
             'extras' => ['icon' => ' copy'],
         ]);
 
+        $menu->addChild('taxon', [
+            'label' => 'Kat',
+            'route' => 'nucms_admin_taxon_index',
+            'extras' => ['icon' => ' copy'],
+        ]);
+
         $menu->addChild('locale', [
             'label' => 'nucms.ui.menu.items.locales',
             'route' => 'nucms_admin_locale_index',
