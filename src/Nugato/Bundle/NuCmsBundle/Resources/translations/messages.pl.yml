@@ -26,6 +26,8 @@ nucms:
                 dashboard: Panel
                 pages: Strony
                 locales: Języki
+                taxons: Kategorie
+        taxons: Kategorie
 
 sylius:
     form:

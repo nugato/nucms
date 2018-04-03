@@ -46,7 +46,7 @@ class AdminBuilder implements ContainerAwareInterface
         ]);
 
         $menu->addChild('taxon', [
-            'label' => 'Kat',
+            'label' => 'nucms.ui.menu.items.taxons',
             'route' => 'nucms_admin_taxon_index',
             'extras' => ['icon' => ' copy'],
         ]);

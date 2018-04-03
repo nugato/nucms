@@ -7,9 +7,11 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonType
             translation:
                 classes:
                     model: Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation
+                    form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonTranslationType
 
 sylius_taxonomy:
     driver: doctrine/orm

@@ -26,6 +26,8 @@ nucms:
                 dashboard: Dashboard
                 pages: Pages
                 locales: Locales
+                taxons: Categories
+        taxons: Categories
 
 sylius:
     form:

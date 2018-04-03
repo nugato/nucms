@@ -16,3 +16,22 @@ sylius_grid:
                     type: string
                     options:
                         fields: [translation.name]
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        enabled: true
+                        position: 100
+                        options: { }
+                    delete:
+                        type: delete
+                        enabled: true
+                        position: 101
+                        options: { }
+
