@@ -19,12 +19,12 @@ use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 class TaxonSpec extends ObjectBehavior
 {
-    function it_extends_a_base_Taxon_model(): void
+    function it_extends_a_base_taxon_model(): void
     {
         $this->shouldHaveType(Taxon::class);
     }
 
-    function it_implements_a_Taxon_interface(): void
+    function it_implements_a_base_taxon_interface(): void
     {
         $this->shouldImplement(TaxonInterface::class);
     }
