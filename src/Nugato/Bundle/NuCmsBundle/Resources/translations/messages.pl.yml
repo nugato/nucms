@@ -9,6 +9,7 @@ nucms:
         create: Utwórz
         edit: Edytuj
         delete: Usuń
+        save: Zapisz
         locales: Języki
         createdAt: Utworzono
         title: Tytuł

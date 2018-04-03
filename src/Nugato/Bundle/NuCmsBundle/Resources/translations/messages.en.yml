@@ -9,6 +9,7 @@ nucms:
         create: Create
         edit: Edit
         delete: Delete
+        save: Save
         locales: Locales
         createdAt: Created at
         title: Title

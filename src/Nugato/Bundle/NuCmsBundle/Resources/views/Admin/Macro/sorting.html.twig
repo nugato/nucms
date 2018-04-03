@@ -6,7 +6,7 @@
         <th class="sortable sorted table-column-{{ field.name }}">
             <a href="{{ link(field.name, attributes, (order == 'desc' ? 'asc' : 'desc'), grid.parameters.all) }}">
                 {{ field.label|trans }}
-                <span uk-icon="icon: {{ order == 'desc' ? 'triangle-up' : 'triangle-down' }}"></span>
+                <i class="fa fa-{{ order == 'desc' ? 'angle-up' : 'angle-down' }}"></i>
             </a>
         </th>
     {% else %}

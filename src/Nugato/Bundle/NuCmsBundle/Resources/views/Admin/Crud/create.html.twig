@@ -1,17 +1,19 @@
-{% extends 'NugatoNuCmsBundle:Admin:base.html.twig' %}
+{% extends '@NugatoNuCms/Admin/base.html.twig' %}
 
 {% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory)#}
 {% set vars = configuration.vars %} {# Additional variables passed from yml #}
 
+{% form_theme form '@NugatoNuCms/Admin/Form/theme.html.twig' %}
+
 {% block content %}
 
-    {% include('NugatoNuCmsBundle:Admin/Alerts:_flashes.html.twig') %}
+    {% include('@NugatoNuCms/Admin/Alerts/_flashes.html.twig') %}
 
     {{ form_start(form) }}
 
     {{ form_widget(form) }}
 
-    <button type="submit" class="t-create_submit_button">{{ 'nucms.ui.create'|trans }}</button>
+    <button class="btn btn-primary t-create_submit_button" type="submit">{{ 'nucms.ui.create'|trans }}</button>
 
     {{ form_end(form) }}
 

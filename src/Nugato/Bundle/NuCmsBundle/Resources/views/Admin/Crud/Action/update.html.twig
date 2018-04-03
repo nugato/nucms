@@ -1,5 +1,5 @@
 {% set path = options.link.url|default(path(options.link.route|default(grid.requestConfiguration.getRouteName('update')), options.link.parameters|default({'id': data.id}))) %}
 
-<a href="{{ path }}" class="uk-button uk-button-primary uk-button-small uk-margin-left t-update_button" uk-icon="icon: file-edit">
+<a href="{{ path }}" class="btn btn-primary btn-sm t-update_button">
     {{ (action.label is empty) ? 'nucms.ui.edit'|trans : action.label|trans }}
 </a>

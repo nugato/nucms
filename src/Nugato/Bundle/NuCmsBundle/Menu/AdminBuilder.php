@@ -42,19 +42,19 @@ class AdminBuilder implements ContainerAwareInterface
         $menu->addChild('page', [
             'label' => 'nucms.ui.menu.items.pages',
             'route' => 'nucms_admin_page_index',
-            'extras' => ['icon' => ' copy'],
+            'extras' => ['icon' => 'file'],
         ]);
 
         $menu->addChild('taxon', [
             'label' => 'nucms.ui.menu.items.taxons',
             'route' => 'nucms_admin_taxon_index',
-            'extras' => ['icon' => ' copy'],
+            'extras' => ['icon' => 'book'],
         ]);
 
         $menu->addChild('locale', [
             'label' => 'nucms.ui.menu.items.locales',
             'route' => 'nucms_admin_locale_index',
-            'extras' => ['icon' => ' hashtag'],
+            'extras' => ['icon' => 'language'],
         ]);
 
         $this->container->get('event_dispatcher')->dispatch(
