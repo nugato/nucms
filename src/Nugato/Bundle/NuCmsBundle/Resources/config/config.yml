@@ -9,6 +9,7 @@ imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/grids.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/users.yml" }
+    - { resource: "@SyliusTaxonomyBundle/Resources/config/app/config.yml" }
 
 # FosRestBundle Configuration
 fos_rest:

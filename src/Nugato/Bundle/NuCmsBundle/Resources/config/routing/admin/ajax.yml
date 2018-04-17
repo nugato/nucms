@@ -1,0 +1,6 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_ajax_taxon:
+    resource: "ajax/taxon.yml"
+    prefix: /taxons

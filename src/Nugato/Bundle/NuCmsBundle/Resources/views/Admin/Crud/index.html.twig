@@ -13,84 +13,91 @@
 
 {% block content %}
 
-    <h1 class="mb-4">{{ header|trans }}</h1>
+    {% block header %}
+        <h1 class="mb-4">{{ header|trans }}</h1>
+    {% endblock %}
 
-    {% include('NugatoNuCmsBundle:Admin/Alerts:_flashes.html.twig') %}
+    {% block flashes %}
+        {% include('NugatoNuCmsBundle:Admin/Alerts:_flashes.html.twig') %}
+    {% endblock %}
 
-    {# Actions - main #}
-    <div class="row mb-4">
-        <div class="col-sm-4">
-            {% if definition.actionGroups.main is defined %}
-                {% for action in definition.getEnabledActions('main') %}
-                    {{ sylius_grid_render_action(resources, action, null) }}
-                {% endfor %}
-            {% endif %}
-        </div>
-        <div class="col-sm-8">
-            <div class="float-right">
-                {% if data|length > 0 %}
-                    {# Pagination - top #}
-                    {{ pagination.simple(data) }}
+    {% block actions %}
+        <div class="row mb-4">
+            <div class="col-sm-4">
+                {% if definition.actionGroups.main is defined %}
+                    {% for action in definition.getEnabledActions('main') %}
+                        {{ sylius_grid_render_action(resources, action, null) }}
+                    {% endfor %}
                 {% endif %}
             </div>
-        </div>
-    </div>
-
-    {% if data|length > 0 %}
-
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    {# Headers #}
-                    {% for field in definition.fields %}
-                        {% if field.enabled %}
-                            {% if field.isSortable %}
-                                {{ sorting.tableHeader(grid, field, app.request.attributes) }}
-                            {% else %}
-                                <th class="table-column-{{ field.name }}">{{ field.label|trans }}</th>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for row in data %}
-                    <tr>
-                        {# Data #}
-                        {% for field in definition.enabledFields %}
-                            <td>{{ sylius_grid_render_field(grid, field, row) }}</td>
-                        {% endfor %}
-
-                        {# Actions - item #}
-                        {% if definition.actionGroups.item is defined and definition.getEnabledActions('item')|length > 0 %}
-                            <td>
-                                <div class="btn-group" role="group">
-                                    {% for action in definition.getEnabledActions('item') %}
-                                        {{ sylius_grid_render_action(grid, action, row) }}
-                                    {% endfor %}
-                                </div>
-                            </td>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4"></div>
             <div class="col-sm-8">
                 <div class="float-right">
-                    {# Pagination - bottom #}
-                    {{ pagination.simple(data) }}
+                    {% if data|length > 0 %}
+                        {# Pagination - top #}
+                        {{ pagination.simple(data) }}
+                    {% endif %}
                 </div>
             </div>
         </div>
+    {% endblock %}
 
-    {% else %}
-        {# @todo info about no records #}
-    {% endif %}
+    {% block data %}
+        {% if data|length > 0 %}
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        {# Headers #}
+                        {% for field in definition.fields %}
+                            {% if field.enabled %}
+                                {% if field.isSortable %}
+                                    {{ sorting.tableHeader(grid, field, app.request.attributes) }}
+                                {% else %}
+                                    <th class="table-column-{{ field.name }}">{{ field.label|trans }}</th>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in data %}
+                        <tr>
+                            {# Data #}
+                            {% for field in definition.enabledFields %}
+                                <td>{{ sylius_grid_render_field(grid, field, row) }}</td>
+                            {% endfor %}
+
+                            {# Actions - item #}
+                            {% if definition.actionGroups.item is defined and definition.getEnabledActions('item')|length > 0 %}
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        {% for action in definition.getEnabledActions('item') %}
+                                            {{ sylius_grid_render_action(grid, action, row) }}
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-8">
+                    <div class="float-right">
+                        {# Pagination - bottom #}
+                        {{ pagination.simple(data) }}
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+            {# @todo info about no records #}
+        {% endif %}
+    {% endblock %}
 
 {% endblock %}

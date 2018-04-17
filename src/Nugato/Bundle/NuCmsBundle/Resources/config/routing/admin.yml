@@ -1,6 +1,16 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
+nucms_admin_partial:
+    resource: admin/partial.yml
+    prefix: /_partial
+
+nucms_admin_ajax:
+    resource: admin/ajax.yml
+    prefix: /ajax
+    defaults:
+        _format: json
+
 nucms_admin_dashboard:
     path: /
     methods: [GET]

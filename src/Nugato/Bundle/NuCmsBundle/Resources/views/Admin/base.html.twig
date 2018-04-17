@@ -16,6 +16,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 
     {% endblock %}
 </head>
@@ -49,9 +50,55 @@
 
 {% block javascripts %}
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".nucms-autocomplete").select2({
+                ajax: {
+                    url: function (params) {
+                        var url = $(this).data('url');
+
+                        return url;
+                    },
+                    dataType: 'json',
+                    data: function (params) {
+                        var criteriaName = $(this).data('criteria-name');
+                        var query = {};
+                        var term = (params.term) ? params.term : '';
+
+                        query[criteriaName] = term;
+
+                        return query;
+                    },
+                    processResults: function (data, params) {
+                        var element = $(this.$element);
+                        var choiceName = element.data('choice-name');
+                        var choiceValue = element.data('choice-value');
+                        var myResults = [];
+
+                        console.log(data);
+
+                        $.each(data, function (index, item) {
+                            myResults.push({
+                                id: item[choiceName],
+                                text: item[choiceValue]
+                            });
+                        });
+
+                        return {
+                            results: myResults
+                        };
+                    }
+                }
+            });
+
+        });
+    </script>
 
 {% endblock %}
 </body>
