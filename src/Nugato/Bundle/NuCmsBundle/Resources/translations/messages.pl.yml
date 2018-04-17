@@ -6,6 +6,7 @@ nucms:
         page: Strona
         pages: Strony
         title: Tytuł
+        name: Nazwa
         create: Utwórz
         edit: Edytuj
         delete: Usuń

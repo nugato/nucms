@@ -5,7 +5,6 @@ nucms_admin_login:
     path: /login
     methods: [GET]
     defaults:
-#        _controller: sylius.controller.security:loginAction
         _controller: sylius.controller.user_security:loginAction
         _sylius:
             template: NugatoNuCmsBundle:Admin/Security:login.html.twig

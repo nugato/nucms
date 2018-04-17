@@ -6,6 +6,7 @@ nucms:
         page: Page
         pages: Pages
         title: Title
+        name: Name
         create: Create
         edit: Edit
         delete: Delete

@@ -17,4 +17,10 @@ use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 
 class Taxon extends BaseTaxon
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setPosition(0);
+    }
 }

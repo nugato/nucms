@@ -7,6 +7,11 @@ sylius_grid:
                     class: Nugato\Bundle\NuCmsBundle\Entity\Taxon
                     repository:
                         method: createListQueryBuilder
+            fields:
+                name:
+                    type: string
+                    label: nucms.ui.name
+                    sortable: translation.name
             filters:
                 code:
                     type: string
