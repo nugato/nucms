@@ -4,7 +4,7 @@
 Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation:
     type: entity
     table: nucms_navigation
-    repositoryClass: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepository
     id:
         id:
             type: integer
@@ -29,6 +29,10 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation:
             gedmo:
                 timestampable:
                     on: update
+    oneToMany:
+        items:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            mappedBy: navigation
     uniqueConstraints:
         search_idx:
             columns:

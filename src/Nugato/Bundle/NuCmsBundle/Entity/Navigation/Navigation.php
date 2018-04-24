@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
 use Sylius\Component\Resource\Model\TimestampableTrait;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 class Navigation implements NavigationInterface
 {
@@ -34,9 +36,15 @@ class Navigation implements NavigationInterface
      */
     protected $name;
 
+    /**
+     * @var Collection|NavigationItemInterface[]
+     */
+    protected $items;
+
     public function __construct()
     {
         $this->name = '';
+        $this->items = new ArrayCollection();
     }
 
     /**
@@ -77,5 +85,49 @@ class Navigation implements NavigationInterface
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasItem(NavigationItemInterface $item): bool
+    {
+        return $this->items->contains($item);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasItems(): bool
+    {
+        return !$this->items->isEmpty();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addItem(NavigationItemInterface $item): void
+    {
+        if (!$this->hasItem($item)) {
+            $this->items->add($item);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeItem(NavigationItemInterface $item): void
+    {
+        if ($this->hasItem($item)) {
+            $this->items->removeElement($item);
+        }
     }
 }

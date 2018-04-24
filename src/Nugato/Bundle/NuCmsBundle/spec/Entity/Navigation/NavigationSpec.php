@@ -15,6 +15,7 @@ namespace spec\Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
 use Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation;
 use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationInterface;
+use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemInterface;
 use PhpSpec\ObjectBehavior;
 
 /**
@@ -42,5 +43,28 @@ class NavigationSpec extends ObjectBehavior
         $updatedAt = new \DateTime('1991.10.02');
         $this->setUpdatedAt($updatedAt);
         $this->getUpdatedAt()->shouldReturn($updatedAt);
+    }
+
+    function it_can_manage_items(NavigationItemInterface $item1, NavigationItemInterface $item2)
+    {
+        $this->hasItem($item1)->shouldReturn(false);
+        $this->hasItems()->shouldReturn(false);
+
+        $this->addItem($item1);
+        $this->addItem($item1);
+        $this->addItem($item2);
+        $this->hasItem($item1)->shouldReturn(true);
+        $this->hasItem($item2)->shouldReturn(true);
+        $this->hasItems()->shouldReturn(true);
+        $this->getItems()->shouldHaveCount(2);
+        $this->getItems()->shouldContain($item1);
+        $this->getItems()->shouldContain($item2);
+
+        $this->removeItem($item1);
+        $this->removeItem($item2);
+        $this->hasItem($item1)->shouldReturn(false);
+        $this->hasItem($item2)->shouldReturn(false);
+        $this->hasItems()->shouldReturn(false);
+        $this->getItems()->shouldHaveCount(0);
     }
 }

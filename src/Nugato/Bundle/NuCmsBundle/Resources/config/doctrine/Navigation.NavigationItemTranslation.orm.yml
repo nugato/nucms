@@ -1,0 +1,7 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation:
+    type: entity
+    table: nucms_navigation_item_translation
+    lifecycleCallbacks: {  }

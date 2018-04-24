@@ -1,0 +1,15 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
+    type: entity
+    table: nucms_navigation_item
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+    manyToOne:
+        navigation:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
+            inversedBy: items
+            joinColumn:
+                name: navigation_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

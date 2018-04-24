@@ -40,3 +40,8 @@ sylius_grid:
                         enabled: true
                         position: 100
                         options: { }
+                    delete:
+                        type: delete
+                        enabled: true
+                        position: 101
+                        options: { }
