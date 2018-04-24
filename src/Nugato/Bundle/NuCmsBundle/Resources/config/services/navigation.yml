@@ -1,0 +1,9 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    nucms.navigation.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\NavigationType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.navigation.class%', ['sylius']]

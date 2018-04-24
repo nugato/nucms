@@ -1,0 +1,37 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation:
+    type: entity
+    table: nucms_navigation
+    repositoryClass: Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+    uniqueConstraints:
+        search_idx:
+            columns:
+                - code
+                - name
+    lifecycleCallbacks: {  }

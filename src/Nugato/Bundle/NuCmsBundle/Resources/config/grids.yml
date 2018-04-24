@@ -5,6 +5,7 @@ imports:
     - { resource: 'grids/admin/locale.yml' }
     - { resource: 'grids/admin/page.yml' }
     - { resource: 'grids/admin/taxon.yml' }
+    - { resource: 'grids/admin/navigation.yml' }
 
 sylius_grid:
     templates:

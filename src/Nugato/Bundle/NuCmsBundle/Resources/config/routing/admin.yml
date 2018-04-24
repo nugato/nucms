@@ -28,3 +28,6 @@ nucms_admin_page:
 
 nucms_admin_taxon:
     resource: admin/taxon.yml
+
+nucms_admin_navigation:
+    resource: admin/navigation.yml
