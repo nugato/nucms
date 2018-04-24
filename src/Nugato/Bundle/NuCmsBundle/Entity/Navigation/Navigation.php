@@ -34,8 +34,13 @@ class Navigation implements NavigationInterface
      */
     protected $name;
 
+    public function __construct()
+    {
+        $this->name = '';
+    }
+
     /**
-     * {@inheridoc}
+     * {@inheritdoc}
      */
     public function getId(): ?int
     {
@@ -43,7 +48,7 @@ class Navigation implements NavigationInterface
     }
 
     /**
-     * {@inheridoc}
+     * {@inheritdoc}
      */
     public function getCode(): ?string
     {
@@ -51,7 +56,7 @@ class Navigation implements NavigationInterface
     }
 
     /**
-     * {@inheridoc}
+     * {@inheritdoc}
      */
     public function setCode(?string $code): void
     {
@@ -59,15 +64,15 @@ class Navigation implements NavigationInterface
     }
 
     /**
-     * {@inheridoc}
+     * {@inheritdoc}
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
 
     /**
-     * {@inheridoc}
+     * {@inheritdoc}
      */
     public function setName(string $name): void
     {

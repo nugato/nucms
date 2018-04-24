@@ -22,7 +22,7 @@ interface NavigationInterface extends ResourceInterface, CodeAwareInterface, Tim
     /**
      * @return string
      */
-    public function getName(): ?string;
+    public function getName(): string;
 
     /**
      * @param string $name
