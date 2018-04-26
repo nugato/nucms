@@ -1,61 +1,93 @@
 <!DOCTYPE html>
 
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% block title %}NuCms{% endblock %}</title>
+        <title>
+            {% block title %}NuCms{% endblock %}
+        </title>
 
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-    {% block metatags %}
-    {% endblock %}
+        {% block metatags %}{% endblock %}
 
-    {% block stylesheets %}
+        {% block stylesheets %}
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+            {# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> #}
+            {# <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> #}
+            {# <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/> #}
+            <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+            <style>
+                body { font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif; }
+            </style>
 
-    {% endblock %}
-</head>
-<body>
+        {% endblock %}
+    </head>
+    <body>
 
-{% block navbar %}
+        {% block navbar %}
 
-    {% include '@NugatoNuCms/Admin/_navbar.html.twig' %}
+            {% include '@NugatoNuCms/Admin/_navbar.html.twig' %}
 
-{% endblock %}
+        {% endblock %}
 
-{% block layout %}
+        {% block layout %}
+            <div id="app">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-2">
+                            {% block sidebar %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-2">
-                {% block sidebar %}
+                                {% include '@NugatoNuCms/Admin/_sidebar.html.twig' %}
 
-                    {% include '@NugatoNuCms/Admin/_sidebar.html.twig' %}
-
-                {% endblock %}
+                            {% endblock %}
+                        </div>
+                        <div class="col-sm-8 col-md-10">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-8 col-md-10">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
-    </div>
+        {% endblock %}
 
-{% endblock %}
+        {% block javascripts %}
 
-{% block javascripts %}
+            {# <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> #}
+            {# <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> #}
+            {# <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> #}
+            {# <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script> #}
+            <script src="https://unpkg.com/vue/dist/vue.js"></script>
+            <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+            <script>
+                Vue.component('nu-table', {
+                    data() {
+                        return {
+                            tableDataJSON: null
+                        }
+                    },
+                    props: ['tableData'],
+                    methods: {
+                        
+                    },
+                    created: function () {
+                        let data = JSON.parse(this.tableData);
+                        let dataJSON = data.map(item => {
+                            item.checked = false;
+                            return item;
+                        });
+                        this.tableDataJSON = dataJSON;
+                    }
+                });
 
-    <script>
+                new Vue({
+                    el: '#app'
+                })
+            </script>
+
+            {# <script>
         $(document).ready(function () {
 
             $(".nucms-autocomplete").select2({
@@ -98,8 +130,8 @@
             });
 
         });
-    </script>
+    </script> #}
 
-{% endblock %}
-</body>
+        {% endblock %}
+    </body>
 </html>
