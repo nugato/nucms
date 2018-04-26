@@ -14,6 +14,9 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation:
         name:
             type: string
             length: 255
+        url:
+            type: string
+            length: 255
     indexes:
         search_idx:
             columns: name

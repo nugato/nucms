@@ -30,6 +30,16 @@ interface NavigationItemInterface extends ResourceInterface, TranslatableInterfa
     public function getName(): ?string;
 
     /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void;
+
+    /**
+     * @return string|null
+     */
+    public function getUrl(): ?string;
+
+    /**
      * {@inheritdoc}
      */
     public function setNavigation(NavigationInterface $navigation): void;

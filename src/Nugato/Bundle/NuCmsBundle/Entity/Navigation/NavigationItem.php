@@ -33,6 +33,11 @@ class NavigationItem implements NavigationItemInterface
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $url;
+
+    /**
      * @var NavigationInterface
      */
     protected $navigation;
@@ -94,6 +99,22 @@ class NavigationItem implements NavigationItemInterface
     public function getName(): ?string
     {
         return $this->getTranslation()->getName();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setUrl(string $url): void
+    {
+        $this->getTranslation()->setUrl($url);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUrl(): string
+    {
+        return $this->getTranslation()->getUrl();
     }
 
     /**

@@ -32,5 +32,8 @@ class NavigationItemTranslationSpec extends ObjectBehavior
     {
         $this->setName('Name');
         $this->getName()->shouldReturn('Name');
+
+        $this->setUrl('Url');
+        $this->getUrl()->shouldReturn('Url');
     }
 }

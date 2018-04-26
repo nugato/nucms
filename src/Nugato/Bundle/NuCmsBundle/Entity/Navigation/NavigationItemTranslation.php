@@ -28,6 +28,11 @@ class NavigationItemTranslation extends AbstractTranslation implements Navigatio
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $url;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -49,5 +54,21 @@ class NavigationItemTranslation extends AbstractTranslation implements Navigatio
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getUrl(): ?string
+    {
+        return $this->url;
     }
 }

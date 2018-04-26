@@ -27,4 +27,14 @@ interface NavigationItemTranslationInterface extends ResourceInterface, Translat
      * @return string|null
      */
     public function getName(): ?string;
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void;
+
+    /**
+     * @return string|null
+     */
+    public function getUrl(): ?string;
 }
