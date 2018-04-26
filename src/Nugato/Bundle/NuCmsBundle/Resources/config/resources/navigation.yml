@@ -7,14 +7,16 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
-                form: Nugato\Bundle\NuCmsBundle\Form\NavigationType
+                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
                 repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepository
 
         nucms.navigation_item:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+#                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
                 repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
-            translation:
-                classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation
+#            translation:
+#                classes:
+#                    model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation
+#                    form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonTranslationType

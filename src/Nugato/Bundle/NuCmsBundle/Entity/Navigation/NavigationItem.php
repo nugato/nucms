@@ -13,20 +13,77 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
-use Sylius\Component\Taxonomy\Model\Taxon;
+use Doctrine\Common\Collections\Collection;
 
-class NavigationItem extends Taxon implements NavigationItemInterface
+class NavigationItem implements NavigationItemInterface
 {
+    /**
+     * @var int
+     */
+    protected $id;
+
+    /**
+     * @var string
+     */
+    protected $name;
+
     /**
      * @var NavigationInterface
      */
     protected $navigation;
 
-    public function __construct()
-    {
-        parent::__construct();
+    /**
+     * @var int
+     */
+    protected $left;
 
-        $this->setPosition(0);
+    /**
+     * @var int
+     */
+    protected $level;
+
+    /**
+     * @var int
+     */
+    protected $right;
+
+    /**
+     * @return NavigationItemInterface|null
+     */
+    protected $root;
+
+    /**
+     * @return NavigationItemInterface|null
+     */
+    protected $parent;
+
+    /**
+     * @var Collection|NavigationItemInterface[]
+     */
+    protected $children;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
     }
 
     /**
@@ -43,5 +100,37 @@ class NavigationItem extends Taxon implements NavigationItemInterface
     public function getNavigation(): ?NavigationInterface
     {
         return $this->navigation;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRoot(): ?NavigationItemInterface
+    {
+        return $this->root;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setParent(?NavigationItemInterface $parent): void
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParent(): ?NavigationItemInterface
+    {
+        return $this->parent;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
     }
 }

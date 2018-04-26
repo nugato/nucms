@@ -13,9 +13,28 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository\Navigation;
 
-use Sylius\Bundle\TaxonomyBundle\Doctrine\ORM\TaxonRepository;
+use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
-class NavigationItemRepository extends TaxonRepository implements NavigationItemRepositoryInterface
+class NavigationItemRepository extends NestedTreeRepository implements NavigationItemRepositoryInterface
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function add(ResourceInterface $resource): void
+    {
+        $this->_em->persist($resource);
+        $this->_em->flush();
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function remove(ResourceInterface $resource): void
+    {
+        if (null !== $this->find($resource->getId())) {
+            $this->_em->remove($resource);
+            $this->_em->flush();
+        }
+    }
 }

@@ -3,13 +3,69 @@
 
 Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
     type: entity
-    table: nucms_navigation_item
     repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+    table: nucms_navigation_item
+    gedmo:
+        tree:
+            type: nested
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        left:
+            type: integer
+            column: tree_left
+            gedmo:
+                - treeLeft
+        right:
+            type: integer
+            column: tree_right
+            gedmo:
+                - treeRight
+        level:
+            type: integer
+            column: tree_level
+            gedmo:
+                - treeLevel
     manyToOne:
+        root:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            joinColumn:
+                name: tree_root
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+            gedmo:
+                - treeRoot
+        parent:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            inversedBy: children
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+            gedmo:
+                - treeParent
         navigation:
             targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
-            inversedBy: items
             joinColumn:
                 name: navigation_id
                 referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+    oneToMany:
+        children:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            mappedBy: parent
+            orderBy:
+                left: ASC
+#            orderByField:
+#                name: position
+#                direction: ASC
     lifecycleCallbacks: {  }

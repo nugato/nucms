@@ -13,9 +13,17 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository\Navigation;
 
-use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
+use Sylius\Component\Resource\Model\ResourceInterface;
 
-interface NavigationItemRepositoryInterface extends TaxonRepositoryInterface
+interface NavigationItemRepositoryInterface
 {
+    /**
+     * @param ResourceInterface $resource
+     */
+    public function add(ResourceInterface $resource): void;
 
+    /**
+     * @param ResourceInterface $resource
+     */
+    public function remove(ResourceInterface $resource): void;
 }
