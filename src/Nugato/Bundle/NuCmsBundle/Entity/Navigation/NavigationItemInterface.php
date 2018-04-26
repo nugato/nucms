@@ -15,13 +15,14 @@ namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface NavigationItemInterface extends ResourceInterface
+interface NavigationItemInterface extends ResourceInterface, TranslatableInterface
 {
     /**
      * @param string $name
      */
-    public function setName(string $name);
+    public function setName(string $name): void;
 
     /**
      * @return string|null

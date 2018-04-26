@@ -14,9 +14,14 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
 use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Resource\Model\TranslatableTrait;
 
 class NavigationItem implements NavigationItemInterface
 {
+    use TranslatableTrait {
+        __construct as private initializeTranslationsCollection;
+    }
+
     /**
      * @var int
      */
@@ -62,6 +67,11 @@ class NavigationItem implements NavigationItemInterface
      */
     protected $children;
 
+    public function __construct()
+    {
+        $this->initializeTranslationsCollection();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -73,9 +83,9 @@ class NavigationItem implements NavigationItemInterface
     /**
      * {@inheritdoc}
      */
-    public function setName(string $name)
+    public function setName(string $name): void
     {
-        $this->name = $name;
+        $this->getTranslation()->setName($name);
     }
 
     /**
@@ -83,7 +93,7 @@ class NavigationItem implements NavigationItemInterface
      */
     public function getName(): ?string
     {
-        return $this->name;
+        return $this->getTranslation()->getName();
     }
 
     /**
@@ -132,5 +142,13 @@ class NavigationItem implements NavigationItemInterface
     public function getChildren(): Collection
     {
         return $this->children;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function createTranslation(): NavigationItemTranslationInterface
+    {
+        return new NavigationItemTranslation();
     }
 }

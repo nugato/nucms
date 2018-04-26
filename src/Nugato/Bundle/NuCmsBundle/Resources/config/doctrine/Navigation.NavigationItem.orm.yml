@@ -14,9 +14,6 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            type: string
-            length: 255
         left:
             type: integer
             column: tree_left

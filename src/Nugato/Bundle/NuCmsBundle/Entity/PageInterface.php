@@ -20,11 +20,6 @@ use Sylius\Component\Resource\Model\TranslatableInterface;
 interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface
 {
     /**
-     * @return int
-     */
-    public function getId(): ?int;
-
-    /**
      * @param string $title
      */
     public function setTitle(string $title): void;

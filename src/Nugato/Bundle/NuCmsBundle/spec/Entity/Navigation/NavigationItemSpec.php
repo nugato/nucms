@@ -24,9 +24,10 @@ use Sylius\Component\Taxonomy\Model\Taxon;
  */
 class NavigationItemSpec extends ObjectBehavior
 {
-    function it_should_extends_taxon_model()
+    function let()
     {
-        $this->shouldHaveType(Taxon::class);
+        $this->setCurrentLocale('en_US');
+        $this->setFallbackLocale('en_US');
     }
 
     function it_should_implement_navigation_item_interface()
@@ -38,5 +39,8 @@ class NavigationItemSpec extends ObjectBehavior
     {
         $this->setNavigation($navigation);
         $this->getNavigation()->shouldReturn($navigation);
+
+        $this->setName('Name');
+        $this->getName()->shouldReturn('Name');
     }
 }

@@ -23,13 +23,14 @@ use Sylius\Component\Taxonomy\Model\TaxonTranslation;
  */
 class NavigationItemTranslationSpec extends ObjectBehavior
 {
-    function it_should_extends_taxon_translation_model()
-    {
-        $this->shouldHaveType(TaxonTranslation::class);
-    }
-
     function it_should_implement_navigation_item_translation_interface()
     {
         $this->shouldImplement(NavigationItemTranslationInterface::class);
+    }
+
+    function it_has_all_fields_mutable(): void
+    {
+        $this->setName('Name');
+        $this->getName()->shouldReturn('Name');
     }
 }

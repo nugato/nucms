@@ -26,7 +26,7 @@ class Page implements PageInterface
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     public function __construct()
     {
