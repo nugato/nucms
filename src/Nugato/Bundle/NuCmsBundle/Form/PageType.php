@@ -17,7 +17,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class PageType extends AbstractResourceType
+final class PageType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}

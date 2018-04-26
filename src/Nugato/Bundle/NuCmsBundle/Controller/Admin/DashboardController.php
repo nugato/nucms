@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DashboardController extends Controller

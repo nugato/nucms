@@ -16,6 +16,11 @@ nucms:
         title: Tytuł
         content: Treść
         slug: Adres URL
+        code: Kod
+        created_at: Utworzono
+        updated_at: Zaktualizowano
+        navigation: Nawigacja
+        navigations: Nawigacje
         locales_fields:
             name: Nazwa
         login:
@@ -29,9 +34,13 @@ nucms:
                 pages: Strony
                 locales: Języki
                 taxons: Kategorie
+                navigations: Nawigacja
         taxons: Kategorie
 
 sylius:
     form:
         user:
             email: Login
+    ui:
+        code:
+            Kod

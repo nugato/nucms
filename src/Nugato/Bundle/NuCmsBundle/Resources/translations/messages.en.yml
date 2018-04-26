@@ -16,6 +16,11 @@ nucms:
         title: Title
         content: Content
         slug: Slug
+        code: Code
+        created_at: Created at
+        updated_at: Updated at
+        navigation: Navigation
+        navigations: Navigations
         locales_fields:
             name: Name
         login:
@@ -29,9 +34,13 @@ nucms:
                 pages: Pages
                 locales: Locales
                 taxons: Categories
+                navigations: Navigations
         taxons: Categories
 
 sylius:
     form:
         user:
             email: Login
+    ui:
+        code:
+            Kod

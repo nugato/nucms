@@ -57,6 +57,12 @@ class AdminBuilder implements ContainerAwareInterface
             'extras' => ['icon' => 'language'],
         ]);
 
+        $menu->addChild('navigation', [
+            'label' => 'nucms.ui.menu.items.navigations',
+            'route' => 'nucms_admin_navigation_index',
+            'extras' => ['icon' => 'sitemap'],
+        ]);
+
         $this->container->get('event_dispatcher')->dispatch(
             AdminMenuBuilderEvent::BUILDER,
             new AdminMenuBuilderEvent($factory, $menu)
