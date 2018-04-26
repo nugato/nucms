@@ -7,9 +7,3 @@ services:
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation.class%', ['sylius']]
-
-#    nucms.navigation_item.form.type:
-#        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
-#        tags:
-#            - { name: form.type }
-#        arguments: ['%nucms.model.navigation_item.class%', ['sylius']]
