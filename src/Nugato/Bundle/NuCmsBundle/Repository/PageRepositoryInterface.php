@@ -15,8 +15,9 @@ namespace Nugato\Bundle\NuCmsBundle\Repository;
 
 use Doctrine\ORM\QueryBuilder;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-interface PageRepositoryInterface
+interface PageRepositoryInterface extends RepositoryInterface
 {
     /**
      * @param string $locale
