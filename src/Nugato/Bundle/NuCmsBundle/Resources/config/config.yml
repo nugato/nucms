@@ -30,3 +30,14 @@ stof_doctrine_extensions:
             timestampable: true
             sluggable: true
             tree: true
+
+# KnpGaufretteBundle Configuration
+#knp_gaufrette:
+#    adapters:
+#        sylius_image:
+#            local:
+#                directory: "%kernel.root_dir%/../web/upload"
+#                create: true
+#    filesystems:
+#        sylius_image:
+#            adapter: "%nucms.uploader.filesystem%"

@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
 
             // Nucms bundles
             new \Nugato\Bundle\NuCmsBundle\NugatoNuCmsBundle(),
