@@ -56,4 +56,9 @@ interface FileInterface extends ResourceInterface
      * @return null|\SplFileInfo
      */
     public function getFile(): ?\SplFileInfo;
+
+    /**
+     * @return bool
+     */
+    public function hasFile(): bool;
 }

@@ -111,4 +111,12 @@ class File implements FileInterface
     {
         return $this->file;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasFile(): bool
+    {
+        return null !== $this->file;
+    }
 }

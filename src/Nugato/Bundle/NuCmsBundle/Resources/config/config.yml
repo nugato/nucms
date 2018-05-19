@@ -3,6 +3,7 @@
 
 parameters:
     admin_prefix: 'admin'
+    nucms.file.uploader.filesystem: nucms_file
 
 imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
@@ -32,12 +33,13 @@ stof_doctrine_extensions:
             tree: true
 
 # KnpGaufretteBundle Configuration
-#knp_gaufrette:
-#    adapters:
-#        sylius_image:
-#            local:
-#                directory: "%kernel.root_dir%/../web/upload"
-#                create: true
-#    filesystems:
-#        sylius_image:
-#            adapter: "%nucms.uploader.filesystem%"
+knp_gaufrette:
+    adapters:
+        nucms_file:
+            local:
+                directory: "%kernel.root_dir%/../web/upload"
+                create: true
+    filesystems:
+        nucms_file:
+            adapter: '%nucms.file.uploader.filesystem%'
+            alias: nucms_filesystem
