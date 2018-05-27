@@ -12,7 +12,6 @@ imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/users.yml" }
     - { resource: "@SyliusTaxonomyBundle/Resources/config/app/config.yml" }
 
-# FosRestBundle Configuration
 fos_rest:
     exception: ~
     view:
@@ -24,7 +23,6 @@ fos_rest:
             - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
 
-# StofDoctrineExtensionsBundle Configuration
 stof_doctrine_extensions:
     orm:
         default:
@@ -32,7 +30,6 @@ stof_doctrine_extensions:
             sluggable: true
             tree: true
 
-# KnpGaufretteBundle Configuration
 knp_gaufrette:
     adapters:
         nucms_file:
@@ -43,3 +40,22 @@ knp_gaufrette:
         nucms_file:
             adapter: '%nucms.file.uploader.filesystem%'
             alias: nucms_filesystem
+
+liip_imagine:
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.root_dir%/../web/upload"
+    filter_sets:
+        xs:
+            filters:
+                thumbnail: { size: [40, 40], mode: inset }
+        sm:
+            filters:
+                thumbnail: { size: [120, 90], mode: inset }
+        md:
+            filters:
+                thumbnail: { size: [240, 180], mode: inset }
+        lg:
+            filters:
+                thumbnail: { size: [640, 480], mode: inset }
