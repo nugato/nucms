@@ -61,6 +61,7 @@ class FileUploader implements FileUploaderInterface
         $filename = $this->filenameGenerator->generate($realFile);
 
         $file->setPath($filename);
+        $file->setExtension($realFile->getClientOriginalExtension());
 
         if (empty($file->getTitle())) {
             $file->setTitle($filename);

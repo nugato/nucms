@@ -28,14 +28,14 @@ interface FileInterface extends ResourceInterface
     public function getTitle(): ?string;
 
     /**
-     * @param string $type
+     * @param string $extension
      */
-    public function setType(string $type): void;
+    public function setExtension(string $extension): void;
 
     /**
      * @return null|string
      */
-    public function getType(): ?string;
+    public function getExtension(): ?string;
 
     /**
      * @param string $path

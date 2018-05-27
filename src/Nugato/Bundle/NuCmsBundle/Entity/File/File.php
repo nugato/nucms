@@ -28,7 +28,7 @@ class File implements FileInterface
     /**
      * @var string
      */
-    protected $type;
+    protected $extension;
 
     /**
      * @var string
@@ -67,17 +67,17 @@ class File implements FileInterface
     /**
      * {@inheritdoc}
      */
-    public function setType(string $type): void
+    public function setExtension(string $extension): void
     {
-        $this->type = $type;
+        $this->extension = $extension;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getType(): ?string
+    public function getExtension(): ?string
     {
-        return $this->type;
+        return $this->extension;
     }
 
     /**

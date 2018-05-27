@@ -59,6 +59,7 @@ class FileUploaderSpec extends ObjectBehavior
         $file->setPath('123-foo.jpg')->shouldBeCalled();
         $file->getTitle()->willReturn(null);
         $file->setTitle('123-foo.jpg')->shouldBeCalled();
+        $file->setExtension('jpg')->shouldBeCalled();
 
         $filesystem->write('123-foo.jpg', Argument::type('string'))->shouldBeCalled();
 

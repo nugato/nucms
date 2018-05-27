@@ -16,7 +16,7 @@ Nugato\Bundle\NuCmsBundle\Entity\File\File:
             type: string
             length: 255
             nullable: true
-        type:
+        extension:
             type: string
             length: 100
             nullable: true
