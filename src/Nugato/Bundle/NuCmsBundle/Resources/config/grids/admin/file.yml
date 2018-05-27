@@ -11,6 +11,12 @@ sylius_grid:
             sorting:
                 id: desc
             fields:
+                file:
+                    type: twig
+                    label: nucms.ui.file
+                    path: .
+                    options:
+                        template: "@NugatoNuCms/Admin/Crud/Field/file.html.twig"
                 id:
                     type: string
                     sortable: true

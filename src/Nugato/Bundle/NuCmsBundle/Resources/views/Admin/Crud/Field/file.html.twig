@@ -1,0 +1,5 @@
+{% if data.isImage %}
+    <img src="/upload/{{ data.path }}" style="width: 40px;">
+{% else %}
+    {{ data.path|slice(0, 20) ~ ' ...'}}
+{% endif %}

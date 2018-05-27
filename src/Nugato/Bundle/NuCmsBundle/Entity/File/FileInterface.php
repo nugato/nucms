@@ -61,4 +61,9 @@ interface FileInterface extends ResourceInterface
      * @return bool
      */
     public function hasFile(): bool;
+
+    /**
+     * @return bool
+     */
+    public function isImage(): bool;
 }

@@ -15,6 +15,8 @@ namespace Nugato\Bundle\NuCmsBundle\Entity\File;
 
 class File implements FileInterface
 {
+    const IMAGE_EXTENSIONS = ['jpg', 'jpeg', 'gif', 'png'];
+
     /**
      * @var int
      */
@@ -77,7 +79,7 @@ class File implements FileInterface
      */
     public function getExtension(): ?string
     {
-        return $this->extension;
+        return strtolower($this->extension);
     }
 
     /**
@@ -118,5 +120,13 @@ class File implements FileInterface
     public function hasFile(): bool
     {
         return null !== $this->file;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isImage(): bool
+    {
+        return in_array($this->getExtension(), self::IMAGE_EXTENSIONS);
     }
 }
