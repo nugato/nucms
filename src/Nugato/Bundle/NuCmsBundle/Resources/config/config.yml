@@ -23,6 +23,14 @@ fos_rest:
             - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: true }
             - { path: '^/', stop: true }
 
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/migrations"
+    namespace: Nugato\NuCmsBundle\Migrations
+    table_name: migration_versions
+    name: Nugato NuCms Migrations
+    organize_migrations: false
+    custom_template: ~
+
 stof_doctrine_extensions:
     orm:
         default:

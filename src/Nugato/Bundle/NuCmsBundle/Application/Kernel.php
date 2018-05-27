@@ -59,6 +59,7 @@ class Kernel extends HttpKernel
             new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Liip\ImagineBundle\LiipImagineBundle(),
+            new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 
             // Nucms bundles
             new \Nugato\Bundle\NuCmsBundle\NugatoNuCmsBundle(),
