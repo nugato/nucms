@@ -21,6 +21,7 @@ use Nugato\Bundle\NuCmsBundle\Service\File\FileUploaderInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @mixin FileUploader
@@ -30,7 +31,7 @@ class FileUploaderSpec extends ObjectBehavior
     function let(Filesystem $filesystem, FileInterface $file, FilenameGeneratorInterface $filenameGenerator): void
     {
         $filesystem->has(Argument::any())->willReturn(false);
-        $realFile = new File(__FILE__);
+        $realFile = new UploadedFile(__FILE__, 'foo.jpg');
 
         $file->getFile()->willReturn($realFile);
         $this->beConstructedWith($filesystem, $filenameGenerator);
@@ -52,8 +53,8 @@ class FileUploaderSpec extends ObjectBehavior
         $filesystem->has('foo.jpg')->willReturn(false);
         $filesystem->delete(Argument::any())->shouldNotBeCalled();
 
-        $filenameGenerator->generate(Argument::type(File::class))->willReturn('123-foo.jpg');
-        $filenameGenerator->generate(Argument::type(File::class))->shouldBeCalled();
+        $filenameGenerator->generate(Argument::type(UploadedFile::class))->willReturn('123-foo.jpg');
+        $filenameGenerator->generate(Argument::type(UploadedFile::class))->shouldBeCalled();
 
         $file->setPath('123-foo.jpg')->shouldBeCalled();
         $file->getTitle()->willReturn(null);

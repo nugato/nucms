@@ -23,11 +23,6 @@ class DashboardController extends Controller
      */
     public function indexAction(): Response
     {
-        $uploader = $this->get('nucms.file.file_uploader');
-//        $filesystem = $this->get('knp_gaufrette.filesystem_map')->get('nucms_file');
-//
-        dump($uploader);
-        die();
         return $this->render('NugatoNuCmsBundle:Admin/Dashboard:index.html.twig');
     }
 }

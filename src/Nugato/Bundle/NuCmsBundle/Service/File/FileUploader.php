@@ -15,7 +15,7 @@ namespace Nugato\Bundle\NuCmsBundle\Service\File;
 
 use Gaufrette\Filesystem;
 use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Webmozart\Assert\Assert;
 
 class FileUploader implements FileUploaderInterface
@@ -32,6 +32,7 @@ class FileUploader implements FileUploaderInterface
 
     /**
      * @param Filesystem $filesystem
+     * @param FilenameGeneratorInterface $filenameGenerator
      */
     public function __construct(Filesystem $filesystem, FilenameGeneratorInterface $filenameGenerator)
     {
@@ -48,10 +49,10 @@ class FileUploader implements FileUploaderInterface
             return;
         }
 
-        /** @var File $realFile */
+        /** @var UploadedFile $realFile */
         $realFile = $file->getFile();
 
-        Assert::isInstanceOf($realFile, File::class);
+        Assert::isInstanceOf($realFile, UploadedFile::class);
 
         if (null !== $file->getPath() && $this->filesystem->has($file->getPath())) {
             $this->remove($file->getPath());

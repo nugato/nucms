@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Service\File;
 
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 final class NameWithUniqueFilenameGenerator implements FilenameGeneratorInterface
 {
-    public function generate(File $file): string
+    public function generate(UploadedFile $file): string
     {
-        return $file->getFilename().'-'.md5(uniqid()).'.'.$file->guessExtension();
+        return $file->getClientOriginalName().'-'.md5(uniqid()).'.'.$file->getClientOriginalExtension();
     }
 }

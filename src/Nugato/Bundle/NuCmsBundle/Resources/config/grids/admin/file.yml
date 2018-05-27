@@ -1,0 +1,37 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_grid:
+    grids:
+        nucms_admin_file:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Nugato\Bundle\NuCmsBundle\Entity\File\File
+            sorting:
+                id: desc
+            fields:
+                id:
+                    type: string
+                    sortable: true
+                title:
+                    type: string
+                    label: nucms.ui.name
+                    sortable: true
+            filters:
+                title:
+                    type: string
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        label: nucms.ui.edit
+                        enabled: true
+                        position: 100
+                        options: { }

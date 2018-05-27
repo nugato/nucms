@@ -21,6 +21,8 @@ nucms:
         updated_at: Zaktualizowano
         navigation: Nawigacja
         navigations: Nawigacje
+        file: Plik
+        files: Pliki
         locales_fields:
             name: Nazwa
         login:
@@ -35,6 +37,7 @@ nucms:
                 locales: Języki
                 taxons: Kategorie
                 navigations: Nawigacja
+                files: Pliki
         taxons: Kategorie
 
 sylius:

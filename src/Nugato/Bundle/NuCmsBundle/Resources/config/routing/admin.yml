@@ -31,3 +31,6 @@ nucms_admin_taxon:
 
 nucms_admin_navigation:
     resource: admin/navigation.yml
+
+nucms_admin_file:
+    resource: admin/file.yml

@@ -15,3 +15,17 @@ services:
         arguments:
             - '@nucms.file.filesystem'
             - '@nucms.file.filename_generator'
+
+    nucms.file.event_listener.file_uploader:
+        class: Nugato\Bundle\NuCmsBundle\EventListener\FileUploaderListener
+        arguments:
+            - '@nucms.file.file_uploader'
+        tags:
+            - { name: kernel.event_listener, event: nucms.file.pre_create, method: uploadFile }
+            - { name: kernel.event_listener, event: nucms.file.pre_update, method: uploadFile }
+
+    nucms.file.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\File\FileType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.file.class%', ['sylius']]

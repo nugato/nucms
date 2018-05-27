@@ -16,7 +16,7 @@ namespace spec\Nugato\Bundle\NuCmsBundle\Service\File;
 use Nugato\Bundle\NuCmsBundle\Service\File\FilenameGeneratorInterface;
 use Nugato\Bundle\NuCmsBundle\Service\File\NameWithUniqueFilenameGenerator;
 use PhpSpec\ObjectBehavior;
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @mixin NameWithUniqueFilenameGenerator
@@ -28,12 +28,11 @@ class NameWithUniqueFilenameGeneratorSpec extends ObjectBehavior
         $this->shouldImplement(FilenameGeneratorInterface::class);
     }
 
-    function it_should_generate_unique_filename(File $file)
+    function it_should_generate_unique_filename()
     {
-        $file->getFilename()->willReturn('foo');
-        $file->guessExtension()->willReturn('jpg');
+        $uploadedFile = new UploadedFile(__FILE__, 'foo.jpg');
 
-        $filename = $this->generate($file);
+        $filename = $this->generate($uploadedFile);
 
         $filename->shouldStartWith('foo');
         $filename->shouldEndWith('.jpg');

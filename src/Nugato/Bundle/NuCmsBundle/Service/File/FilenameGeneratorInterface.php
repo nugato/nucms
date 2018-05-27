@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Service\File;
 
-use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 interface FilenameGeneratorInterface
 {
-    public function generate(File $file): string;
+    public function generate(UploadedFile $file): string;
 }
