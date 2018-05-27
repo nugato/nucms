@@ -16,8 +16,8 @@ services:
             - '@nucms.file.filesystem'
             - '@nucms.file.filename_generator'
 
-    nucms.file.event_listener.file_uploader:
-        class: Nugato\Bundle\NuCmsBundle\EventListener\FileUploaderListener
+    nucms.file.event_listener.file_upload:
+        class: Nugato\Bundle\NuCmsBundle\EventListener\FileUploadListener
         arguments:
             - '@nucms.file.file_uploader'
         tags:

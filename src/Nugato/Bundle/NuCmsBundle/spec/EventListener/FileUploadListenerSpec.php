@@ -14,15 +14,15 @@ declare(strict_types=1);
 namespace spec\Nugato\Bundle\NuCmsBundle\EventListener;
 
 use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
-use Nugato\Bundle\NuCmsBundle\EventListener\FileUploaderListener;
+use Nugato\Bundle\NuCmsBundle\EventListener\FileUploadListener;
 use Nugato\Bundle\NuCmsBundle\Service\File\FileUploaderInterface;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
- * @mixin FileUploaderListener
+ * @mixin FileUploadListener
  */
-class FileUploaderListenerSpec extends ObjectBehavior
+class FileUploadListenerSpec extends ObjectBehavior
 {
     function let(FileUploaderInterface $fileUploader)
     {

@@ -18,7 +18,7 @@ use Nugato\Bundle\NuCmsBundle\Service\File\FileUploaderInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Webmozart\Assert\Assert;
 
-final class FileUploaderListener
+final class FileUploadListener
 {
     /**
      * @var FileUploaderInterface
