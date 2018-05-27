@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
+use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface
+interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface, CodeAwareInterface
 {
     /**
      * @param string $title

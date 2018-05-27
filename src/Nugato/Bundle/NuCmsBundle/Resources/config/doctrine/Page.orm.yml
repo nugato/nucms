@@ -12,6 +12,9 @@ Nugato\Bundle\NuCmsBundle\Entity\Page:
             generator:
                 strategy: AUTO
     fields:
+        code:
+            type: string
+            length: 255
         createdAt:
             type: datetime
             gedmo:
@@ -23,4 +26,8 @@ Nugato\Bundle\NuCmsBundle\Entity\Page:
             gedmo:
                 timestampable:
                     on: update
+    uniqueConstraints:
+        search_idx:
+            columns:
+                - code
     lifecycleCallbacks: {  }

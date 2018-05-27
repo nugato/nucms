@@ -28,6 +28,11 @@ class Page implements PageInterface
      */
     protected $id;
 
+    /**
+     * @var string
+     */
+    protected $code;
+
     public function __construct()
     {
         $this->initializeTranslationsCollection();
@@ -97,5 +102,21 @@ class Page implements PageInterface
     protected function createTranslation(): PageTranslation
     {
         return new PageTranslation();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setCode(?string $code): void
+    {
+        $this->code = $code;
     }
 }

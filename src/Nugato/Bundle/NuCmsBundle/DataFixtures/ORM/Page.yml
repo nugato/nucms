@@ -3,6 +3,7 @@
 
 Nugato\Bundle\NuCmsBundle\Entity\Page:
     page_{1..15}:
+        code: 'page_<current()>'
 
 Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
     page_translation_en_{1..15}:

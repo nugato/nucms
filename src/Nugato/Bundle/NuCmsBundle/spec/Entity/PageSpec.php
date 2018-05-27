@@ -43,5 +43,8 @@ class PageSpec extends ObjectBehavior
 
         $this->setSlug('Slug');
         $this->getSlug()->shouldReturn('Slug');
+
+        $this->setCode('Code');
+        $this->getCode()->shouldReturn('Code');
     }
 }
