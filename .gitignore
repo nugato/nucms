@@ -10,13 +10,10 @@
 /web/bundles
 /web/css
 /web/js
-/web/media
 /var/*
-!/var/.gitkeep
 /vendor
 /node_modules
 /web/upload/*
-!/web/upload/.gitkeep
 
 # Bin
 /bin/*
@@ -28,7 +25,13 @@ docker
 
 # CI
 /etc/build/*
-!/etc/build/.gitkeep
 
 # Deploy
 phploy.ini
+
+# Upload
+/web/media/cache/xs/*
+/web/media/cache/sm/*
+/web/media/cache/md/*
+/web/media/cache/lg/*
+!.gitkeep
