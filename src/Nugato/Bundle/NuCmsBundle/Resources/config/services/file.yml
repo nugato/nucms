@@ -28,6 +28,8 @@ services:
         class: Nugato\Bundle\NuCmsBundle\EventListener\FileRemoveListener
         arguments:
             - '@nucms.file.file_uploader'
+            - '@liip_imagine.cache.manager'
+            - '@liip_imagine.filter.manager'
         tags:
             - { name: doctrine.event_listener, event: postRemove }
 
