@@ -32,4 +32,13 @@ services:
 
     Nugato\Bundle\NuCmsBundle\EventSubscriber\UserLocaleSubscriber:
         arguments: ['@session']
-        tags: [name: kernel.event_subscriber ]
+        tags: [name: kernel.event_subscriber]
+
+    # Fixtures
+    nucms.fixture.locale:
+        class: Nugato\Bundle\NuCmsBundle\Fixture\LocaleFixture
+        arguments:
+            - '@nucms.factory.locale'
+            - '@nucms.manager.locale'
+            - '%locale%'
+        tags: [sylius_fixtures.fixture]

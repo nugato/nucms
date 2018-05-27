@@ -1,0 +1,12 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_fixtures:
+    suites:
+        nucms:
+            listeners:
+                logger: ~
+            fixtures:
+                locale:
+                    options:
+                        locales: ['pl_PL']
