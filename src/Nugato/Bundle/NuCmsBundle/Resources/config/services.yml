@@ -6,6 +6,7 @@ imports:
     - { resource: "services/locale.yml" }
     - { resource: "services/page.yml" }
     - { resource: "services/navigation.yml" }
+    - { resource: "services/file.yml" }
 
 services:
     pagerfanta.view.uikit:

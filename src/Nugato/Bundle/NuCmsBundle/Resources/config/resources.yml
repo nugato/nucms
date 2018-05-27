@@ -7,6 +7,7 @@ imports:
     - { resource: 'resources/page.yml' }
     - { resource: 'resources/taxon.yml' }
     - { resource: 'resources/navigation.yml' }
+    - { resource: 'resources/file.yml' }
 
 sylius_resource:
     translation:

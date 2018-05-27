@@ -1,0 +1,27 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\File\File:
+    type: entity
+    table: nucms_file
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\File\FileRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: true
+        extension:
+            type: string
+            length: 100
+            nullable: true
+        path:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

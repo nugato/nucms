@@ -1,0 +1,38 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    nucms.file.filesystem:
+        class: Gaufrette\Filesystem
+        factory: 'knp_gaufrette.filesystem_map:get'
+        arguments: ['%nucms.file.uploader.filesystem%']
+
+    nucms.file.filename_generator:
+        class: Nugato\Bundle\NuCmsBundle\Service\File\NameWithUniqueFilenameGenerator
+
+    nucms.file.file_uploader:
+        class: Nugato\Bundle\NuCmsBundle\Service\File\FileUploader
+        arguments:
+            - '@nucms.file.filesystem'
+            - '@nucms.file.filename_generator'
+
+    nucms.file.event_listener.file_upload:
+        class: Nugato\Bundle\NuCmsBundle\EventListener\FileUploadListener
+        arguments:
+            - '@nucms.file.file_uploader'
+        tags:
+            - { name: kernel.event_listener, event: nucms.file.pre_create, method: uploadFile }
+            - { name: kernel.event_listener, event: nucms.file.pre_update, method: uploadFile }
+
+    nucms.file.event_listener.file_remove:
+        class: Nugato\Bundle\NuCmsBundle\EventListener\FileRemoveListener
+        arguments:
+            - '@nucms.file.file_uploader'
+        tags:
+            - { name: doctrine.event_listener, event: postRemove }
+
+    nucms.file.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\File\FileType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.file.class%', ['sylius']]

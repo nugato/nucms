@@ -63,6 +63,12 @@ class AdminBuilder implements ContainerAwareInterface
             'extras' => ['icon' => 'sitemap'],
         ]);
 
+        $menu->addChild('file', [
+            'label' => 'nucms.ui.menu.items.files',
+            'route' => 'nucms_admin_file_index',
+            'extras' => ['icon' => 'files-o'],
+        ]);
+
         $this->container->get('event_dispatcher')->dispatch(
             AdminMenuBuilderEvent::BUILDER,
             new AdminMenuBuilderEvent($factory, $menu)

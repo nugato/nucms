@@ -15,6 +15,8 @@
 !/var/.gitkeep
 /vendor
 /node_modules
+/web/upload/*
+!/web/upload/.gitkeep
 
 # Bin
 /bin/*

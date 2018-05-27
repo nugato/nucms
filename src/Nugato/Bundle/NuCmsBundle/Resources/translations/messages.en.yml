@@ -21,6 +21,8 @@ nucms:
         updated_at: Updated at
         navigation: Navigation
         navigations: Navigations
+        file: File
+        files: Files
         locales_fields:
             name: Name
         login:
@@ -35,6 +37,7 @@ nucms:
                 locales: Locales
                 taxons: Categories
                 navigations: Navigations
+                files: Files
         taxons: Categories
 
 sylius:
