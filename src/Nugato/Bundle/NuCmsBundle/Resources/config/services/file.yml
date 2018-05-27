@@ -24,6 +24,13 @@ services:
             - { name: kernel.event_listener, event: nucms.file.pre_create, method: uploadFile }
             - { name: kernel.event_listener, event: nucms.file.pre_update, method: uploadFile }
 
+    nucms.file.event_listener.file_remove:
+        class: Nugato\Bundle\NuCmsBundle\EventListener\FileRemoveListener
+        arguments:
+            - '@nucms.file.file_uploader'
+        tags:
+            - { name: doctrine.event_listener, event: postRemove }
+
     nucms.file.form.type:
         class: Nugato\Bundle\NuCmsBundle\Form\File\FileType
         tags:

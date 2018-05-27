@@ -40,7 +40,7 @@ class FileUploaderListenerSpec extends ObjectBehavior
         FileUploaderInterface $fileUploader,
         GenericEvent $event,
         FileInterface $subject
-    ) {
+    ): void {
         $subject->hasFile()->willReturn(true);
         $event->getSubject()->willReturn($subject);
 
@@ -53,7 +53,7 @@ class FileUploaderListenerSpec extends ObjectBehavior
         FileUploaderInterface $fileUploader,
         GenericEvent $event,
         FileInterface $subject
-    ) {
+    ): void {
         $subject->hasFile()->willReturn(false);
         $event->getSubject()->willReturn($subject);
 

@@ -43,7 +43,7 @@ class File implements FileInterface
     /**
      * {@inheritdoc}
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }

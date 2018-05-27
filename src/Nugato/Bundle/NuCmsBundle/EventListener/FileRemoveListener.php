@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\EventListener;
 
+use Doctrine\ORM\Event\LifecycleEventArgs;
 use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
 use Nugato\Bundle\NuCmsBundle\Service\File\FileUploaderInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
-use Webmozart\Assert\Assert;
 
-final class FileUploaderListener
+final class FileRemoveListener
 {
     /**
      * @var FileUploaderInterface
@@ -30,19 +29,12 @@ final class FileUploaderListener
         $this->fileUploader = $fileUploader;
     }
 
-    public function uploadFile(GenericEvent $event): void
+    public function postRemove(LifecycleEventArgs $event): void
     {
-        $subject = $event->getSubject();
+        $entity = $event->getEntity();
 
-        Assert::isInstanceOf($subject, FileInterface::class);
-
-        $this->uploadSubjectFile($subject);
-    }
-
-    private function uploadSubjectFile(FileInterface $file): void
-    {
-        if ($file->hasFile()) {
-            $this->fileUploader->upload($file);
+        if ($entity instanceof FileInterface) {
+            $this->fileUploader->remove($entity->getPath());
         }
     }
 }
