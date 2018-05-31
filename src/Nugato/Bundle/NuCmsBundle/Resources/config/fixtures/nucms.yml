@@ -5,8 +5,31 @@ sylius_fixtures:
     suites:
         nucms:
             listeners:
+                orm_purger: ~
                 logger: ~
             fixtures:
                 locale:
                     options:
                         locales: ['pl_PL']
+
+                admin_user:
+                    name: "admin_user"
+                    options:
+                        custom:
+                            -
+                                email: "admin@nucms.com"
+                                username: "admin"
+                                password: "nucms"
+                                enabled: true
+                                locale_code: "%locale%"
+                                first_name: "John"
+                                last_name: "Doe"
+                            -
+                                email: "api@nucms.com"
+                                username: "api"
+                                password: "nucms"
+                                enabled: true
+                                api: true
+                                locale_code: "%locale%"
+                                first_name: "John"
+                                last_name: "Api"

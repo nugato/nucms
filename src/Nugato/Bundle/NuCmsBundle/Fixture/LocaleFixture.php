@@ -63,8 +63,8 @@ final class LocaleFixture extends AbstractFixture implements FixtureInterface
     {
         $optionsNode
             ->children()
-            ->arrayNode('locales')
-                ->prototype('scalar');
+                ->arrayNode('locales')
+                    ->scalarPrototype();
     }
 
     public function getName(): string
