@@ -44,7 +44,6 @@
         "behat/mink-goutte-driver": "^1.2",
         "behat/mink-selenium2-driver": "^1.3",
         "behat/symfony2-extension": "^2.1",
-        "doctrine/doctrine-fixtures-bundle": "^2.4",
         "lakion/api-test-case": "^2.0",
         "nelmio/alice": "^2.2",
         "phpspec/phpspec": "^4.0",

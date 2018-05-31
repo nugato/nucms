@@ -1,8 +1,0 @@
-# This file is part of the NuCms package.
-# (c) Jacek Bednarek
-
-Nugato\Bundle\NuCmsBundle\Entity\Locale:
-    locale_en:
-        code: en
-    locale_pl:
-        code: pl

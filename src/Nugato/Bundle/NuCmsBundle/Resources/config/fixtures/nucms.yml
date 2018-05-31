@@ -33,6 +33,16 @@ sylius_fixtures:
                                 first_name: "John"
                                 last_name: "Api"
 
+                navigation:
+                    options:
+                        custom:
+                            main_menu:
+                                name: "Main menu"
+                                code: "main_menu"
+                            footer_menu:
+                                name: "Footer menu"
+                                code: "footer_menu"
+
                 page:
                     options:
                         custom:
