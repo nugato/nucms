@@ -5,7 +5,7 @@ Feature: Managing pages in admin dashboard
     I want to be able to create/update/edit pages
 
     Background:
-        Given There are defined locales "en,pl"
+        Given There are defined locales "en_US,pl_PL"
         And I am login as "admin@nucms.com" identified by "password"
 
     @ui
@@ -13,6 +13,8 @@ Feature: Managing pages in admin dashboard
         Given I want to create a page
         When I specify its title with "Super page"
         And I specify its content with "Some example description"
+        And I specify its slug with "super-page"
+        And I specify its code with "super_page"
         And I create it
         Then I should be notified that it has been successfully created
         And slug should be equals "super-page"

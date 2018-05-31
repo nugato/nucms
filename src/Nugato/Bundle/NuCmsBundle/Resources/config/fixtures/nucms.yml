@@ -13,10 +13,9 @@ sylius_fixtures:
                         locales: ['pl_PL']
 
                 admin_user:
-                    name: "admin_user"
                     options:
                         custom:
-                            -
+                            admin:
                                 email: "admin@nucms.com"
                                 username: "admin"
                                 password: "nucms"
@@ -24,7 +23,7 @@ sylius_fixtures:
                                 locale_code: "%locale%"
                                 first_name: "John"
                                 last_name: "Doe"
-                            -
+                            api:
                                 email: "api@nucms.com"
                                 username: "api"
                                 password: "nucms"
@@ -33,3 +32,33 @@ sylius_fixtures:
                                 locale_code: "%locale%"
                                 first_name: "John"
                                 last_name: "Api"
+
+                page:
+                    options:
+                        custom:
+                            about_us:
+                                code: "about_us"
+                                translations:
+                                    en_US:
+                                        title: "About us"
+                                        slug: "about-os"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "O nas"
+                                        slug: "o-nas"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                            contact:
+                                code: "contact"
+                                translations:
+                                    en_US:
+                                        title: "Contact"
+                                        slug: "contact"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "Kontakt"
+                                        slug: "kontakt"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.

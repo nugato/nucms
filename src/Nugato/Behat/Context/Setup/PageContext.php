@@ -55,6 +55,7 @@ class PageContext implements Context
     {
         /** @var Page $pageEntity */
         $pageEntity = $this->pageFactory->createNew();
+        $pageEntity->setCode($slug);
         $pageEntity->setCurrentLocale($locale);
         $pageEntity->setTitle($slug);
         $pageEntity->setSlug($slug);
