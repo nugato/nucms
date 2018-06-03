@@ -15,3 +15,12 @@ services:
             - '@nucms.factory.navigation'
             - '@nucms.manager.navigation'
         tags: [sylius_fixtures.fixture]
+
+    nucms.fixture.navigation_item:
+        class: Nugato\Bundle\NuCmsBundle\Fixture\NavigationItemFixture
+        arguments:
+            - '@nucms.factory.navigation_item'
+            - '@nucms.factory.navigation_item_translation'
+            - '@nucms.repository.navigation'
+            - '@nucms.manager.navigation_item'
+        tags: [sylius_fixtures.fixture]

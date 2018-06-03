@@ -42,6 +42,56 @@ sylius_fixtures:
                             footer_menu:
                                 name: "Footer menu"
                                 code: "footer_menu"
+                navigation_item:
+                    options:
+                        custom:
+                            #main_menu
+                            about_us:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "About us"
+                                        url: "about-us"
+                                    pl_PL:
+                                        name: "O nas"
+                                        url: "o-nas"
+                            constact:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "Contact"
+                                        url: "contact"
+                                    pl_PL:
+                                        name: "Kontakt"
+                                        url: "kontakt"
+                            offer:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "Offer"
+                                        url: "offer"
+                                    pl_PL:
+                                        name: "Oferta"
+                                        url: "oferta"
+                                children:
+                                    websites:
+                                        navigation: "main_menu"
+                                        translations:
+                                            en_US:
+                                                name: "Websites"
+                                                url: "offer/websites"
+                                            pl_PL:
+                                                name: "Strony internetowe"
+                                                url: "oferta/strony-internetowe"
+                                    stores:
+                                        navigation: "main_menu"
+                                        translations:
+                                            en_US:
+                                                name: "Online stores"
+                                                url: "offer/online-store"
+                                            pl_PL:
+                                                name: "Sklepy internetowe"
+                                                url: "oferta/sklepy-internetowe"
 
                 page:
                     options:

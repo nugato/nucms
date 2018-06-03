@@ -61,6 +61,8 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
         children:
             targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
             mappedBy: parent
+            cascade:
+                - persist
             orderBy:
                 left: ASC
     lifecycleCallbacks: {  }
