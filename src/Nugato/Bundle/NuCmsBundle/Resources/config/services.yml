@@ -4,6 +4,7 @@
 imports:
     - { resource: "services/controller.yml" }
     - { resource: "services/locale.yml" }
+    - { resource: "services/user.yml" }
     - { resource: "services/page.yml" }
     - { resource: "services/navigation.yml" }
     - { resource: "services/file.yml" }

@@ -74,7 +74,7 @@ class ManagingPagesContext extends RawMinkContext implements Context
      */
     public function iSpecifyItsTitleWith(string $title): void
     {
-        $this->createPagePage->specifyTitle($title, 'en');
+        $this->createPagePage->specifyTitle($title, 'en_US');
     }
 
     /**
@@ -84,7 +84,27 @@ class ManagingPagesContext extends RawMinkContext implements Context
      */
     public function iSpecifyItsContentWith(string $content): void
     {
-        $this->createPagePage->specifyContent($content, 'en');
+        $this->createPagePage->specifyContent($content, 'en_US');
+    }
+
+    /**
+     * @When I specify its slug with :slug
+     *
+     * @param string $slug
+     */
+    public function iSpecifyItsSlugWith(string $slug): void
+    {
+        $this->createPagePage->specifySlug($slug, 'en_US');
+    }
+
+    /**
+     * @When I specify its code with :code
+     *
+     * @param string $code
+     */
+    public function iSpecifyItsCodeWith(string $code): void
+    {
+        $this->createPagePage->specifyCode($code);
     }
 
     /**

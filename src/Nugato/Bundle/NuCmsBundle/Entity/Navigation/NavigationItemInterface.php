@@ -68,4 +68,26 @@ interface NavigationItemInterface extends ResourceInterface, TranslatableInterfa
      * @return Collection|NavigationItemInterface[]
      */
     public function getChildren(): Collection;
+
+    /**
+     * @return bool
+     */
+    public function hasChildren(): bool;
+
+    /**
+     * @param NavigationItemInterface $navigationItem
+     *
+     * @return bool
+     */
+    public function hasChild(NavigationItemInterface $navigationItem): bool;
+
+    /**
+     * @param NavigationItemInterface $navigationItem
+     */
+    public function addChild(NavigationItemInterface $navigationItem): void;
+
+    /**
+     * @param NavigationItemInterface $navigationItem
+     */
+    public function removeChild(NavigationItemInterface $navigationItem): void;
 }

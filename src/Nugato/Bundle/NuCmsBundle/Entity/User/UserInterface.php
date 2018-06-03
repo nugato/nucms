@@ -17,7 +17,9 @@ use Sylius\Component\User\Model\UserInterface as BaseUserInterface;
 
 interface UserInterface extends BaseUserInterface
 {
-    public const DEFAULT_ROLE_ADMIN = 'ROLE_ADMIN';
+    public const ROLE_ADMIN_ACCESS = 'ROLE_ADMIN_ACCESS';
+    public const ROLE_API_ACCESS = 'ROLE_API_ACCESS';
+    public const DEFAULT_ROLE_ADMIN = self::ROLE_ADMIN_ACCESS;
 
     /**
      * @return string

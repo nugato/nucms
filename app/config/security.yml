@@ -44,7 +44,8 @@ security:
 
     access_control:
         - { path: "%sylius.security.admin_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMIN }
+        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMIN_ACCESS }
+        - { path: "%sylius.security.api_regex%/.*", role: ROLE_API_ACCESS }
 #        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
 #security:
 #

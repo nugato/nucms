@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
@@ -75,6 +76,8 @@ class NavigationItem implements NavigationItemInterface
     public function __construct()
     {
         $this->initializeTranslationsCollection();
+
+        $this->children = new ArrayCollection();
     }
 
     /**
@@ -163,6 +166,48 @@ class NavigationItem implements NavigationItemInterface
     public function getChildren(): Collection
     {
         return $this->children;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasChildren(): bool
+    {
+        return !$this->children->isEmpty();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasChild(NavigationItemInterface $navigationItem): bool
+    {
+        return $this->children->contains($navigationItem);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addChild(NavigationItemInterface $navigationItem): void
+    {
+        if (!$this->hasChild($navigationItem)) {
+            $this->children->add($navigationItem);
+        }
+
+        if ($this !== $navigationItem->getParent()) {
+            $navigationItem->setParent($this);
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeChild(NavigationItemInterface $navigationItem): void
+    {
+        if ($this->hasChild($navigationItem)) {
+            $navigationItem->setParent(null);
+
+            $this->children->removeElement($navigationItem);
+        }
     }
 
     /**

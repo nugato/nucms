@@ -10,6 +10,7 @@ imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/grids.yml" }
     - { resource: "@NugatoNuCmsBundle/Resources/config/users.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/fixtures.yml" }
     - { resource: "@SyliusTaxonomyBundle/Resources/config/app/config.yml" }
 
 fos_rest:

@@ -27,10 +27,13 @@ class CreatePagePage extends Page implements CreatePagePageInterface
      */
     protected $elements = [
         'Create button' => '.t-create_submit_button',
-        'Title input file - en' => '#nucms_page_translations_en_title',
-        'Title input file - pl' => '#nucms_page_translations_pl_title',
-        'Content input file - en' => '#nucms_page_translations_en_content',
-        'Content input file - pl' => '#nucms_page_translations_pl_content',
+        'Title input file - en_US' => '#nucms_page_translations_en_US_title',
+        'Title input file - pl_PL' => '#nucms_page_translations_pl_PL_title',
+        'Content input file - en_US' => '#nucms_page_translations_en_US_content',
+        'Content input file - pl_PL' => '#nucms_page_translations_pl_PL_content',
+        'Slug input file - en_US' => '#nucms_page_translations_en_US_slug',
+        'Slug input file - pl_PL' => '#nucms_page_translations_pl_PL_slug',
+        'Code input file' => '#nucms_page_code',
     ];
 
     /**
@@ -38,7 +41,7 @@ class CreatePagePage extends Page implements CreatePagePageInterface
      */
     public function specifyTitle(string $title, string $locale): void
     {
-        $this->getElement('Title input file - ' . $locale)->setValue($title);
+        $this->getElement('Title input file - '.$locale)->setValue($title);
     }
 
     /**
@@ -46,7 +49,23 @@ class CreatePagePage extends Page implements CreatePagePageInterface
      */
     public function specifyContent(string $content, string $locale): void
     {
-        $this->getElement('Content input file - ' . $locale)->setValue($content);
+        $this->getElement('Content input file - '.$locale)->setValue($content);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function specifySlug(string $slug, string $locale): void
+    {
+        $this->getElement('Slug input file - '.$locale)->setValue($slug);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function specifyCode(string $code): void
+    {
+        $this->getElement('Code input file')->setValue($code);
     }
 
     /**

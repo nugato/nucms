@@ -1,0 +1,125 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_fixtures:
+    suites:
+        nucms:
+            listeners:
+                orm_purger: ~
+                logger: ~
+            fixtures:
+                locale:
+                    options:
+                        locales: ['pl_PL']
+
+                admin_user:
+                    options:
+                        custom:
+                            admin:
+                                email: "admin@nucms.com"
+                                username: "admin"
+                                password: "nucms"
+                                enabled: true
+                                locale_code: "%locale%"
+                                first_name: "John"
+                                last_name: "Doe"
+                            api:
+                                email: "api@nucms.com"
+                                username: "api"
+                                password: "nucms"
+                                enabled: true
+                                api: true
+                                locale_code: "%locale%"
+                                first_name: "John"
+                                last_name: "Api"
+
+                navigation:
+                    options:
+                        custom:
+                            main_menu:
+                                name: "Main menu"
+                                code: "main_menu"
+                            footer_menu:
+                                name: "Footer menu"
+                                code: "footer_menu"
+
+                navigation_item:
+                    options:
+                        custom:
+                            #main_menu
+                            about_us:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "About us"
+                                        url: "about-us"
+                                    pl_PL:
+                                        name: "O nas"
+                                        url: "o-nas"
+                            constact:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "Contact"
+                                        url: "contact"
+                                    pl_PL:
+                                        name: "Kontakt"
+                                        url: "kontakt"
+                            offer:
+                                navigation: "main_menu"
+                                translations:
+                                    en_US:
+                                        name: "Offer"
+                                        url: "offer"
+                                    pl_PL:
+                                        name: "Oferta"
+                                        url: "oferta"
+                                children:
+                                    websites:
+                                        navigation: "main_menu"
+                                        translations:
+                                            en_US:
+                                                name: "Websites"
+                                                url: "offer/websites"
+                                            pl_PL:
+                                                name: "Strony internetowe"
+                                                url: "oferta/strony-internetowe"
+                                    stores:
+                                        navigation: "main_menu"
+                                        translations:
+                                            en_US:
+                                                name: "Online stores"
+                                                url: "offer/online-store"
+                                            pl_PL:
+                                                name: "Sklepy internetowe"
+                                                url: "oferta/sklepy-internetowe"
+
+                page:
+                    options:
+                        custom:
+                            about_us:
+                                code: "about_us"
+                                translations:
+                                    en_US:
+                                        title: "About us"
+                                        slug: "about-os"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "O nas"
+                                        slug: "o-nas"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                            contact:
+                                code: "contact"
+                                translations:
+                                    en_US:
+                                        title: "Contact"
+                                        slug: "contact"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "Kontakt"
+                                        slug: "kontakt"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.

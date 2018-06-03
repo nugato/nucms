@@ -47,6 +47,7 @@ class Kernel extends HttpKernel
             new \Sylius\Bundle\UserBundle\SyliusUserBundle(),
             new \Sylius\Bundle\LocaleBundle\SyliusLocaleBundle(),
             new \Sylius\Bundle\TaxonomyBundle\SyliusTaxonomyBundle(),
+            new \Sylius\Bundle\FixturesBundle\SyliusFixturesBundle(),
 
             // Other bundles
             new \FOS\RestBundle\FOSRestBundle(),
@@ -69,7 +70,6 @@ class Kernel extends HttpKernel
             $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new \Symfony\Bundle\WebServerBundle\WebServerBundle();
         }

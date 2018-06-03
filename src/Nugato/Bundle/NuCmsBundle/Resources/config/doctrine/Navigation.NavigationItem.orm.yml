@@ -51,6 +51,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
                 - treeParent
         navigation:
             targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
+            inversedBy: items
             joinColumn:
                 name: navigation_id
                 referencedColumnName: id
@@ -60,9 +61,8 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
         children:
             targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
             mappedBy: parent
+            cascade:
+                - persist
             orderBy:
                 left: ASC
-#            orderByField:
-#                name: position
-#                direction: ASC
     lifecycleCallbacks: {  }
