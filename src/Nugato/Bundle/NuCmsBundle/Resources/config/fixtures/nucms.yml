@@ -42,6 +42,7 @@ sylius_fixtures:
                             footer_menu:
                                 name: "Footer menu"
                                 code: "footer_menu"
+
                 navigation_item:
                     options:
                         custom:
