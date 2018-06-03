@@ -1,0 +1,42 @@
+sylius_grid:
+    grids:
+        nucms_admin_taxon:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                    repository:
+                        method: createListQueryBuilder
+            fields:
+                name:
+                    type: string
+                    label: nucms.ui.name
+                    sortable: translation.name
+            filters:
+                code:
+                    type: string
+                    options:
+                        fields: [code]
+                name:
+                    type: string
+                    options:
+                        fields: [translation.name]
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        enabled: true
+                        position: 100
+                        options: { }
+                    delete:
+                        type: delete
+                        enabled: true
+                        position: 101
+                        options: { }
+

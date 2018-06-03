@@ -1,0 +1,11 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    # Fixtures
+    nucms.fixture.admin_user:
+        class: Nugato\Bundle\NuCmsBundle\Fixture\AdminUserFixture
+        arguments:
+            - '@nucms.factory.user'
+            - '@nucms.manager.user'
+        tags: [sylius_fixtures.fixture]

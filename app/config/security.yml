@@ -1,24 +1,72 @@
-# To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+parameters:
+    sylius.security.admin_regex: "^/admin"
+    sylius.security.api_regex: "^/api"
+
 security:
-
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
-
+        nucms_admin_user_provider:
+            id: sylius.admin_user_provider.email_or_name_based
+    encoders:
+        Sylius\Component\User\Model\UserInterface: sha512
     firewalls:
-        # disables authentication for assets and the profiler, adapt it according to your needs
+        admin:
+            switch_user: true
+            context: admin
+            pattern: "%sylius.security.admin_regex%"
+            form_login:
+                provider: nucms_admin_user_provider
+                login_path: nucms_admin_login
+                check_path: nucms_admin_login_check
+                failure_path: nucms_admin_login
+                default_target_path: nucms_admin_dashboard
+                use_forward: false
+                use_referer: true
+                csrf_token_generator: security.csrf.token_manager
+                csrf_parameter: _csrf_admin_security_token
+                csrf_token_id: admin_authenticate
+            remember_me:
+                secret: "%secret%"
+                path: /admin/
+                name: APP_ADMIN_REMEMBER_ME
+                lifetime: 31536000
+                remember_me_parameter: _remember_me
+            logout:
+                path: nucms_admin_logout
+                target: nucms_admin_login
+            anonymous: true
+
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        main:
-            anonymous: ~
-            # activate different ways to authenticate
-
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+        - { path: "%sylius.security.admin_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMIN_ACCESS }
+        - { path: "%sylius.security.api_regex%/.*", role: ROLE_API_ACCESS }
+#        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
+#security:
+#
+#    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+#    providers:
+#        in_memory:
+#            memory: ~
+#
+#    firewalls:
+#        # disables authentication for assets and the profiler, adapt it according to your needs
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+#
+#        main:
+#            anonymous: ~
+#            # activate different ways to authenticate
+#
+#            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+#            #http_basic: ~
+#
+#            # https://symfony.com/doc/current/security/form_login_setup.html
+#            #form_login: ~
+#

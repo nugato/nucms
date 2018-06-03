@@ -1,0 +1,49 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms:
+    ui:
+        page: Strona
+        pages: Strony
+        title: Tytuł
+        name: Nazwa
+        create: Utwórz
+        edit: Edytuj
+        delete: Usuń
+        save: Zapisz
+        locales: Języki
+        createdAt: Utworzono
+        title: Tytuł
+        content: Treść
+        slug: Adres URL
+        code: Kod
+        created_at: Utworzono
+        updated_at: Zaktualizowano
+        navigation: Nawigacja
+        navigations: Nawigacje
+        file: Plik
+        files: Pliki
+        locales_fields:
+            name: Nazwa
+        login:
+            login: Zaloguj
+            logout: Wyloguj
+            header: nucms
+        menu:
+            label: Menu
+            items:
+                dashboard: Panel
+                pages: Strony
+                locales: Języki
+                taxons: Kategorie
+                navigations: Nawigacja
+                files: Pliki
+        taxons: Kategorie
+
+sylius:
+    form:
+        user:
+            email: Login
+    ui:
+        code:
+            Kod

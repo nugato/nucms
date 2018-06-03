@@ -1,0 +1,47 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_grid:
+    grids:
+        nucms_admin_navigation:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
+            sorting:
+                createdAt: desc
+            fields:
+                name:
+                    type: string
+                    label: nucms.ui.name
+                    sortable: true
+                code:
+                    type: string
+                    label: nucms.ui.code
+                    sortable: true
+                createdAt:
+                    type: datetime
+                    label: nucms.ui.created_at
+                    sortable: true
+            filters:
+                code:
+                    type: string
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        label: nucms.ui.edit
+                        enabled: true
+                        position: 100
+                        options: { }
+                    delete:
+                        type: delete
+                        enabled: true
+                        position: 101
+                        options: { }

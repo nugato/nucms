@@ -1,0 +1,23 @@
+{% use "bootstrap_3_layout.html.twig" %}
+
+{% block sylius_resource_autocomplete_choice_row %}
+    {{- form_label(form) -}}
+    <select
+            {{ block('widget_attributes') }}
+            class="form-control nucms-autocomplete"
+            data-url="{{ remote_url }}"
+            data-choice-name="{{ choice_name }}"
+            data-choice-value="{{ choice_value }}"
+            data-criteria-type="{{ remote_criteria_type }}"
+            data-criteria-name="{{ remote_criteria_name }}"
+    >
+        {% if value is not empty %}
+            <option>{{ value }}</option>
+        {% endif %}
+    </select>
+    {{- form_errors(form) -}}
+{% endblock %}
+
+{% block sylius_taxon_autocomplete_choice_row %}
+    {{ form_row(form, {'remote_url': path('nucms_admin_ajax_taxon_by_name_phrase')}) }}
+{% endblock %}

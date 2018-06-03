@@ -1,7 +1,7 @@
 {
     "name": "nugato/nucms",
     "type": "project",
-    "Description": "Cms platform for PHP, based on Symfony framework and Sylius components"
+    "description": "Cms platform for PHP, based on Symfony framework and Sylius components",
     "license": "MIT",
     "homepage": "http://www.nugato.pl",
     "authors": [
@@ -16,10 +16,20 @@
     "require": {
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
+        "doctrine/doctrine-migrations-bundle": "^1.2",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
+        "knplabs/knp-gaufrette-bundle": "~0.5",
+        "knplabs/knp-menu-bundle": "^2.0",
+        "liip/imagine-bundle": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^3.0.2",
+        "sylius/fixtures-bundle": "^1.0",
+        "sylius/grid-bundle": "^1.0",
+        "sylius/locale-bundle": "^1.0",
+        "sylius/resource-bundle": "^1.0",
+        "sylius/taxonomy-bundle": "^1.0",
+        "sylius/user-bundle": "^1.0",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.3.10",
@@ -27,8 +37,21 @@
         "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
+        "behat/behat": "^3.2",
+        "behat/mink": "^1.7",
+        "behat/mink-browserkit-driver": "^1.3",
+        "behat/mink-extension": "^2.3",
+        "behat/mink-goutte-driver": "^1.2",
+        "behat/mink-selenium2-driver": "^1.3",
+        "behat/symfony2-extension": "^2.1",
+        "lakion/api-test-case": "^2.0",
+        "nelmio/alice": "^2.2",
+        "phpspec/phpspec": "^4.0",
+        "phpunit/phpunit": "^6.4",
         "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^3.0"
+        "sensiolabs/behat-page-object-extension": "^2.0",
+        "symfony/phpunit-bridge": "^3.0",
+        "webmozart/assert": "^1.2"
     },
     "scripts": {
         "symfony-scripts": [
@@ -48,23 +71,23 @@
     },
     "autoload": {
         "psr-4": {
-            "AppBundle\\": "src/AppBundle"
+            "Nugato\\Behat\\": "src/Nugato/Behat/",
+            "Nugato\\Bundle\\": "src/Nugato/Bundle/"
         },
-        "classmap": [
-            "app/AppKernel.php",
-            "app/AppCache.php"
+        "exclude-from-classmap": [
+            "src/Nugato/*/*/Tests/"
         ]
     },
+
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Nugato\\Tests\\": "tests/"
         },
-        "files": [
-            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
-        ]
+        "classmap": ["app/AppKernel.php", "app/AppCache.php"]
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-app-dir": "app",
@@ -77,8 +100,5 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": null
-    },
-    "branch-alias": {
-        "dev-master": "0.1.0-dev"
     }
 }

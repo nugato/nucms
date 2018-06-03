@@ -1,0 +1,9 @@
+{% set path = options.link.url|default(path(options.link.route|default(grid.requestConfiguration.getRouteName('delete')), options.link.parameters|default({'id': data.id}))) %}
+
+<form action="{{ path }}" method="post">
+    <button class="btn btn-danger btn-sm t-delete_button" type="submit">
+        {{ (action.label is empty) ? 'nucms.ui.delete'|trans : action.label|trans }}
+    </button>
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token(data.id) }}"/>
+</form>

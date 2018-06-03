@@ -1,0 +1,18 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_resource:
+    resources:
+        nucms.locale:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Locale
+                form: Sylius\Bundle\LocaleBundle\Form\Type\LocaleType
+
+sylius_locale:
+    driver: doctrine/orm
+    locale: "%locale%"
+    resources:
+        locale:
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Locale

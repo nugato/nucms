@@ -10,15 +10,28 @@
 /web/bundles
 /web/css
 /web/js
-/web/media
 /var/*
-!/var/.gitkeep
 /vendor
 /node_modules
+/web/upload/*
+
+# Bin
+/bin/*
+!/bin/console
+docker
 
 # Ide's
 .idea
 
 # CI
 /etc/build/*
-!/etc/build/.gitkeep
+
+# Deploy
+phploy.ini
+
+# Upload
+/web/media/cache/xs/*
+/web/media/cache/sm/*
+/web/media/cache/md/*
+/web/media/cache/lg/*
+!.gitkeep

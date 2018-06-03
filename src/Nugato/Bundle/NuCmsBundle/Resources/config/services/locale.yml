@@ -1,0 +1,44 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    # Locale Contexts
+    nucms.context.locale.request_based_with_default:
+        class: Nugato\Bundle\NuCmsBundle\Context\RequestBasedWithDefaultLocaleContext
+        arguments:
+            - '@request_stack'
+            - '@sylius.locale_provider'
+        tags:
+            - { name: sylius.context.locale, priority: 127 }
+
+    nucms.context.locale.admin_based:
+        class: Nugato\Bundle\NuCmsBundle\Context\AdminBasedLocaleContext
+        arguments:
+            - '@security.token_storage'
+        tags:
+            - { name: sylius.context.locale, priority: 126 }
+
+    # Locale Providers
+    nucms.translation_locale_provider:
+        class: Nugato\Bundle\NuCmsBundle\Provider\TranslationLocaleProvider
+        arguments:
+            - '@sylius.repository.locale'
+            - '%locale%'
+
+    # Events Subscribers
+    Nugato\Bundle\NuCmsBundle\EventSubscriber\LocaleSubscriber:
+        arguments: ['%kernel.default_locale%', '%admin_prefix%']
+        tags: [kernel.event_subscriber]
+
+    Nugato\Bundle\NuCmsBundle\EventSubscriber\UserLocaleSubscriber:
+        arguments: ['@session']
+        tags: [name: kernel.event_subscriber]
+
+    # Fixtures
+    nucms.fixture.locale:
+        class: Nugato\Bundle\NuCmsBundle\Fixture\LocaleFixture
+        arguments:
+            - '@nucms.factory.locale'
+            - '@nucms.manager.locale'
+            - '%locale%'
+        tags: [sylius_fixtures.fixture]

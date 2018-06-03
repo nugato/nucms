@@ -1,0 +1,16 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+imports:
+    - { resource: 'grids/admin/locale.yml' }
+    - { resource: 'grids/admin/page.yml' }
+    - { resource: 'grids/admin/taxon.yml' }
+    - { resource: 'grids/admin/navigation.yml' }
+    - { resource: 'grids/admin/file.yml' }
+
+sylius_grid:
+    templates:
+        action:
+            create: '@NugatoNuCms/Admin/Crud/Action/create.html.twig'
+            update: '@NugatoNuCms/Admin/Crud/Action/update.html.twig'
+            delete: '@NugatoNuCms/Admin/Crud/Action/delete.html.twig'

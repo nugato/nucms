@@ -1,0 +1,12 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius:
+    resource:
+        create: 'Element %resource% został pomyślnie utworzony.'
+        update: 'Dane zostały pomyślnie zapisane.'
+        delete: 'Element %resource% został pomyślnie usunięty.'
+
+# resources
+Page: Strona
+Locale: Język

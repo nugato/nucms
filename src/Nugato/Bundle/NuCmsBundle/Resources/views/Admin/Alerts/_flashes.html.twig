@@ -1,0 +1,14 @@
+{% for label, messages in app.flashes(['success', 'warning', 'error']) %}
+    {% for flash in messages %}
+        <div class="alert alert-{{ label }} t-alert_flashes-{{ label }}">
+            {% set params = flash.parameters %}
+            {% set params = params|merge({'%resource%': params['%resource%']|trans([], 'flashes')}) %}
+
+            {% if flash is iterable %}
+                {{ flash.message|trans(params, 'flashes') }}
+            {% else %}
+                {{ flash|trans({}, 'flashes') }}
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endfor %}

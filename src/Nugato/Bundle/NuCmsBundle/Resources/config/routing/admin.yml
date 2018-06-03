@@ -1,0 +1,36 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_partial:
+    resource: admin/partial.yml
+    prefix: /_partial
+
+nucms_admin_ajax:
+    resource: admin/ajax.yml
+    prefix: /ajax
+    defaults:
+        _format: json
+
+nucms_admin_dashboard:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: NugatoNuCmsBundle:Admin\Dashboard:index
+
+nucms_admin_security:
+    resource: admin/security.yml
+
+nucms_admin_locale:
+    resource: admin/locale.yml
+
+nucms_admin_page:
+    resource: admin/page.yml
+
+nucms_admin_taxon:
+    resource: admin/taxon.yml
+
+nucms_admin_navigation:
+    resource: admin/navigation.yml
+
+nucms_admin_file:
+    resource: admin/file.yml

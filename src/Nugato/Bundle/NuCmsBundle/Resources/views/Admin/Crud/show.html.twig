@@ -1,0 +1,12 @@
+{% extends '@NugatoNuCms/Admin/base.html.twig' %}
+
+{% set metadata = metadata %} {# Metadata about grid (name, applicationName, controllers, factory)#}
+{% set vars = configuration.vars %} {# Additional variables passed from yml #}
+
+{% block content %}
+
+    {% include('@NugatoNuCms/Admin/Alerts/_flashes.html.twig') %}
+
+    {{ dump() }}
+
+{% endblock %}

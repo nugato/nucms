@@ -1,0 +1,33 @@
+{% extends '@NugatoNuCms/Admin/base.html.twig' %}
+
+{% form_theme form '@NugatoNuCms/Admin/Form/theme.html.twig' %}
+
+{% block navbar %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block layout %}
+
+    <div class="mx-auto mt-5" style="width: 500px;">
+        <h1 class="mb-4">{{ 'nucms.ui.login.header'|trans }}</h1>
+
+        {% if error %}
+
+            <div class="alert alert-danger t-error_msg">
+                <p>{{ error.message }}</p>
+            </div>
+
+        {% endif %}
+
+        {{ form_start(form, {'action': path('nucms_admin_login_check'), 'attr': {'novalidate': 'novalidate', 'class': 'uk-form-stacked'}}) }}
+
+        {{ form_row(form._username, {'value': last_username|default(''), 'attr': {'class': 'uk-form-width-large'}}) }}
+        {{ form_row(form._password, {'attr': {'class': 'uk-form-width-large'}}) }}
+
+        <input type="hidden" name="_csrf_admin_security_token" value="{{ csrf_token('admin_authenticate') }}">
+
+        <button class="btn btn-primary t-login_button">{{ 'nucms.ui.login.login'|trans }}</button>
+
+        {{ form_end(form, {'render_rest': false}) }}
+    </div>
+
+{% endblock %}

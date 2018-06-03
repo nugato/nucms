@@ -1,0 +1,34 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+default:
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://nucms.dev/
+            goutte: ~
+            browser_name: chrome
+            selenium2:
+                wd_host: "http://127.0.0.1:4444/wd/hub"
+
+            sessions:
+                my_session:
+                    symfony2: ~
+
+            default_session: my_session
+            javascript_session: selenium2
+
+        Behat\Symfony2Extension:
+            kernel:
+                class: AppKernel
+                path: app/AppKernel.php
+                bootstrap: vendor/autoload.php
+                env: test
+                debug: true
+
+        SensioLabs\Behat\PageObjectExtension: ~
+
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false

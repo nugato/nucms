@@ -1,0 +1,17 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin:
+    prefix: /admin
+    resource: routing/admin.yml
+
+nucms_web:
+    prefix: /
+    resource: routing/web.yml
+
+nucms_api:
+    prefix: /api/v1
+    resource: routing/api.yml
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.yaml"

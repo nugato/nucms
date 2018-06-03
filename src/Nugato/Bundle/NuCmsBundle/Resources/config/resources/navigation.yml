@@ -1,0 +1,20 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_resource:
+    resources:
+        nucms.navigation:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
+                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
+                repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepository
+
+        nucms.navigation_item:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+                repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation

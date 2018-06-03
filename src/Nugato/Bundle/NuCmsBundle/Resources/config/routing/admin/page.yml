@@ -1,0 +1,14 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_page:
+    type: sylius.resource
+    resource: |
+        alias: nucms.page
+        section: admin
+        templates: NugatoNuCmsBundle:Admin/Crud
+        grid: nucms_admin_page
+        redirect: update
+        vars:
+            all:
+                header: nucms.ui.pages

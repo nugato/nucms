@@ -1,0 +1,24 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_resource:
+    resources:
+        nucms.taxon:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonType
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation
+                    form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonTranslationType
+
+sylius_taxonomy:
+    driver: doctrine/orm
+    resources:
+        taxon:
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation

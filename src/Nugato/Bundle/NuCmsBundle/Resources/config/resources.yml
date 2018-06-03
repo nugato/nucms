@@ -1,0 +1,14 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+imports:
+    - { resource: 'resources/user.yml' }
+    - { resource: 'resources/locale.yml' }
+    - { resource: 'resources/page.yml' }
+    - { resource: 'resources/taxon.yml' }
+    - { resource: 'resources/navigation.yml' }
+    - { resource: 'resources/file.yml' }
+
+sylius_resource:
+    translation:
+        locale_provider: 'nucms.translation_locale_provider'

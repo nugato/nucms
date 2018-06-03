@@ -1,0 +1,34 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
+    type: entity
+    table: nucms_page_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+            nullable: true
+        slug:
+            type: string
+            length: 255
+            unique: true
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    updatable: false
+                    fields:
+                        - title
+    indexes:
+        search_idx:
+            columns: title, slug, locale
+    lifecycleCallbacks: {  }

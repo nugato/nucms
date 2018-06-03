@@ -1,0 +1,70 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+parameters:
+    admin_prefix: 'admin'
+    nucms.file.uploader.filesystem: nucms_file
+
+imports:
+    - { resource: "@NugatoNuCmsBundle/Resources/config/services.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/resources.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/grids.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/users.yml" }
+    - { resource: "@NugatoNuCmsBundle/Resources/config/fixtures.yml" }
+    - { resource: "@SyliusTaxonomyBundle/Resources/config/app/config.yml" }
+
+fos_rest:
+    exception: ~
+    view:
+        formats:
+            json: true
+        empty_content: 204
+    format_listener:
+        rules:
+            - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: true }
+            - { path: '^/', stop: true }
+
+doctrine_migrations:
+    dir_name: "%kernel.root_dir%/migrations"
+    namespace: Nugato\NuCmsBundle\Migrations
+    table_name: migration_versions
+    name: Nugato NuCms Migrations
+    organize_migrations: false
+    custom_template: ~
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            sluggable: true
+            tree: true
+
+knp_gaufrette:
+    adapters:
+        nucms_file:
+            local:
+                directory: "%kernel.root_dir%/../web/upload"
+                create: true
+    filesystems:
+        nucms_file:
+            adapter: '%nucms.file.uploader.filesystem%'
+            alias: nucms_filesystem
+
+liip_imagine:
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.root_dir%/../web/upload"
+    filter_sets:
+        xs:
+            filters:
+                thumbnail: { size: [40, 40], mode: inset }
+        sm:
+            filters:
+                thumbnail: { size: [120, 90], mode: inset }
+        md:
+            filters:
+                thumbnail: { size: [240, 180], mode: inset }
+        lg:
+            filters:
+                thumbnail: { size: [640, 480], mode: inset }

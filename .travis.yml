@@ -1,0 +1,49 @@
+language: php
+
+dist: precise
+
+sudo: required
+
+php:
+    - 7.1
+
+branches:
+    only:
+    - master
+    - dev
+
+env:
+    global:
+        - NUCMS_CACHE_DIR=$HOME/.nucms-cache
+        - NUCMS_BUILD_DIR=etc/build
+        - TRAVIS_NODE_VERSION="7.5"
+
+cache:
+    yarn: true
+    directories:
+        - ~/.composer/cache/files
+        - ~/.cache/pip
+        - vendor
+        - node_modules
+        - NUCMS_CACHE_DIR
+
+install:
+    - composer install
+
+before_script:
+    # Create config files
+    - cp phpspec.yml.dist phpspec.yml
+    - cp app/config/parameters.yml.travis app/config/parameters.yml
+
+    # Build database and assets
+    - bin/console doctrine:database:create --env=test
+    - bin/console doctrine:schema:create --env=test
+    - bin/console assets:install web --env=test
+
+    # Run webserver
+    - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1 &
+
+script:
+    - composer validate --strict
+    - bin/phpspec run --no-interaction -f dot
+    - bin/behat --strict -vvv --no-interaction || bin/behat --strict -vvv --no-interaction --rerun
