@@ -18,12 +18,10 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 interface NavigationItemRepositoryInterface extends RepositoryInterface
 {
     /**
-     * {@inheritdoc}
+     * @param string $navigationId
+     * @param string $locale
+     *
+     * @return array
      */
-    public function getTreeByNavigationAndLocale(
-        string $navigationId,
-        string $locale,
-        array $orderBy = null,
-        array $treeOptions = ['decorate' => false]
-    ): array;
+    public function getTreeByNavigationAndLocale(string $navigationId, string $locale): array;
 }

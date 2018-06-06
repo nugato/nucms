@@ -41,38 +41,26 @@ class NavigationItemRepository extends TranslatableEntityRepository implements N
     /**
      * {@inheritdoc}
      */
-    public function getTreeByNavigationAndLocale(
-        string $navigationId,
-        string $locale,
-        array $orderBy = null,
-        array $treeOptions = ['decorate' => false]
-    ): array {
-        $queryBuilder = $this->createQueryBuilder('o')
-            ->addSelect('translation')
-            ->innerJoin(
-                'o.translations',
-                'translation',
-                'WITH',
-                'translation.locale = :locale'
-            )
+    public function getTreeByNavigationAndLocale(string $navigationId, string $locale): array
+    {
+        $queryBuilder = $this->createQueryBuilderWithTranslation($locale);
+        $queryBuilder
+            ->orderBy('o.root, o.left', 'ASC')
             ->where('o.navigation = :navigation')
-            ->setParameter('locale', $locale)
             ->setParameter('navigation', (int)$navigationId);
 
-        if (!is_null($orderBy)) {
-            $queryBuilder->orderBy(key($orderBy[0]), $orderBy[0]);
-        }
-
-        $query = $queryBuilder->getQuery();
-        $items = $query->getArrayResult();
+        $items = $queryBuilder->getQuery()->getArrayResult();
 
         foreach ($items as &$item) {
             $item = $this->prepareItem($item);
         }
 
-        return $this->buildTree($items, $treeOptions);
+        return $this->buildTree($items, []);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     private function prepareItem(array $item): array
     {
         $translation = reset($item['translations']);
@@ -84,8 +72,15 @@ class NavigationItemRepository extends TranslatableEntityRepository implements N
             }
         }
 
-
         return $item;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createPaginator(array $criteria = [], array $sorting = []): iterable
+    {
+        [];
     }
 
     /**

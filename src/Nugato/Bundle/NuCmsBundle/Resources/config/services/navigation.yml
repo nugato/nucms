@@ -22,6 +22,7 @@ services:
 
     # Repository
     nucms.repository.navigation.class_metadata:
+        public: false
         class: Doctrine\ORM\Mapping\ClassMetadata
         factory: 'doctrine.orm.default_entity_manager:getClassMetadata'
         arguments:
@@ -34,22 +35,12 @@ services:
             - '@nucms.repository.navigation.class_metadata'
             - '@stof_doctrine_extensions.listener.tree'
 
-#    # Factory
-#    nucms.factory.navigation_item_custom:
-#        class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
-#        arguments:
-#            - '@nucms.factory.navigation_item'
-
     nucms.custom_factory.navigation_item:
+        public: false
         class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
         decorates: nucms.factory.navigation_item
         arguments: ['@nucms.custom_factory.navigation_item.inner']
         decoration-priority: "256"
-        public: false
-
-#    <service id="sylius.custom_factory.taxon" class="Sylius\Component\Taxonomy\Factory\TaxonFactory" decorates="sylius.factory.taxon" decoration-priority="256" public="false">
-#        <argument type="service" id="sylius.custom_factory.taxon.inner" />
-#    </service>
 
     # Fixtures
     nucms.fixture.navigation:
