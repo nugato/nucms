@@ -2,11 +2,54 @@
 # (c) Jacek Bednarek
 
 services:
+    # Form
     nucms.navigation.form.type:
         class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation.class%', ['sylius']]
+
+    nucms.navigation_item.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.navigation_item.class%', ['sylius']]
+    nucms.navigation_item_translation.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemTranslationType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.navigation_item_translation.class%', ['sylius']]
+
+    # Repository
+    nucms.repository.navigation.class_metadata:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        factory: 'doctrine.orm.default_entity_manager:getClassMetadata'
+        arguments:
+            - Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+
+    nucms.repository.navigation_item:
+        class: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@nucms.repository.navigation.class_metadata'
+            - '@stof_doctrine_extensions.listener.tree'
+
+#    # Factory
+#    nucms.factory.navigation_item_custom:
+#        class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
+#        arguments:
+#            - '@nucms.factory.navigation_item'
+
+    nucms.custom_factory.navigation_item:
+        class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
+        decorates: nucms.factory.navigation_item
+        arguments: ['@nucms.custom_factory.navigation_item.inner']
+        decoration-priority: "256"
+        public: false
+
+#    <service id="sylius.custom_factory.taxon" class="Sylius\Component\Taxonomy\Factory\TaxonFactory" decorates="sylius.factory.taxon" decoration-priority="256" public="false">
+#        <argument type="service" id="sylius.custom_factory.taxon.inner" />
+#    </service>
 
     # Fixtures
     nucms.fixture.navigation:

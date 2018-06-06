@@ -1,0 +1,10 @@
+{% extends '@NugatoNuCms/Admin/Crud/update.html.twig' %}
+
+{% block content %}
+
+    {{ parent() }}
+
+    <br>
+    {{ render(path('nucms_admin_partial_navigation_items', {'navigationId': resource.id})) }}
+
+{% endblock %}

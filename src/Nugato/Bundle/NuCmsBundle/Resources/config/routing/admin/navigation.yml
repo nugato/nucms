@@ -6,6 +6,32 @@ nucms_admin_navigation:
     resource: |
         alias: nucms.navigation
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Crud
+        templates: NugatoNuCmsBundle:Admin/Navigation
         grid: nucms_admin_navigation
         redirect: update
+
+nucms_admin_navigation_item_update:
+    path: /navigations-item/{id}/edit
+    methods: [GET, PUT]
+    defaults:
+        _controller: nucms.controller.navigation_item:updateAction
+        _sylius:
+            section: admin
+            template: NugatoNuCmsBundle:Admin/Crud:update.html.twig
+            redirect: nucms_admin_navigation_item_update
+
+nucms_admin_navigation_item_create:
+    path: /navigations/{navigationId}/items/new/{parentId}
+    methods: [GET, POST]
+    defaults:
+        parentId: 0
+        _controller: nucms.controller.navigation_item:createAction
+        _sylius:
+            section: admin
+            template: NugatoNuCmsBundle:Admin/Crud:create.html.twig
+            redirect: nucms_admin_navigation_index
+            factory:
+                method: createForNavigation
+                arguments:
+                    - 'expr:notFoundOnNull(service("nucms.repository.navigation").find($navigationId))'
+                    - "expr:service('nucms.repository.navigation_item').find($parentId)"

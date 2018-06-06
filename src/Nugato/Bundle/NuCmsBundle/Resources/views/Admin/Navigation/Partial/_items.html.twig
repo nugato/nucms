@@ -1,0 +1,22 @@
+{% import _self as tree %}
+
+{% macro render(items) %}
+    {% import _self as tree %}
+
+    <ul>
+        {% for item in items %}
+            <li class="item">
+                <a href="{{ path('nucms_admin_navigation_item_update', {'id': item.id}) }}">
+                    {{ item.name }}
+                </a>
+                <div class="list">
+                    {{ tree.render(item.__children) }}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{{ tree.render(navigation_items) }}
+
+{{ dump() }}

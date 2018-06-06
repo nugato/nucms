@@ -16,6 +16,7 @@ nucms:
         title: Tytuł
         content: Treść
         slug: Adres URL
+        url: Adres URL
         code: Kod
         created_at: Utworzono
         updated_at: Zaktualizowano
