@@ -29,7 +29,9 @@ nucms_admin_navigation_item_create:
         _sylius:
             section: admin
             template: NugatoNuCmsBundle:Admin/Crud:create.html.twig
-            redirect: nucms_admin_navigation_index
+            redirect:
+                route: nucms_admin_navigation_update
+                parameters: { id: $navigationId }
             factory:
                 method: createForNavigation
                 arguments:

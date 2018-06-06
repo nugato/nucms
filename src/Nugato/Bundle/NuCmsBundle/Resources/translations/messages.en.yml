@@ -8,6 +8,7 @@ nucms:
         title: Title
         name: Name
         create: Create
+        add: Add
         edit: Edit
         delete: Delete
         save: Save

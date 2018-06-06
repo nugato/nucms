@@ -1,22 +1,22 @@
 {% import _self as tree %}
 
-{% macro render(items) %}
+{% macro render(items, parent) %}
     {% import _self as tree %}
 
-    <ul>
+    <ul {% if parent is null %}class="list-group"{% endif %}>
         {% for item in items %}
-            <li class="item">
+            <li class="list-group-item">
                 <a href="{{ path('nucms_admin_navigation_item_update', {'id': item.id}) }}">
                     {{ item.name }}
                 </a>
-                <div class="list">
-                    {{ tree.render(item.__children) }}
-                </div>
+                <a href="{{ path('nucms_admin_navigation_item_create', {'navigationId': app.request.get('navigationId'), 'parentId': item.id }) }}" class="btn btn-success btn-sm">{{ 'nucms.ui.add'|trans }}</a>
+
+                {{ tree.render(item.__children, item.id) }}
             </li>
         {% endfor %}
     </ul>
 {% endmacro %}
 
-{{ tree.render(navigation_items) }}
+<a href="{{ path('nucms_admin_navigation_item_create', {'navigationId': app.request.get('navigationId'), 'parentId': 0 }) }}" class="btn btn-success btn-sm">{{ 'nucms.ui.add'|trans }}</a>
 
-{{ dump() }}
+{{ tree.render(navigation_items, null) }}

@@ -15,5 +15,7 @@ nucms_admin_partial_navigation_items:
             repository:
                 method: getTreeByNavigationAndLocale
                 arguments: [$navigationId, '%locale%']
+            vars:
+                navigationId: $navigationId
     requirements:
         id: \d+
