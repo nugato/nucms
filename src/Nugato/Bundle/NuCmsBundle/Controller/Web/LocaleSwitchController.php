@@ -31,20 +31,12 @@ class LocaleSwitchController extends Controller
      */
     private $localeProvider;
 
-
-    /**
-     * @param LocaleContextInterface $localeContext
-     * @param LocaleProviderInterface $localeProvider
-     */
     public function __construct(LocaleContextInterface $localeContext, LocaleProviderInterface $localeProvider)
     {
         $this->localeContext = $localeContext;
         $this->localeProvider = $localeProvider;
     }
 
-    /**
-     * @return Response
-     */
     public function renderSwitch(): Response
     {
         return $this->render(
@@ -56,11 +48,6 @@ class LocaleSwitchController extends Controller
         );
     }
 
-    /**
-     * @param string|null $code
-     *
-     * @return Response
-     */
     public function switch(?string $code = null): Response
     {
         $defaultLocale = $this->localeProvider->getDefaultLocaleCode();
