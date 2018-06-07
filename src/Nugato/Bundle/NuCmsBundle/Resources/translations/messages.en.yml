@@ -42,6 +42,9 @@ nucms:
                 files: Files
         taxons: Categories
 
+    web:
+        search: Search
+
 sylius:
     form:
         user:
