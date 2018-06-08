@@ -16,3 +16,11 @@ services:
             - '@nucms.context.locale.request_based_with_default'
             - '@sylius.locale_provider'
         tags: ['controller.service_arguments']
+
+    nucms.controller.web.navigation:
+        class: Nugato\Bundle\NuCmsBundle\Controller\Web\NavigationController
+        arguments:
+            - '@nucms.context.locale.request_based_with_default'
+            - '@nucms.repository.navigation'
+            - '@nucms.repository.navigation_item'
+        tags: ['controller.service_arguments']

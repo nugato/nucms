@@ -40,7 +40,7 @@ class LocaleSwitchController extends Controller
     public function renderSwitch(): Response
     {
         return $this->render(
-            '@NugatoNuCms/Web/Menu/_localeSwitch.html.twig',
+            '@NugatoNuCms/Web/Navigation/_localeSwitch.html.twig',
             [
                 'active' => $this->localeContext->getLocaleCode(),
                 'locales' => $this->localeProvider->getAvailableLocalesCodes(),

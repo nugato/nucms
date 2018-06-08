@@ -21,5 +21,4 @@ nucms_web_locale_switch:
     path: /locale-switch/{code}
     methods: [GET]
     defaults:
-#        _controller: NugatoNuCmsBundle:Web\LocaleSwitch:render
         _controller: nucms.controller.web.locale_switch:switch
