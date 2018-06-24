@@ -20,7 +20,11 @@
 {% block navbar %}
     {% include '@NugatoNuCms/Web/_navbar.html.twig' %}
 {% endblock %}
-{% block content %}
+{% block content_wrapper %}
+    {% block content %}{% endblock %}
+{% endblock %}
+{% block footer %}
+    {% include '@NugatoNuCms/Web/_footer.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}

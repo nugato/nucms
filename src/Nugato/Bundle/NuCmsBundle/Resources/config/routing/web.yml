@@ -12,6 +12,12 @@ nucms_web_homepage_locale:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 
 nucms_web_single_page:
+    path: /{slug}
+    defaults: { _controller: nucms.controller.web.page:singlePage, _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_single_page_locale:
     path: /{_locale}/{slug}
     defaults: { _controller: nucms.controller.web.page:singlePage, _locale: '%locale%' }
     requirements:

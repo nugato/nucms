@@ -39,4 +39,14 @@ interface PageInterface extends SlugAwareInterface, ResourceInterface, Translata
      * @return string
      */
     public function getContent(): ?string;
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getCreatedAt(): ?\DateTimeInterface;
+
+    /**
+     * @return \DateTimeInterface|null
+     */
+    public function getUpdatedAt(): ?\DateTimeInterface;
 }

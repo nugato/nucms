@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository;
 
+use Doctrine\ORM\NoResultException;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 
 class PageRepository extends TranslatableEntityRepository implements PageRepositoryInterface
@@ -27,6 +28,10 @@ class PageRepository extends TranslatableEntityRepository implements PageReposit
             ->where('translation.slug = :slug')
             ->setParameter('slug', $slug);
 
-        return $queryBuilder->getQuery()->getSingleResult();
+        try {
+            return $queryBuilder->getQuery()->getSingleResult();
+        } catch (NoResultException $exception) {
+            return null;
+        }
     }
 }
