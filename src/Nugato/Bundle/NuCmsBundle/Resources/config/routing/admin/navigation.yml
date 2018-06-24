@@ -37,3 +37,16 @@ nucms_admin_navigation_item_create:
                 arguments:
                     - 'expr:notFoundOnNull(service("nucms.repository.navigation").find($navigationId))'
                     - "expr:service('nucms.repository.navigation_item').find($parentId)"
+
+nucms_admin_navigation_item_delete:
+    path: /navigations/{navigationId}/items/delete/{id}
+    methods: [DELETE]
+    defaults:
+        _controller: nucms.controller.navigation_item:deleteAction
+        _sylius:
+            section: admin
+            criteria:
+                id: $id
+            redirect:
+                route: nucms_admin_navigation_update
+                parameters: { id: $navigationId }
