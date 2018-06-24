@@ -102,7 +102,7 @@ sylius_fixtures:
                                 translations:
                                     en_US:
                                         title: "About us"
-                                        slug: "about-os"
+                                        slug: "about-us"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
                                     pl_PL:
