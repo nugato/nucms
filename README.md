@@ -7,7 +7,7 @@
         <br>
         Dev:
         <a href="https://travis-ci.org/nugato/nucms" title="Build status" target="_blank">
-            <img src="https://travis-ci.org/nugato/nucms.svg?branch=dev" />
+            <img src="https://travis-ci.org/nugato/nucms.svg?branch=develop" />
         </a>
     </p> 
 </h1>

@@ -51,8 +51,8 @@ class NavigationController extends Controller
     {
         /** @var NavigationInterface $navigation */
         $navigation = $this->navigationRepository->findOneBy(['code' => $code]);
-        if (!$navigation) {
-            $this->createNotFoundException();
+        if (is_null($navigation)) {
+            return new Response('');
         }
 
         $navigationItems = $this->navigationItemRepository->getTreeByNavigationAndLocale(
