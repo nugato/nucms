@@ -10,7 +10,7 @@ php:
 branches:
     only:
     - master
-    - dev
+    - develop
 
 env:
     global:
