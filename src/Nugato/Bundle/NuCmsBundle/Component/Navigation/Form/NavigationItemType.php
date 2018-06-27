@@ -11,13 +11,13 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Form\Navigation;
+namespace Nugato\Bundle\NuCmsBundle\Component\Navigation\Form;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class NavigationItemTranslationType extends AbstractResourceType
+final class NavigationItemType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
@@ -25,8 +25,9 @@ final class NavigationItemTranslationType extends AbstractResourceType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, ['label' => 'nucms.ui.name'])
-            ->add('url', TextType::class, ['label' => 'nucms.ui.url']);
+            ->add('translations', ResourceTranslationsType::class, [
+                'entry_type' => NavigationItemTranslationType::class,
+            ]);
     }
 
     /**
@@ -34,6 +35,6 @@ final class NavigationItemTranslationType extends AbstractResourceType
      */
     public function getBlockPrefix()
     {
-        return 'nucms_navigation_item_translation';
+        return 'nucms_navigation_item';
     }
 }

@@ -1,9 +1,9 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
+Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem:
     type: entity
-    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationItemRepository
     table: nucms_navigation_item
     gedmo:
         tree:
@@ -31,7 +31,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
                 - treeLevel
     manyToOne:
         root:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
             joinColumn:
                 name: tree_root
                 referencedColumnName: id
@@ -40,7 +40,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
             gedmo:
                 - treeRoot
         parent:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
             inversedBy: children
             joinColumn:
                 name: parent_id
@@ -50,7 +50,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
             gedmo:
                 - treeParent
         navigation:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\Navigation
             inversedBy: items
             joinColumn:
                 name: navigation_id
@@ -59,7 +59,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem:
                 onDelete: CASCADE
     oneToMany:
         children:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
             mappedBy: parent
             cascade:
                 - persist

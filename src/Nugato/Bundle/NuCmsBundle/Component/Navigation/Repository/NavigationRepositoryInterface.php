@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Repository\Navigation;
+namespace Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository;
 
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-class NavigationRepository extends EntityRepository implements NavigationRepositoryInterface
+interface NavigationRepositoryInterface extends RepositoryInterface
 {
 
 }

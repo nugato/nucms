@@ -6,17 +6,17 @@ sylius_resource:
         nucms.navigation:
             driver: doctrine/orm
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation
-                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
-                repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepository
+                model: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\Navigation
+                form: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationType
+                repository: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationRepository
 
         nucms.navigation_item:
             driver: doctrine/orm
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
-                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
-                repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+                model: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
+                form: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationItemType
+                repository: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationItemRepository
             translation:
                 classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation
-                    form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemTranslationType
+                    model: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItemTranslation
+                    form: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationItemTranslationType

@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Entity\Navigation;
+namespace Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Sylius\Component\Resource\Model\ResourceInterface;

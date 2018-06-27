@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
-use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationInterface;
-use Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepositoryInterface;
-use Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepositoryInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationItemRepositoryInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationRepositoryInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;

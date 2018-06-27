@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Form\Navigation;
+namespace Nugato\Bundle\NuCmsBundle\Component\Navigation\Form;
 
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;

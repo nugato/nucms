@@ -1,10 +1,10 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation:
+Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\Navigation:
     type: entity
     table: nucms_navigation
-    repositoryClass: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationRepository
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationRepository
     id:
         id:
             type: integer
@@ -31,7 +31,7 @@ Nugato\Bundle\NuCmsBundle\Entity\Navigation\Navigation:
                     on: update
     oneToMany:
         items:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
             mappedBy: navigation
     uniqueConstraints:
         search_idx:

@@ -11,11 +11,11 @@
 
 declare(strict_types=1);
 
-namespace spec\Nugato\Bundle\NuCmsBundle\Entity\Navigation;
+namespace spec\Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity;
 
-use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationInterface;
-use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem;
-use Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem;
+use Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItemInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Taxonomy\Model\Taxon;
 
