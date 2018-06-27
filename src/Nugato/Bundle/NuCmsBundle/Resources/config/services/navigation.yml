@@ -40,7 +40,6 @@ services:
         class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
         decorates: nucms.factory.navigation_item
         arguments: ['@nucms.custom_factory.navigation_item.inner']
-        decoration-priority: "256"
 
     # Fixtures
     nucms.fixture.navigation:
