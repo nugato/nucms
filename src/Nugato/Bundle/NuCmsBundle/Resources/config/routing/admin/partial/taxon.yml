@@ -1,7 +1,6 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-# Partial - tree
 nucms_admin_partial_taxon_tree:
     path: /tree
     methods: [GET]

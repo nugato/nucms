@@ -1,5 +1,5 @@
+{% import '@NugatoNuCms/Admin/Macro/button.html.twig' as button %}
+
 {% set path = options.link.url|default(path(options.link.route|default(grid.requestConfiguration.getRouteName('create')))) %}
 
-<a href="{{ path }}" class="btn btn-success">
-    {{ (action.label is empty) ? 'nucms.ui.create'|trans : action.label|trans }}
-</a>
+{{ button.buttonCreate(path, data, action.label) }}

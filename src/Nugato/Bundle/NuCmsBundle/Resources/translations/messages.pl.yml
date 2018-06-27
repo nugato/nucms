@@ -8,6 +8,7 @@ nucms:
         title: Tytuł
         name: Nazwa
         create: Utwórz
+        add: Dodaj
         edit: Edytuj
         delete: Usuń
         save: Zapisz
@@ -16,6 +17,7 @@ nucms:
         title: Tytuł
         content: Treść
         slug: Adres URL
+        url: Adres URL
         code: Kod
         created_at: Utworzono
         updated_at: Zaktualizowano
@@ -39,6 +41,9 @@ nucms:
                 navigations: Nawigacja
                 files: Pliki
         taxons: Kategorie
+
+    web:
+        search: Szukaj
 
 sylius:
     form:

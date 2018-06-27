@@ -1,0 +1,16 @@
+{% if locales|length > 1 %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="switchLocaleButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ active }}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="switchLocaleButton">
+            {% for code in locales %}
+                {% if code is not same as(active) %}
+                    <a href="{{ path('nucms_web_locale_switch', {'code': code}) }}" class="dropdown-item">
+                        {{ code }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

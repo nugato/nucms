@@ -1,0 +1,21 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_partial_navigation_items:
+    path: /{navigationId}/items
+    methods: [GET]
+    defaults:
+        _controller: nucms.controller.navigation_item:indexAction
+        _sylius:
+            paginate: false
+            sortable: true
+            sorting:
+                id: desc
+            template: 'NugatoNuCmsBundle:Admin/Navigation/Partial/:_items.html.twig'
+            repository:
+                method: getTreeByNavigationAndLocale
+                arguments: [$navigationId, '%locale%']
+            vars:
+                navigationId: $navigationId
+    requirements:
+        id: \d+

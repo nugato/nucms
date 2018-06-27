@@ -1,0 +1,21 @@
+{% macro buttonDelete(path, data, label, class = '') %}
+    <form action="{{ path }}" method="post">
+        <button class="btn btn-danger t-delete_button {{ class }}" type="submit">
+            {{ (label is empty) ? 'nucms.ui.delete'|trans : label|trans }}
+        </button>
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token(data.id) }}"/>
+    </form>
+{% endmacro %}
+
+{% macro buttonCreate(path, data, label, class = '') %}
+    <a href="{{ path }}" class="btn btn-success {{ class }}">
+        {{ (label is empty) ? 'nucms.ui.create'|trans : label|trans }}
+    </a>
+{% endmacro %}
+
+{% macro buttonUpdate(path, data, label, class = '') %}
+    <a href="{{ path }}" class="btn btn-primary btn-sm t-update_button {{ class }}">
+        {{ (label is empty) ? 'nucms.ui.edit'|trans : label|trans }}
+    </a>
+{% endmacro %}

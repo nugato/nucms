@@ -1,0 +1,25 @@
+{% import _self as tree %}
+
+{% macro render(items, parent) %}
+    {% import '@NugatoNuCms/Admin/Macro/button.html.twig' as button %}
+    {% import _self as tree %}
+
+    <ul {% if parent is null %}class="list-group"{% endif %}>
+        {% for item in items %}
+            <li class="list-group-item">
+                <a href="{{ path('nucms_admin_navigation_item_update', {'id': item.id}) }}">
+                    {{ item.name }}
+                </a>
+
+                {{ button.buttonCreate(path('nucms_admin_navigation_item_create', {'navigationId': app.request.get('navigationId'), 'parentId': item.id }), item, 'nucms.ui.add'|trans, 'btn-sm') }}
+                {{ button.buttonDelete(path('nucms_admin_navigation_item_delete', {'navigationId': app.request.get('navigationId'), 'id': item.id}), item, '', 'btn-sm') }}
+
+                {{ tree.render(item.__children, item.id) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+<a href="{{ path('nucms_admin_navigation_item_create', {'navigationId': app.request.get('navigationId'), 'parentId': 0 }) }}" class="btn btn-success btn-sm">{{ 'nucms.ui.add'|trans }}</a>
+
+{{ tree.render(navigation_items, null) }}

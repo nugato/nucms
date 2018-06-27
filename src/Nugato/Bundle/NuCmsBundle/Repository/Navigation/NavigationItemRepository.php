@@ -13,28 +13,94 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository\Navigation;
 
-use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
-use Sylius\Component\Resource\Model\ResourceInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\ClassMetadata;
+use Gedmo\Tree\RepositoryUtils;
+use Gedmo\Tree\TreeListener;
+use Nugato\Bundle\NuCmsBundle\Repository\TranslatableEntityRepository;
 
-class NavigationItemRepository extends NestedTreeRepository implements NavigationItemRepositoryInterface
+class NavigationItemRepository extends TranslatableEntityRepository implements NavigationItemRepositoryInterface
 {
     /**
-     * {@inheritdoc}
+     * @var RepositoryUtils
      */
-    public function add(ResourceInterface $resource): void
+    private $repoUtils;
+
+    /**
+     * @var TreeListener
+     */
+    protected $listener;
+
+    public function __construct(EntityManagerInterface $em, ClassMetadata $class, TreeListener $listener = null)
     {
-        $this->_em->persist($resource);
-        $this->_em->flush();
+        parent::__construct($em, $class);
+
+        $this->repoUtils = new RepositoryUtils($this->_em, $this->getClassMetadata(), $listener, $this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function remove(ResourceInterface $resource): void
+    public function getTreeByNavigationAndLocale(string $navigationId, string $locale): array
     {
-        if (null !== $this->find($resource->getId())) {
-            $this->_em->remove($resource);
-            $this->_em->flush();
+        $queryBuilder = $this->createQueryBuilderWithTranslation($locale);
+        $queryBuilder
+            ->orderBy('o.root, o.left', 'ASC')
+            ->where('o.navigation = :navigation')
+            ->setParameter('navigation', (int)$navigationId);
+
+        $items = $queryBuilder->getQuery()->getArrayResult();
+
+        foreach ($items as &$item) {
+            $item = $this->prepareItem($item);
         }
+
+        return $this->buildTree($items, []);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    private function prepareItem(array $item): array
+    {
+        $translation = reset($item['translations']);
+        unset($item['translations']);
+
+        foreach ($translation as $key => $value) {
+            if (!isset($item[$key])) {
+                $item[$key] = $value;
+            }
+        }
+
+        return $item;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createPaginator(array $criteria = [], array $sorting = []): iterable
+    {
+        [];
+    }
+
+    /**
+     * @param array $nodes
+     * @param array $options
+     *
+     * @return array|string
+     */
+    public function buildTree(array $nodes, array $options = array())
+    {
+        return $this->repoUtils->buildTree($nodes, $options);
+    }
+
+    /**
+     * @param array $nodes
+     *
+     * @return array
+     */
+    public function buildTreeArray(array $nodes)
+    {
+        return $this->repoUtils->buildTreeArray($nodes);
     }
 }

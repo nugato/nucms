@@ -2,11 +2,44 @@
 # (c) Jacek Bednarek
 
 services:
+    # Form
     nucms.navigation.form.type:
         class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation.class%', ['sylius']]
+
+    nucms.navigation_item.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.navigation_item.class%', ['sylius']]
+    nucms.navigation_item_translation.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemTranslationType
+        tags:
+            - { name: form.type }
+        arguments: ['%nucms.model.navigation_item_translation.class%', ['sylius']]
+
+    # Repository
+    nucms.repository.navigation.class_metadata:
+        public: false
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        factory: 'doctrine.orm.default_entity_manager:getClassMetadata'
+        arguments:
+            - Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+
+    nucms.repository.navigation_item:
+        class: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+            - '@nucms.repository.navigation.class_metadata'
+            - '@stof_doctrine_extensions.listener.tree'
+
+    nucms.custom_factory.navigation_item:
+        public: false
+        class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
+        decorates: nucms.factory.navigation_item
+        arguments: ['@nucms.custom_factory.navigation_item.inner']
 
     # Fixtures
     nucms.fixture.navigation:

@@ -37,6 +37,7 @@ security:
                 path: nucms_admin_logout
                 target: nucms_admin_login
             anonymous: true
+            logout_on_user_change: true
 
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
@@ -46,27 +47,3 @@ security:
         - { path: "%sylius.security.admin_regex%/login", role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: "%sylius.security.admin_regex%", role: ROLE_ADMIN_ACCESS }
         - { path: "%sylius.security.api_regex%/.*", role: ROLE_API_ACCESS }
-#        - { path: "%sylius.security.admin_regex%", role: ROLE_ADMINISTRATION_ACCESS }
-#security:
-#
-#    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
-#    providers:
-#        in_memory:
-#            memory: ~
-#
-#    firewalls:
-#        # disables authentication for assets and the profiler, adapt it according to your needs
-#        dev:
-#            pattern: ^/(_(profiler|wdt)|css|images|js)/
-#            security: false
-#
-#        main:
-#            anonymous: ~
-#            # activate different ways to authenticate
-#
-#            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-#            #http_basic: ~
-#
-#            # https://symfony.com/doc/current/security/form_login_setup.html
-#            #form_login: ~
-#

@@ -1,0 +1,35 @@
+{% import _self as tree %}
+
+{% macro render(items, parent) %}
+    {% import _self as tree %}
+
+    {% for item in items %}
+        {% set dropdownClass = (parent is null) ? '' : ' dropdown-item' %}
+
+        {% if item.__children %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle{{ dropdownClass }}" href="#" id="navbarDropdown{{ item.id }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ item.name }}
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ item.id }}">
+                    {{ tree.render(item.__children, item.id) }}
+                </div>
+            </li>
+        {% else %}
+            {% if parent is null %}
+                <li class="nav-item">
+                    <a href="{{ absolute_url(item.url) }}" class="nav-link{{ dropdownClass }}">
+                        {{ item.name }}
+                    </a>
+                </li>
+            {% else %}
+                <a class="dropdown-item" href="{{ absolute_url(item.url) }}">{{ item.name }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+<ul class="navbar-nav mr-auto">
+    {{ tree.render(navigation_items, null) }}
+</ul>

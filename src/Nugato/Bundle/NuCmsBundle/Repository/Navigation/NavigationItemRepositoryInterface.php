@@ -13,17 +13,15 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository\Navigation;
 
-use Sylius\Component\Resource\Model\ResourceInterface;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 
-interface NavigationItemRepositoryInterface
+interface NavigationItemRepositoryInterface extends RepositoryInterface
 {
     /**
-     * @param ResourceInterface $resource
+     * @param string $navigationId
+     * @param string $locale
+     *
+     * @return array
      */
-    public function add(ResourceInterface $resource): void;
-
-    /**
-     * @param ResourceInterface $resource
-     */
-    public function remove(ResourceInterface $resource): void;
+    public function getTreeByNavigationAndLocale(string $navigationId, string $locale): array;
 }

@@ -14,7 +14,9 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+                form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
                 repository: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
             translation:
                 classes:
                     model: Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItemTranslation
+                    form: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemTranslationType

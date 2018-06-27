@@ -4,3 +4,7 @@
 nucms_admin_partial_taxon:
     resource: "partial/taxon.yml"
     prefix: /taxons
+
+nucms_admin_partial_navigation:
+    resource: "partial/navigation.yml"
+    prefix: /navigations

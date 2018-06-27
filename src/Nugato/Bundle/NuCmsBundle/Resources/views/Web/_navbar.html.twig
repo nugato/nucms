@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-dark justify-content-between" style="background-color: #2f275d;">
+    <div class="container">
+        <a href="{{ path('nucms_web_homepage_locale', {'_locale': app.request.locale}) }}" class="navbar-brand">
+            <img src="{{ asset('assets/media/img/nugato.png') }}" class="d-inline-block align-top img-fluid" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            {{ render(controller('nucms.controller.web.navigation:renderByCode', {'code': 'main_menu'})) }}
+        </div>
+        <div class="form-inline my-2 my-lg-0">
+            {{ render(controller('nucms.controller.web.locale_switch:renderSwitch')) }}
+        </div>
+    </div>
+</nav>

@@ -80,19 +80,19 @@ sylius_fixtures:
                                         translations:
                                             en_US:
                                                 name: "Websites"
-                                                url: "offer/websites"
+                                                url: "offer-websites"
                                             pl_PL:
                                                 name: "Strony internetowe"
-                                                url: "oferta/strony-internetowe"
+                                                url: "oferta-strony-internetowe"
                                     stores:
                                         navigation: "main_menu"
                                         translations:
                                             en_US:
                                                 name: "Online stores"
-                                                url: "offer/online-store"
+                                                url: "offer-online-store"
                                             pl_PL:
                                                 name: "Sklepy internetowe"
-                                                url: "oferta/sklepy-internetowe"
+                                                url: "oferta-sklepy-internetowe"
 
                 page:
                     options:
@@ -102,7 +102,7 @@ sylius_fixtures:
                                 translations:
                                     en_US:
                                         title: "About us"
-                                        slug: "about-os"
+                                        slug: "about-us"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
                                     pl_PL:
@@ -121,5 +121,32 @@ sylius_fixtures:
                                     pl_PL:
                                         title: "Kontakt"
                                         slug: "kontakt"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                            offer_websites:
+                                code: "offer_websites"
+                                translations:
+                                    en_US:
+                                        title: "Websites"
+                                        slug: "offer-websites"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "Strony internetowe"
+                                        slug: "oferta-strony-internetowe"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+
+                            offer_stores:
+                                code: "offer_stores"
+                                translations:
+                                    en_US:
+                                        title: "Online stores"
+                                        slug: "offer-online-store"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "Sklepy internetowe"
+                                        slug: "oferta-sklepy-internetowe"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.

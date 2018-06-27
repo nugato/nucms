@@ -13,20 +13,11 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Repository;
 
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\NoResultException;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
-use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
-class PageRepository extends EntityRepository implements PageRepositoryInterface
+class PageRepository extends TranslatableEntityRepository implements PageRepositoryInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function createListQueryBuilder(string $locale): QueryBuilder
-    {
-        return $this->createQueryBuilderWithTranslation($locale);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -37,27 +28,10 @@ class PageRepository extends EntityRepository implements PageRepositoryInterface
             ->where('translation.slug = :slug')
             ->setParameter('slug', $slug);
 
-        return $queryBuilder->getQuery()->getSingleResult();
-    }
-
-    /**
-     * Create default query builder joining translation by locale
-     *
-     * @param string $locale
-     *
-     * @return QueryBuilder
-     */
-    private function createQueryBuilderWithTranslation(string $locale): QueryBuilder
-    {
-        $queryBuilder = $this->createQueryBuilder('o')
-            ->addSelect('translation')
-            ->innerJoin(
-                'o.translations',
-                'translation',
-                'WITH', 'translation.locale = :locale'
-            )
-            ->setParameter('locale', $locale);
-
-        return $queryBuilder;
+        try {
+            return $queryBuilder->getQuery()->getSingleResult();
+        } catch (NoResultException $exception) {
+            return null;
+        }
     }
 }
