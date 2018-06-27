@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace spec\Nugato\Bundle\NuCmsBundle\EventSubscriber;
 
-use Nugato\Bundle\NuCmsBundle\Entity\User\User;
+use Nugato\Bundle\NuCmsBundle\Component\User\Entity\User;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;

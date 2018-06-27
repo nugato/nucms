@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Entity\User;
+namespace Nugato\Bundle\NuCmsBundle\Component\User\Entity;
 
 use Sylius\Component\User\Model\User as BaseUser;
 

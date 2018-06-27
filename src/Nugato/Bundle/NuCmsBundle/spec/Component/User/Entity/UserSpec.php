@@ -11,9 +11,9 @@
 
 declare(strict_types=1);
 
-namespace spec\Nugato\Bundle\NuCmsBundle\Entity\User;
+namespace spec\Nugato\Bundle\NuCmsBundle\Component\User\Entity;
 
-use Nugato\Bundle\NuCmsBundle\Entity\User\UserInterface;
+use Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\User\Model\User;
 

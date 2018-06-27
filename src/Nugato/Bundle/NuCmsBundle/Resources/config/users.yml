@@ -7,12 +7,12 @@ sylius_user:
         admin:
             user:
                 classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\User\User
+                    model: Nugato\Bundle\NuCmsBundle\Component\User\Entity\User
                     repository: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
                     # @todo with _remember_me form
                     interface: Sylius\Component\User\Model\UserInterface
-        oauth:
-            user:
-                classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\User\UserOAuth
-                    interface: Sylius\Component\User\Model\UserOAuthInterface
+#        oauth:
+#            user:
+#                classes:
+#                    model: Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserOAuth
+#                    interface: Sylius\Component\User\Model\UserOAuthInterface

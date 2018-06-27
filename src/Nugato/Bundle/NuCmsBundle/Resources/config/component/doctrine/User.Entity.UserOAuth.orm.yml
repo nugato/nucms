@@ -1,7 +1,7 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\User\UserOAuth:
+Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserOAuth:
     type: entity
     table: nucms_user_oauth
     lifecycleCallbacks: {  }

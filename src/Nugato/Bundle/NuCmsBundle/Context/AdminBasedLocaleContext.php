@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Context;
 
-use Nugato\Bundle\NuCmsBundle\Entity\User\UserInterface;
+use Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Locale\Context\LocaleNotFoundException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;

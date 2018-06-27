@@ -16,7 +16,7 @@ namespace Nugato\Behat\Context\Setup\Admin;
 use Behat\Behat\Context\Context;
 use Nugato\Behat\Page\Admin\DashboardPage;
 use Nugato\Behat\Page\Admin\LoginPage;
-use Nugato\Bundle\NuCmsBundle\Entity\User\UserInterface;
+use Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserInterface;
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectContext;
 use SensioLabs\Behat\PageObjectExtension\PageObject\Exception\UnexpectedPageException;
 use Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository;

@@ -1,7 +1,7 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\User\User:
+Nugato\Bundle\NuCmsBundle\Component\User\Entity\User:
     type: entity
     table: nucms_user
     repositoryClass: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
