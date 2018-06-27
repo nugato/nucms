@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Nugato\Bundle\NuCmsBundle\Provider;
+namespace spec\Nugato\Bundle\NuCmsBundle\Component\Locale\Provider;
 
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Locale\Model\LocaleInterface;

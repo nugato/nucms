@@ -1,6 +1,6 @@
 <?php
 
-namespace Nugato\Bundle\NuCmsBundle\Provider;
+namespace Nugato\Bundle\NuCmsBundle\Component\Locale\Provider;
 
 use Sylius\Component\Locale\Model\LocaleInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;

@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace spec\Nugato\Bundle\NuCmsBundle\Entity;
+namespace spec\Nugato\Bundle\NuCmsBundle\Component\Locale\Entity;
 
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Locale\Model\Locale;

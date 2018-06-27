@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Nugato\Bundle\NuCmsBundle\Entity;
+namespace Nugato\Bundle\NuCmsBundle\Component\Locale\Entity;
 
 use Sylius\Component\Locale\Model\Locale as BaseLocale;
 

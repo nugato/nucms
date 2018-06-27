@@ -6,7 +6,7 @@ sylius_resource:
         nucms.locale:
             driver: doctrine/orm
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Locale
+                model: Nugato\Bundle\NuCmsBundle\Component\Locale\Entity\Locale
                 form: Sylius\Bundle\LocaleBundle\Form\Type\LocaleType
 
 sylius_locale:
@@ -15,4 +15,4 @@ sylius_locale:
     resources:
         locale:
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Locale
+                model: Nugato\Bundle\NuCmsBundle\Component\Locale\Entity\Locale
