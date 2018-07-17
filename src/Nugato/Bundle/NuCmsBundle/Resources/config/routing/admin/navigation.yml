@@ -17,7 +17,7 @@ nucms_admin_navigation_item_update:
         _controller: nucms.controller.navigation_item:updateAction
         _sylius:
             section: admin
-            template: NugatoNuCmsBundle:Admin/Crud:update.html.twig
+            template: '@NugatoNuCms/Admin/Crud/update.html.twig'
             redirect: nucms_admin_navigation_item_update
 
 nucms_admin_navigation_item_create:
@@ -28,7 +28,7 @@ nucms_admin_navigation_item_create:
         _controller: nucms.controller.navigation_item:createAction
         _sylius:
             section: admin
-            template: NugatoNuCmsBundle:Admin/Crud:create.html.twig
+            template: '@NugatoNuCms/Admin/Crud/create.html.twig'
             redirect:
                 route: nucms_admin_navigation_update
                 parameters: { id: $navigationId }

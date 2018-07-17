@@ -7,7 +7,7 @@ nucms_admin_login:
     defaults:
         _controller: sylius.controller.user_security:loginAction
         _sylius:
-            template: NugatoNuCmsBundle:Admin/Security:login.html.twig
+            template: '@NugatoNuCms/Admin/Security/login.html.twig'
             permission: true
             logged_in_route: sylius_admin_dashboard
 

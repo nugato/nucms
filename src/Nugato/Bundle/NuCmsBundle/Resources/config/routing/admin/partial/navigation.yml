@@ -11,7 +11,7 @@ nucms_admin_partial_navigation_items:
             sortable: true
             sorting:
                 id: desc
-            template: 'NugatoNuCmsBundle:Admin/Navigation/Partial/:_items.html.twig'
+            template: '@NugatoNuCms/Admin/Navigation/Partial/_items.html.twig'
             repository:
                 method: getTreeByNavigationAndLocale
                 arguments: [$navigationId, '%locale%']
