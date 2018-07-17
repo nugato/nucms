@@ -6,6 +6,6 @@ nucms_admin_locale:
     resource: |
         alias: nucms.file
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Crud
+        templates: '@NugatoNuCms/Admin/Crud'
         grid: nucms_admin_file
         redirect: update

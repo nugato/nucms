@@ -6,7 +6,7 @@ nucms_admin_page:
     resource: |
         alias: nucms.page
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Crud
+        templates: '@NugatoNuCms/Admin/Crud'
         grid: nucms_admin_page
         redirect: update
         vars:

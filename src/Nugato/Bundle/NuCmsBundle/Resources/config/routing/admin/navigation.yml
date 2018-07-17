@@ -6,7 +6,7 @@ nucms_admin_navigation:
     resource: |
         alias: nucms.navigation
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Navigation
+        templates: '@NugatoNuCms/Admin/Navigation'
         grid: nucms_admin_navigation
         redirect: update
 

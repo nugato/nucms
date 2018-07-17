@@ -6,6 +6,6 @@ nucms_admin_taxon:
     resource: |
         alias: nucms.taxon
         section: admin
-        templates: NugatoNuCmsBundle:Admin/Taxon
+        templates: '@NugatoNuCms/Admin/Taxon'
         grid: nucms_admin_taxon
         redirect: update

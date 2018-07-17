@@ -23,6 +23,6 @@ class DashboardController extends Controller
      */
     public function indexAction(): Response
     {
-        return $this->render('NugatoNuCmsBundle:Admin/Dashboard:index.html.twig');
+        return $this->render('@NugatoNuCms/Admin/Dashboard/index.html.twig');
     }
 }
