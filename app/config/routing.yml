@@ -1,6 +1,6 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-nugato_nu_cms:
+nugato_nucms:
     resource: "@NugatoNuCmsBundle/Resources/config/routing.yml"
     prefix:   /
