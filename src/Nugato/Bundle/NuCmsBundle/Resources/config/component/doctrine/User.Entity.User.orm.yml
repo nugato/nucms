@@ -1,0 +1,20 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\User\Entity\User:
+    type: entity
+    table: nucms_user
+    repositoryClass: Sylius\Bundle\UserBundle\Doctrine\ORM\UserRepository
+    fields:
+        firstName:
+            type: string
+            length: 255
+            nullable: true
+        lastName:
+            type: string
+            length: 255
+            nullable: true
+        localeCode:
+            type: string
+            length: 12
+    lifecycleCallbacks: {  }

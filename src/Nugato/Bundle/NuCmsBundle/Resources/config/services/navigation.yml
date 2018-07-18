@@ -4,18 +4,18 @@
 services:
     # Form
     nucms.navigation.form.type:
-        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationType
+        class: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationType
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation.class%', ['sylius']]
 
     nucms.navigation_item.form.type:
-        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemType
+        class: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationItemType
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation_item.class%', ['sylius']]
     nucms.navigation_item_translation.form.type:
-        class: Nugato\Bundle\NuCmsBundle\Form\Navigation\NavigationItemTranslationType
+        class: Nugato\Bundle\NuCmsBundle\Component\Navigation\Form\NavigationItemTranslationType
         tags:
             - { name: form.type }
         arguments: ['%nucms.model.navigation_item_translation.class%', ['sylius']]
@@ -26,10 +26,10 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         factory: 'doctrine.orm.default_entity_manager:getClassMetadata'
         arguments:
-            - Nugato\Bundle\NuCmsBundle\Entity\Navigation\NavigationItem
+            - Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
 
     nucms.repository.navigation_item:
-        class: Nugato\Bundle\NuCmsBundle\Repository\Navigation\NavigationItemRepository
+        class: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationItemRepository
         arguments:
             - '@doctrine.orm.default_entity_manager'
             - '@nucms.repository.navigation.class_metadata'
@@ -37,7 +37,7 @@ services:
 
     nucms.custom_factory.navigation_item:
         public: false
-        class: Nugato\Bundle\NuCmsBundle\Factory\Navigation\NavigationItemFactory
+        class: Nugato\Bundle\NuCmsBundle\Component\Navigation\Factory\NavigationItemFactory
         decorates: nucms.factory.navigation_item
         arguments: ['@nucms.custom_factory.navigation_item.inner']
 

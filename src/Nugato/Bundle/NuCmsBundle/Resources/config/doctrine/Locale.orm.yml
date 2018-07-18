@@ -1,7 +1,0 @@
-# This file is part of the NuCms package.
-# (c) Jacek Bednarek
-
-Nugato\Bundle\NuCmsBundle\Entity\Locale:
-    type: entity
-    table: nucms_locale
-    lifecycleCallbacks: {  }

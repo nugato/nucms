@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Fixture;
 
 use Doctrine\Common\Persistence\ObjectManager;
-use Nugato\Bundle\NuCmsBundle\Entity\User\UserInterface;
+use Nugato\Bundle\NuCmsBundle\Component\User\Entity\UserInterface;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
 use Sylius\Bundle\FixturesBundle\Fixture\FixtureInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;

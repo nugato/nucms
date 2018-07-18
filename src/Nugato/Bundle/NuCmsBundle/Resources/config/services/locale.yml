@@ -20,7 +20,7 @@ services:
 
     # Locale Providers
     nucms.translation_locale_provider:
-        class: Nugato\Bundle\NuCmsBundle\Provider\TranslationLocaleProvider
+        class: Nugato\Bundle\NuCmsBundle\Component\Locale\Provider\TranslationLocaleProvider
         arguments:
             - '@sylius.repository.locale'
             - '%locale%'

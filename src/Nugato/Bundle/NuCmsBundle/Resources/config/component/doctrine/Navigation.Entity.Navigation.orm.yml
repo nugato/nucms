@@ -1,0 +1,41 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\Navigation:
+    type: entity
+    table: nucms_navigation
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        code:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+    oneToMany:
+        items:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationItem
+            mappedBy: navigation
+    uniqueConstraints:
+        search_idx:
+            columns:
+                - code
+                - name
+    lifecycleCallbacks: {  }
