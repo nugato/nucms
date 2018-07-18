@@ -15,4 +15,11 @@
 nucms
 =====
 
-A Symfony project created on October 26, 2017, 5:27 pm.
+
+Installation
+=====
+`bin/console doctrine:database:create`
+
+`bin/console doctrine:migration:migrate`
+
+`bin/console sylius:fixtures:load nucms`
