@@ -14,3 +14,10 @@ nucms_api_locale:
         alias: nucms.locale
         section: api
         serialization_version: 1
+
+nucms_api_file:
+    type: sylius.resource_api
+    resource: |
+        alias: nucms.file
+        section: api
+        serialization_version: 1
