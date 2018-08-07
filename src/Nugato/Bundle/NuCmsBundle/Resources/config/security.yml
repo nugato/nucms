@@ -37,7 +37,7 @@ security:
                 path: nucms_admin_logout
                 target: nucms_admin_login
             anonymous: true
-            logout_on_user_change: true
+#            logout_on_user_change: true
 
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
