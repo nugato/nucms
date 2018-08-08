@@ -1,0 +1,23 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_grid:
+    grids:
+        nucms_api_file:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: '%nucms.model.file.class%'
+            sorting:
+                id: desc
+            fields:
+                id:
+                    type: string
+                    sortable: true
+                title:
+                    type: string
+                    label: nucms.ui.name
+                    sortable: true
+            filters:
+                title:
+                    type: string
