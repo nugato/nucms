@@ -46,3 +46,10 @@ sylius_grid:
                         enabled: true
                         position: 101
                         options: { }
+                bulk:
+                    delete:
+                        type: delete
+                        label: nucms.ui.delete
+                        enabled: true
+                        position: 100
+                        options: { }

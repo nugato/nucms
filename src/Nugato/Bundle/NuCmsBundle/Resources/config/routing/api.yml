@@ -15,6 +15,16 @@ nucms_api_locale:
         section: api
         serialization_version: 1
 
+nucms_api_file_bulk_delete:
+    path: /files/bulk-delete
+    methods: [DELETE]
+    defaults:
+        _controller: nucms.controller.file:bulkDeleteApiAction
+        _sylius:
+            section: api
+            serialization_version: 1
+            csrf_protection: false
+
 nucms_api_file:
     type: sylius.resource_api
     resource: |

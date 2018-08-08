@@ -17,5 +17,4 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class FileRepository extends EntityRepository implements FileRepositoryInterface
 {
-
 }
