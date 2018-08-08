@@ -17,5 +17,8 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface FileRepositoryInterface extends RepositoryInterface
 {
-
+    /**
+     * @param array $ids
+     */
+    public function bulkRemove(array $ids): void;
 }

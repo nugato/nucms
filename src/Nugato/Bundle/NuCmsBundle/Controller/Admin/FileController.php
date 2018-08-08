@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Controller\Admin;
 
-use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
+use Nugato\Bundle\NuCmsBundle\Repository\File\FileRepositoryInterface;
 use Sylius\Component\Resource\ResourceActions;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +23,11 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class FileController extends ResourceController
 {
+    /**
+     * @var FileRepositoryInterface
+     */
+    protected $repository;
+
     /**
      * @param Request $request
      *
@@ -37,14 +42,7 @@ class FileController extends ResourceController
             throw new HttpException(Response::HTTP_BAD_REQUEST, '\'ids\' params required');
         }
 
-        foreach ($ids as $id) {
-            /** @var FileInterface $file */
-            $file = $this->repository->find($id);
-
-            if ($file) {
-                $this->repository->remove($file);
-            }
-        }
+        $this->repository->bulkRemove($ids);
 
         return $this->viewHandler->handle($configuration, View::create(null, Response::HTTP_NO_CONTENT));
     }
