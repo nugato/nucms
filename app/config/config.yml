@@ -6,7 +6,6 @@ imports:
     - { resource: "@NugatoNuCmsBundle/Resources/config/security.yml" }
 
     - { resource: parameters.yml }
-    - { resource: security.yml }
     - { resource: services.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
