@@ -35,6 +35,9 @@ final class Version20180527165221 extends AbstractMigration
         $this->addSql('ALTER TABLE nucms_taxon ADD CONSTRAINT FK_EA58EE27A977936C FOREIGN KEY (tree_root) REFERENCES nucms_taxon (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE nucms_taxon ADD CONSTRAINT FK_EA58EE27727ACA70 FOREIGN KEY (parent_id) REFERENCES nucms_taxon (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE nucms_navigation_item_translation ADD CONSTRAINT FK_7431D6062C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES nucms_navigation_item (id) ON DELETE CASCADE');
+        $this->addSql('CREATE TABLE nucms_settings (id INT AUTO_INCREMENT NOT NULL, code VARCHAR(255) NOT NULL, UNIQUE INDEX search_idx (code), PRIMARY KEY(id)) DEFAULT CHARACTER SET UTF8 COLLATE UTF8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE nucms_settings_translation (id INT AUTO_INCREMENT NOT NULL, translatable_id INT NOT NULL, content LONGTEXT DEFAULT NULL, locale VARCHAR(255) NOT NULL, INDEX IDX_6A9CF61F2C2AC5D3 (translatable_id), UNIQUE INDEX nucms_settings_translation_uniq_trans (translatable_id, locale), PRIMARY KEY(id)) DEFAULT CHARACTER SET UTF8 COLLATE UTF8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE nucms_settings_translation ADD CONSTRAINT FK_6A9CF61F2C2AC5D3 FOREIGN KEY (translatable_id) REFERENCES nucms_settings (id) ON DELETE CASCADE');
     }
 
     public function down(Schema $schema) : void
@@ -42,6 +45,9 @@ final class Version20180527165221 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
+        $this->addSql('ALTER TABLE nucms_settings_translation DROP FOREIGN KEY FK_6A9CF61F2C2AC5D3');
+        $this->addSql('DROP TABLE nucms_settings');
+        $this->addSql('DROP TABLE nucms_settings_translation');
         $this->addSql('ALTER TABLE nucms_page_translation DROP FOREIGN KEY FK_B8BBE06E2C2AC5D3');
         $this->addSql('ALTER TABLE nucms_navigation_item DROP FOREIGN KEY FK_47C5F839A977936C');
         $this->addSql('ALTER TABLE nucms_navigation_item DROP FOREIGN KEY FK_47C5F839727ACA70');
