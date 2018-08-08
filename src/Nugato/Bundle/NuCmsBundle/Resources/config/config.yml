@@ -85,7 +85,6 @@ liip_imagine:
             filters:
                 thumbnail: { size: [640, 480], mode: inset }
 
-# Nelmio CORS Configuration
 nelmio_cors:
     defaults:
         allow_credentials: false
