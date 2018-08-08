@@ -1,0 +1,22 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    # Form
+    nucms.settings.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsType
+        tags: [{ name: form.type }]
+        arguments: ['%nucms.model.settings.class%', ['sylius']]
+    nucms.settings_translation.form.type:
+        class: Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsTranslationType
+        tags: [{ name: form.type }]
+        arguments: ['%nucms.model.settings_translation.class%', ['sylius']]
+
+    # Fixtures
+    nucms.fixture.page:
+        class: Nugato\Bundle\NuCmsBundle\Fixture\PageFixture
+        arguments:
+            - '@nucms.factory.page'
+            - '@nucms.factory.page_translation'
+            - '@nucms.manager.page'
+        tags: [sylius_fixtures.fixture]

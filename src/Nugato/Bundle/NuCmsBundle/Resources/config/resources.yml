@@ -2,12 +2,7 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'resources/user.yml' }
-    - { resource: 'resources/locale.yml' }
-    - { resource: 'resources/page.yml' }
-    - { resource: 'resources/taxon.yml' }
-    - { resource: 'resources/navigation.yml' }
-    - { resource: 'resources/file.yml' }
+    - { resource: 'resources/*.yml' }
 
 sylius_resource:
     translation:

@@ -5,6 +5,7 @@ nucms:
     ui:
         page: Strona
         pages: Strony
+        settings: Ustawienia
         title: Tytuł
         name: Nazwa
         create: Utwórz
@@ -19,6 +20,7 @@ nucms:
         slug: Adres URL
         url: Adres URL
         code: Kod
+        value: Wartość
         created_at: Utworzono
         updated_at: Zaktualizowano
         navigation: Nawigacja
@@ -40,6 +42,7 @@ nucms:
                 taxons: Kategorie
                 navigations: Nawigacja
                 files: Pliki
+                settings: Ustawienia
         taxons: Kategorie
 
     web:

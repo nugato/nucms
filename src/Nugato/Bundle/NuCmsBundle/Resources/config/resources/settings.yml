@@ -1,0 +1,14 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_resource:
+    resources:
+        nucms.settings:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\Settings
+                repository: Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepository
+                form: Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsType
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\SettingsTranslation

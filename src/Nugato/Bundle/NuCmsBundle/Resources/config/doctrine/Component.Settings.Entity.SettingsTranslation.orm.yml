@@ -1,0 +1,17 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\SettingsTranslation:
+    type: entity
+    table: nucms_settings_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        content:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

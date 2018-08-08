@@ -34,3 +34,6 @@ nucms_admin_navigation:
 
 nucms_admin_file:
     resource: admin/file.yml
+
+nucms_admin_settings:
+    resource: admin/settings.yml

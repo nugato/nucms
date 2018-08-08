@@ -1,0 +1,22 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\Settings:
+    type: entity
+    table: nucms_settings
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: 255
+    uniqueConstraints:
+        search_idx:
+            columns:
+                - code
+    lifecycleCallbacks: {  }
