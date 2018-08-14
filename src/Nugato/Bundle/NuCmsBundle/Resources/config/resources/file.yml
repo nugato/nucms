@@ -8,3 +8,5 @@ sylius_resource:
             classes:
                 model: Nugato\Bundle\NuCmsBundle\Entity\File\File
                 form: Nugato\Bundle\NuCmsBundle\Form\File\FileType
+                repository: Nugato\Bundle\NuCmsBundle\Repository\File\FileRepository
+                controller: Nugato\Bundle\NuCmsBundle\Controller\Admin\FileController

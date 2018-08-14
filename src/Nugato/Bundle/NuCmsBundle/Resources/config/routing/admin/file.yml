@@ -1,7 +1,7 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-nucms_admin_locale:
+nucms_admin_file:
     type: sylius.resource
     resource: |
         alias: nucms.file

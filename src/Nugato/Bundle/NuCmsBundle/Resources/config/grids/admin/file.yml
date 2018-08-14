@@ -7,7 +7,7 @@ sylius_grid:
             driver:
                 name: doctrine/orm
                 options:
-                    class: Nugato\Bundle\NuCmsBundle\Entity\File\File
+                    class: '%nucms.model.file.class%'
             sorting:
                 id: desc
             fields:
@@ -45,4 +45,11 @@ sylius_grid:
                         type: delete
                         enabled: true
                         position: 101
+                        options: { }
+                bulk:
+                    delete:
+                        type: delete
+                        label: nucms.ui.delete
+                        enabled: true
+                        position: 100
                         options: { }

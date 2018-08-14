@@ -3,6 +3,7 @@
 
 imports:
     - { resource: 'grids/admin/*.yml' }
+    - { resource: 'grids/api/*.yml' }
 
 sylius_grid:
     templates:

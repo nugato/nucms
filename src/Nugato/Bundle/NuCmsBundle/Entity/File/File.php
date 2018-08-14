@@ -79,7 +79,7 @@ class File implements FileInterface
      */
     public function getExtension(): ?string
     {
-        return strtolower($this->extension);
+        return (!is_null($this->extension)) ? strtolower($this->extension) : null;
     }
 
     /**
