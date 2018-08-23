@@ -17,16 +17,14 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-final class SettingsTranslationType extends AbstractResourceType
+final class SettingsInputTranslationType extends AbstractResourceType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('content', TextType::class, ['label' => 'nucms.ui.value'])
-        ;
+        $builder->add('content', TextType::class);
     }
 
     /**
@@ -34,6 +32,6 @@ final class SettingsTranslationType extends AbstractResourceType
      */
     public function getBlockPrefix()
     {
-        return 'nucms_settings_translation';
+        return 'nucms_settings_input_translation';
     }
 }

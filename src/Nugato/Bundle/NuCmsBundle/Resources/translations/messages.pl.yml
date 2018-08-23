@@ -27,6 +27,7 @@ nucms:
         navigations: Nawigacje
         file: Plik
         files: Pliki
+        type: Typ
         locales_fields:
             name: Nazwa
         login:
@@ -44,10 +45,13 @@ nucms:
                 files: Pliki
                 settings: Ustawienia
         taxons: Kategorie
-
     web:
         search: Szukaj
-
+    form:
+        settings:
+            type:
+                input: Input filed
+                checkbox: Checkbox field
 sylius:
     form:
         user:

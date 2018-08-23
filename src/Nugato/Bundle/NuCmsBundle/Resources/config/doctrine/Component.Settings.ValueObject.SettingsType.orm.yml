@@ -1,0 +1,7 @@
+Nugato\Bundle\NuCmsBundle\Component\Settings\ValueObject\SettingsType:
+    type: embeddable
+    fields:
+        value:
+            column: type
+            type: string
+            length: '250'
