@@ -1,0 +1,38 @@
+version: '2'
+services:
+    mariadb:
+        container_name: ${PROJECT_NAME}_mariadb
+        build:
+            context: "."
+            dockerfile: "mariadb/Dockerfile"
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+            TZ: Europe/Warsaw
+        ports:
+            - ${MARIADB_EXTERNAL_PORT}:3306
+        volumes:
+            - '/var/lib/mysql'
+    php:
+        container_name: ${PROJECT_NAME}_php
+        build: ./php-fpm
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./..:/var/www/nucms:cached
+            - ./logs/nucms:/var/www/nucms/var/logs:cached
+        links:
+            - mariadb
+        extra_hosts:
+            - "docker.host:127.0.0.1"
+    nginx:
+        container_name: ${PROJECT_NAME}_nginx
+        build: ./nginx
+        ports:
+            - "80:80"
+        links:
+            - php
+        volumes_from:
+            - php
+        volumes:
+            - ./logs/nginx/:/var/log/nginx:cached
