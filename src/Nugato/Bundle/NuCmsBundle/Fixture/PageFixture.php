@@ -48,9 +48,6 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
         $this->pageManager = $pageManager;
     }
 
-    /**
-     * @param array $options
-     */
     public function load(array $options): void
     {
         $pages = (isset($options['custom'])) ? $options['custom'] : [];

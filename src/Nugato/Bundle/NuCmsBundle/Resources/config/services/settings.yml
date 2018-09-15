@@ -19,3 +19,8 @@ services:
 
     Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsCheckboxTranslationType:
         arguments: ['%nucms.model.settings_translation.class%', ['sylius']]
+
+    # Fixtures
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Fixture\SettingsFixture:
+        arguments: ['@nucms.factory.settings', '@nucms.factory.settings_translation', '@nucms.manager.settings']
+        tags: [sylius_fixtures.fixture]
