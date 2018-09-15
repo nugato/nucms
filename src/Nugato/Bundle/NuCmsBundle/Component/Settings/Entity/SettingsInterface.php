@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Settings\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Component\Settings\ValueObject\SettingsType;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
@@ -28,4 +29,14 @@ interface SettingsInterface extends ResourceInterface, TranslatableInterface, Co
      * @return string
      */
     public function getContent(): ?string;
+
+    /**
+     * @param SettingsType $type
+     */
+    public function setType(SettingsType $type): void;
+
+    /**
+     * @return SettingsType
+     */
+    public function getType(): SettingsType;
 }

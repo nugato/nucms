@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
+use Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepositoryInterface;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 use Nugato\Bundle\NuCmsBundle\Repository\PageRepositoryInterface;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
@@ -39,14 +40,21 @@ class PageController extends Controller
      */
     private $pageRepository;
 
+    /**
+     * @var SettingsRepositoryInterface
+     */
+    private $settingsRepository;
+
     public function __construct(
         LocaleContextInterface $localeContext,
         LocaleProviderInterface $localeProvider,
-        PageRepositoryInterface $pageRepository
+        PageRepositoryInterface $pageRepository,
+        SettingsRepositoryInterface $settingsRepository
     ) {
         $this->localeContext = $localeContext;
         $this->localeProvider = $localeProvider;
         $this->pageRepository = $pageRepository;
+        $this->settingsRepository = $settingsRepository;
     }
 
     public function homePage(Request $request): Response
@@ -57,7 +65,12 @@ class PageController extends Controller
             return $this->redirectToRoute('nucms_web_homepage');
         }
 
-        return $this->render('@NugatoNuCms/Web/index.html.twig');
+        return $this->render(
+            '@NugatoNuCms/Web/index.html.twig',
+            [
+                'settings' => $this->getSettings(),
+            ]
+        );
     }
 
     public function singlePage(string $slug): Response
@@ -75,7 +88,13 @@ class PageController extends Controller
             '@NugatoNuCms/Web/page.html.twig',
             [
                 'page' => $page,
+                'settings' => $this->getSettings(),
             ]
         );
+    }
+
+    private function getSettings(): array
+    {
+        return $this->settingsRepository->findAllByLocale($this->localeContext->getLocaleCode());
     }
 }

@@ -150,3 +150,15 @@ sylius_fixtures:
                                         slug: "oferta-sklepy-internetowe"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+
+                settings:
+                    options:
+                        custom:
+                            phone:
+                                code: "phone"
+                                type: "input"
+                                translations:
+                                    en_US:
+                                        content: "123123123"
+                                    pl_PL:
+                                        content: "123123123"

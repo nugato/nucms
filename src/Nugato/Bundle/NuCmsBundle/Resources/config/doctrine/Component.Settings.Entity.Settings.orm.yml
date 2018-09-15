@@ -11,6 +11,10 @@ Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\Settings:
             id: true
             generator:
                 strategy: AUTO
+    embedded:
+        type:
+            class: Nugato\Bundle\NuCmsBundle\Component\Settings\ValueObject\SettingsType
+            columnPrefix: false
     fields:
         code:
             type: string
