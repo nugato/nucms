@@ -25,13 +25,15 @@ Installation
 `bin/console sylius:fixtures:load nucms`
 
 
-nucms
+Docker
 =====
-`cd docker`
+1. `cd docker`
 
-`docker-compose build`
+2. `docker-compose build`
 
-`docker-compose up -d`
+3. `docker-compose up -d`
+
+4. Add host to "/etc/hosts" - `127.0.0.1 nucms.lc`
 
 Production Domain: nucms.lc
 Developer Domain: nucms.lc/app_dev.php
