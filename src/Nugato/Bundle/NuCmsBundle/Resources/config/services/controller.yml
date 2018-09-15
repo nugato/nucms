@@ -2,8 +2,13 @@
 # (c) Jacek Bednarek
 
 services:
-    nucms.controller.web.page:
-        class: Nugato\Bundle\NuCmsBundle\Controller\Web\PageController
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:
+#        class: Nugato\Bundle\NuCmsBundle\Controller\Web\PageController
         arguments:
             - '@nucms.context.locale.request_based_with_default'
             - '@sylius.locale_provider'

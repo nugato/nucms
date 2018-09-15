@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Settings\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Component\Settings\ValueObject\SettingsType;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Resource\Model\TranslationInterface;
 
@@ -36,6 +37,18 @@ class Settings implements SettingsInterface
      * @var string
      */
     protected $content;
+
+    /**
+     * @var SettingsType
+     */
+    protected $type;
+
+    public function __construct()
+    {
+        $this->initializeTranslationsCollection();
+
+        $this->type = new SettingsType(SettingsType::TYPE_INPUT);
+    }
 
     /**
      * {@inheritdoc}
@@ -64,7 +77,7 @@ class Settings implements SettingsInterface
     /**
      * {@inheritdoc}
      */
-    public function getContent(): string
+    public function getContent(): ?string
     {
         return $this->getTranslation()->getContent();
     }
@@ -83,5 +96,21 @@ class Settings implements SettingsInterface
     protected function createTranslation(): TranslationInterface
     {
         return new SettingsTranslation();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setType(SettingsType $type): void
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return SettingsType
+     */
+    public function getType(): SettingsType
+    {
+        return $this->type;
     }
 }

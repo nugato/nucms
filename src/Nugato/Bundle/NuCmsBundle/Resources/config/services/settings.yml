@@ -2,21 +2,25 @@
 # (c) Jacek Bednarek
 
 services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
     # Form
-    nucms.settings.form.type:
-        class: Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsType
-        tags: [{ name: form.type }]
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Form\DataTransformer\SettingsTypeDataTransformer:
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Form\DataTransformer\SettingsCheckboxContentDataTransformer:
+
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsType:
         arguments: ['%nucms.model.settings.class%', ['sylius']]
-    nucms.settings_translation.form.type:
-        class: Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsTranslationType
-        tags: [{ name: form.type }]
+
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsInputTranslationType:
+        arguments: ['%nucms.model.settings_translation.class%', ['sylius']]
+
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Form\SettingsCheckboxTranslationType:
         arguments: ['%nucms.model.settings_translation.class%', ['sylius']]
 
     # Fixtures
-    nucms.fixture.page:
-        class: Nugato\Bundle\NuCmsBundle\Fixture\PageFixture
-        arguments:
-            - '@nucms.factory.page'
-            - '@nucms.factory.page_translation'
-            - '@nucms.manager.page'
+    Nugato\Bundle\NuCmsBundle\Component\Settings\Fixture\SettingsFixture:
+        arguments: ['@nucms.factory.settings', '@nucms.factory.settings_translation', '@nucms.manager.settings']
         tags: [sylius_fixtures.fixture]

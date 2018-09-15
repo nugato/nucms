@@ -17,5 +17,10 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface SettingsRepositoryInterface extends RepositoryInterface
 {
-
+    /**
+     * @param string $locale
+     *
+     * @return array
+     */
+    public function findAllByLocale(string $locale): array;
 }

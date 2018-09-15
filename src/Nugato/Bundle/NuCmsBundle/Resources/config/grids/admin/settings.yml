@@ -21,10 +21,10 @@ sylius_grid:
                     type: string
                     label: nucms.ui.code
                     sortable: translation.code
-                content:
+                type:
                     type: string
-                    label: nucms.ui.value
-                    sortable: translation.value
+                    label: nucms.ui.type
+                    sortable: type
             filters:
                 code:
                     type: string
