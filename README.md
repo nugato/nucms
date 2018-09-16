@@ -29,11 +29,21 @@ Docker
 =====
 1. `cd docker`
 
+2. Create `.env` from `.env.dist`
+
 2. `docker-compose build`
 
 3. `docker-compose up -d`
 
 4. Add host to "/etc/hosts" - `127.0.0.1 nucms.lc`
 
-Production Domain: nucms.lc
-Developer Domain: nucms.lc/app_dev.php
+
+| Command | description |
+| ------ | ------ |
+| `docker-compose build` | Build the containers |
+| `docker-compose up -d` | Run containers |
+| `docker-compose stop` | Stop container |
+| `docker-compose exec php sh` | Enter into php container |
+
+- *Production Domain*: nucms.lc
+- *Developer Domain*: nucms.lc/app_dev.php
