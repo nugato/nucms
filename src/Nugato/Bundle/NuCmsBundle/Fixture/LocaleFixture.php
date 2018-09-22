@@ -46,8 +46,9 @@ final class LocaleFixture extends AbstractFixture implements FixtureInterface
 
     public function load(array $options): void
     {
-        $options['locales'] = isset($options['locales']) ? $options['locales'] : [];
+        $options['locales'] = $options['locales'] ?? [];
         $localesCodes = array_merge([$this->baseLocaleCode], $options['locales']);
+        $localesCodes = array_unique($localesCodes);
 
         foreach ($localesCodes as $localeCode) {
             /** @var LocaleInterface $locale */
