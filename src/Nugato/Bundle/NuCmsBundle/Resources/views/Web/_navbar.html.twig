@@ -7,10 +7,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            {{ render(controller('nucms.controller.web.navigation:renderByCode', {'code': 'main_menu'})) }}
+            {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\NavigationController:renderByCode', {'code': 'main_menu'})) }}
         </div>
         <div class="form-inline my-2 my-lg-0">
-            {{ render(controller('nucms.controller.web.locale_switch:renderSwitch')) }}
+            {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\LocaleSwitchController:renderSwitch')) }}
         </div>
     </div>
 </nav>

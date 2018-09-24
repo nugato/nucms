@@ -110,19 +110,6 @@ sylius_fixtures:
                                         slug: "o-nas"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
-                            contact:
-                                code: "contact"
-                                translations:
-                                    en_US:
-                                        title: "Contact"
-                                        slug: "contact"
-                                        content: |
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
-                                    pl_PL:
-                                        title: "Kontakt"
-                                        slug: "kontakt"
-                                        content: |
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
                             offer_websites:
                                 code: "offer_websites"
                                 translations:

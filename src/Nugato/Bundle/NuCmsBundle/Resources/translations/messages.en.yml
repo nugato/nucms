@@ -51,7 +51,15 @@ nucms:
                 input: Input filed
                 checkbox: Checkbox field
     web:
+        contact_with_us: Contact with us
         search: Search
+        contact: Contact
+        form:
+            contact_form:
+                name: Name
+                phone: Phone
+                email: E-mail
+                message: Message
 
 sylius:
     form:

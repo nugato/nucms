@@ -102,3 +102,12 @@ nelmio_cors:
             allow_headers: ["*"]
             allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
             max_age: 3600
+
+sylius_mailer:
+    sender:
+        name: '%mailer_user_name%'
+        address: '%mailer_user%'
+    emails:
+        contact_form:
+            subject: Contact form
+            template: '@NugatoNuCms/Web/Email/email_contact_form.html.twig'

@@ -46,7 +46,15 @@ nucms:
                 settings: Ustawienia
         taxons: Kategorie
     web:
+        contact_with_us: Skontaktuj się z nami
         search: Szukaj
+        contact: Kontakt
+        form:
+            contact_form:
+                name: Imię
+                phone: Telefon
+                email: E-mail
+                message: Wiadomość
     form:
         settings:
             type:

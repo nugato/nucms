@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Context;
 
-use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Locale\Context\LocaleNotFoundException;
 use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class RequestBasedWithDefaultLocaleContext implements LocaleContextInterface
+class RequestBasedWithDefaultLocaleContext implements WebLocaleContextInterface
 {
     /**
      * @var RequestStack
@@ -53,10 +52,10 @@ class RequestBasedWithDefaultLocaleContext implements LocaleContextInterface
             throw new LocaleNotFoundException('No request available.');
         }
 
-        $localeCode = ($request->attributes->get('_locale')) ?: $request->getDefaultLocale();
+        $localeCode = $request->attributes->get('_locale') ?: $request->getDefaultLocale();
 
         $availableLocalesCodes = $this->localeProvider->getAvailableLocalesCodes();
-        if (!in_array($localeCode, $availableLocalesCodes, true)) {
+        if (!\in_array($localeCode, $availableLocalesCodes, true)) {
             throw LocaleNotFoundException::notAvailable($localeCode, $availableLocalesCodes);
         }
 

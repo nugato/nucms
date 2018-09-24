@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
 use Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepositoryInterface;
+use Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 use Nugato\Bundle\NuCmsBundle\Repository\PageRepositoryInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +26,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends Controller
 {
     /**
-     * @var LocaleContextInterface
+     * @var WebLocaleContextInterface
      */
     private $localeContext;
 
@@ -46,7 +46,7 @@ class PageController extends Controller
     private $settingsRepository;
 
     public function __construct(
-        LocaleContextInterface $localeContext,
+        WebLocaleContextInterface $localeContext,
         LocaleProviderInterface $localeProvider,
         PageRepositoryInterface $pageRepository,
         SettingsRepositoryInterface $settingsRepository

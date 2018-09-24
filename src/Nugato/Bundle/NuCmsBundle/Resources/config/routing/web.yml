@@ -11,6 +11,10 @@ nucms_web_homepage_locale:
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 
+nucms_web_contact_form:
+    path: /contact
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\ContactController:requestForm' }
+
 nucms_web_single_page:
     path: /{slug}
     defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:singlePage', _locale: '%locale%' }
@@ -26,5 +30,4 @@ nucms_web_single_page_locale:
 nucms_web_locale_switch:
     path: /locale-switch/{code}
     methods: [GET]
-    defaults:
-        _controller: nucms.controller.web.locale_switch:switch
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\LocaleSwitchController:switch' }
