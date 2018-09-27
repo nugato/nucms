@@ -1,16 +1,13 @@
 {% form_theme form '@NugatoNuCms/Web/Form/theme.html.twig' %}
 
-<article class="mt-5">
-    <header class="mb-3">
-        <h1 class="t-page_title_div">{{ 'nucms.web.contact_with_us'|trans }}</h1>
-    </header>
-    <main>
-        {{ form_start(form) }}
+<div class="mt-5">
+    {% include('@NugatoNuCms/Web/Alerts/_flashes.html.twig') %}
 
-        {{ form_widget(form) }}
+    {{ form_start(form) }}
 
-        <button class="btn btn-primary" type="submit">{{ 'nucms.web.search'|trans }}</button>
+    {{ form_widget(form) }}
 
-        {{ form_end(form) }}
-    </main>
-</article>
+    <button class="btn btn-primary" type="submit">{{ 'nucms.web.send'|trans }}</button>
+
+    {{ form_end(form) }}
+</div>

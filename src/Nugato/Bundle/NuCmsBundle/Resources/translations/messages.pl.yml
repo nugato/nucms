@@ -50,6 +50,7 @@ nucms:
     web:
         contact_with_us: Skontaktuj się z nami
         search: Szukaj
+        send: Wyślij
         contact: Kontakt
         form:
             contact_form:
@@ -57,6 +58,7 @@ nucms:
                 phone: Telefon
                 email: E-mail
                 message: Wiadomość
+                success: Wiadomość została wysłana. Dziękujemy.
     form:
         settings:
             type:

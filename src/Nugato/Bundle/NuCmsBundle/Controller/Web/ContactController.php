@@ -39,17 +39,16 @@ final class ContactController extends Controller
         $this->mailer = $mailer;
     }
 
-    public function requestForm(Request $request): Response
+    public function renderForm(Request $request): Response
     {
-        $form = $this->formFactory->create(ContactFormType::class);
-
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
-            $this->sendForm($form);
-
-            $this->addFlash('success', 'nucms.web.form.contact_form.success');
-
-            return $this->redirect($request->getUri());
-        }
+        $form = $this->formFactory->create(
+            ContactFormType::class,
+            null,
+            [
+                'action' => $this->generateUrl('nucms_web_contact_send'),
+                'method' => 'POST',
+            ]
+        );
 
         return $this->render(
             '@NugatoNuCms/Web/Contact/_contact_form.html.twig',
@@ -59,10 +58,20 @@ final class ContactController extends Controller
         );
     }
 
-    private function sendForm(FormInterface $form)
+    public function sendForm(Request $request): Response
     {
-        $receivers = [$this->getParameter('nucms_email_receiver')];
+        $form = $this->createForm(ContactFormType::class);
 
-        $this->mailer->send('contact_form', $receivers, $form->getData());
+        if ($form->handleRequest($request)->isValid()) {
+            $receivers = [$this->getParameter('nucms_email_receiver')];
+
+            $this->mailer->send('contact_form', $receivers, $form->getData());
+
+            $this->addFlash('success', 'nucms.web.form.contact_form.success');
+
+            return $this->redirect($request->headers->get('referer'));
+        }
+
+        return $this->redirectToRoute('nucms_web_homepage');
     }
 }

@@ -56,6 +56,7 @@ nucms:
     web:
         contact_with_us: Contact with us
         search: Search
+        send: Send
         contact: Contact
         form:
             contact_form:
@@ -63,7 +64,7 @@ nucms:
                 phone: Phone
                 email: E-mail
                 message: Message
-
+                success: Message has beed send successful. Thank you
 sylius:
     form:
         user:
