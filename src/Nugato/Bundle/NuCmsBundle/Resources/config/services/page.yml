@@ -22,3 +22,8 @@ services:
             - '@nucms.factory.page_translation'
             - '@nucms.manager.page'
         tags: [sylius_fixtures.fixture]
+
+    # Service
+    Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolverInterface: '@Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolver'
+    Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolver:
+        arguments: ['%nucms.page.templates%']

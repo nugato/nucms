@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -26,10 +27,31 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('nugato_nu_cms');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $this->addPageSection($rootNode);
 
         return $treeBuilder;
+    }
+
+    /**
+     * @param ArrayNodeDefinition $node
+     */
+    private function addPageSection(ArrayNodeDefinition $node): void
+    {
+        $node
+            ->children()
+                ->arrayNode('page')
+                    ->children()
+                        ->arrayNode('templates')
+                            ->arrayPrototype()
+                                ->children()
+                                    ->scalarNode('code')->cannotBeEmpty()->end()
+                                    ->scalarNode('label')->cannotBeEmpty()->end()
+                                    ->scalarNode('template')->cannotBeEmpty()->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
     }
 }

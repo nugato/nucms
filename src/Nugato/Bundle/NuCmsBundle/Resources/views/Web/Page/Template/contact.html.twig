@@ -1,0 +1,17 @@
+{% extends '@NugatoNuCms/Web/Layout/containerWidth.html.twig' %}
+
+{% block content %}
+
+    SUPER CONTACT
+
+    <article class="mt-5">
+        <header class="mb-3">
+            <h1 class="t-page_title_div">{{ page.title|capitalize }}</h1>
+            <span class="badge badge-secondary">Created at {{ page.createdAt|date('Y-m-d') }}</span>
+        </header>
+        <main>
+            {{ page.content|raw }}
+        </main>
+    </article>
+
+{% endblock %}

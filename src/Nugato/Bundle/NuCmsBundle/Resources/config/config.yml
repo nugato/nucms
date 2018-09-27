@@ -111,3 +111,9 @@ sylius_mailer:
         contact_form:
             subject: Contact form
             template: '@NugatoNuCms/Web/Email/email_contact_form.html.twig'
+
+nugato_nu_cms:
+    page:
+        templates:
+            - { code: 'default', label: 'nucms.ui.page.template.default', template: '@NugatoNuCms/Web/Page/Template/default.html.twig' }
+            - { code: 'contact', label: 'nucms.ui.page.template.contact', template: '@NugatoNuCms/Web/Page/Template/contact.html.twig' }

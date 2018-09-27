@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
+use Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolverInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepositoryInterface;
 use Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
@@ -45,16 +46,23 @@ class PageController extends Controller
      */
     private $settingsRepository;
 
+    /**
+     * @var PageTemplateResolverInterface
+     */
+    private $pageTemplateResolver;
+
     public function __construct(
         WebLocaleContextInterface $localeContext,
         LocaleProviderInterface $localeProvider,
         PageRepositoryInterface $pageRepository,
-        SettingsRepositoryInterface $settingsRepository
+        SettingsRepositoryInterface $settingsRepository,
+        PageTemplateResolverInterface $pageTemplateResolver
     ) {
         $this->localeContext = $localeContext;
         $this->localeProvider = $localeProvider;
         $this->pageRepository = $pageRepository;
         $this->settingsRepository = $settingsRepository;
+        $this->pageTemplateResolver = $pageTemplateResolver;
     }
 
     public function homePage(Request $request): Response
@@ -85,7 +93,7 @@ class PageController extends Controller
         $page->setCurrentLocale($this->localeContext->getLocaleCode());
 
         return $this->render(
-            '@NugatoNuCms/Web/page.html.twig',
+            $this->pageTemplateResolver->resolveTemplateName($page),
             [
                 'page' => $page,
                 'settings' => $this->getSettings(),
