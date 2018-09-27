@@ -45,6 +45,9 @@ nucms:
                 files: Files
                 settings: Settings
         taxons: Categories
+        page_templates:
+            default: Domyślny
+            contact: Kontakt
     form:
         settings:
             type:

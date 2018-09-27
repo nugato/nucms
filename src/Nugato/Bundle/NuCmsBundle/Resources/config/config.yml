@@ -115,5 +115,5 @@ sylius_mailer:
 nugato_nu_cms:
     page:
         templates:
-            - { code: 'default', label: 'nucms.ui.page.template.default', template: '@NugatoNuCms/Web/Page/Template/default.html.twig' }
-            - { code: 'contact', label: 'nucms.ui.page.template.contact', template: '@NugatoNuCms/Web/Page/Template/contact.html.twig' }
+            - { code: 'default', label: 'nucms.ui.page_templates.default', template: '@NugatoNuCms/Web/Page/Template/default.html.twig' }
+            - { code: 'contact', label: 'nucms.ui.page_templates.contact', template: '@NugatoNuCms/Web/Page/Template/contact.html.twig' }

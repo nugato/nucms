@@ -52,7 +52,7 @@ final class ContactController extends Controller
         }
 
         return $this->render(
-            '@NugatoNuCms/Web/Contact/contact_form.html.twig',
+            '@NugatoNuCms/Web/Contact/_contact_form.html.twig',
             [
                 'form' => $form->createView(),
             ]

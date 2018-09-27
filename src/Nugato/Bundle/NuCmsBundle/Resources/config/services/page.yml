@@ -7,7 +7,7 @@ services:
         class: Nugato\Bundle\NuCmsBundle\Form\PageType
         tags:
             - { name: form.type }
-        arguments: ['%nucms.model.page.class%', ['sylius']]
+        arguments: ['%nucms.model.page.class%', ['sylius'], '%nucms.page.templates%']
     nucms.page_translation.form.type:
         class: Nugato\Bundle\NuCmsBundle\Form\PageTranslationType
         tags:

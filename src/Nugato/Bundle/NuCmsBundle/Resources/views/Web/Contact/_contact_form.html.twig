@@ -1,0 +1,16 @@
+{% form_theme form '@NugatoNuCms/Web/Form/theme.html.twig' %}
+
+<article class="mt-5">
+    <header class="mb-3">
+        <h1 class="t-page_title_div">{{ 'nucms.web.contact_with_us'|trans }}</h1>
+    </header>
+    <main>
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button class="btn btn-primary" type="submit">{{ 'nucms.web.search'|trans }}</button>
+
+        {{ form_end(form) }}
+    </main>
+</article>
