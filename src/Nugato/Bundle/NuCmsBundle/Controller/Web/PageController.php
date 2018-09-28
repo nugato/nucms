@@ -103,6 +103,14 @@ class PageController extends Controller
 
     private function getSettings(): array
     {
-        return $this->settingsRepository->findAllByLocale($this->localeContext->getLocaleCode());
+        $result = [];
+        /** @var SettingsInterface[] $settings */
+        $settings = $this->settingsRepository->findAllByLocale($this->localeContext->getLocaleCode());
+
+        foreach ($settings as $setting) {
+            $result[$setting->getCode()] = $setting;
+        }
+
+        return $result;
     }
 }
