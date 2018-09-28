@@ -1,0 +1,13 @@
+{% form_theme form '@NugatoNuCms/Web/Form/theme.html.twig' %}
+
+<div class="mt-5">
+    {% include('@NugatoNuCms/Web/Alerts/_flashes.html.twig') %}
+
+    {{ form_start(form) }}
+
+    {{ form_widget(form) }}
+
+    <button class="btn btn-primary" type="submit">{{ 'nucms.web.send'|trans }}</button>
+
+    {{ form_end(form) }}
+</div>

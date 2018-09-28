@@ -26,6 +26,10 @@ Nugato\Bundle\NuCmsBundle\Entity\Page:
             gedmo:
                 timestampable:
                     on: update
+        template:
+            type: string
+            nullable: true
+            length: 255
     uniqueConstraints:
         search_idx:
             columns:

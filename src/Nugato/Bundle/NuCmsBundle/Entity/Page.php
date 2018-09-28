@@ -33,6 +33,11 @@ class Page implements PageInterface
      */
     protected $code;
 
+    /**
+     * @var string
+     */
+    protected $template;
+
     public function __construct()
     {
         $this->initializeTranslationsCollection();
@@ -118,5 +123,29 @@ class Page implements PageInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTemplate(string $template): void
+    {
+        $this->template = $template;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasTemplateSelected(): bool
+    {
+        return $this->getTemplate() !== null;
     }
 }

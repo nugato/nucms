@@ -7,7 +7,7 @@ services:
         class: Nugato\Bundle\NuCmsBundle\Form\PageType
         tags:
             - { name: form.type }
-        arguments: ['%nucms.model.page.class%', ['sylius']]
+        arguments: ['%nucms.model.page.class%', ['sylius'], '%nucms.page.templates%']
     nucms.page_translation.form.type:
         class: Nugato\Bundle\NuCmsBundle\Form\PageTranslationType
         tags:
@@ -22,3 +22,8 @@ services:
             - '@nucms.factory.page_translation'
             - '@nucms.manager.page'
         tags: [sylius_fixtures.fixture]
+
+    # Service
+    Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolverInterface: '@Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolver'
+    Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolver:
+        arguments: ['%nucms.page.templates%']

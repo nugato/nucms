@@ -45,14 +45,26 @@ nucms:
                 files: Files
                 settings: Settings
         taxons: Categories
+        page_templates:
+            default: Domyślny
+            contact: Kontakt
     form:
         settings:
             type:
                 input: Input filed
                 checkbox: Checkbox field
     web:
+        contact_with_us: Contact with us
         search: Search
-
+        send: Send
+        contact: Contact
+        form:
+            contact_form:
+                name: Name
+                phone: Phone
+                email: E-mail
+                message: Message
+                success: Message has beed send successful. Thank you
 sylius:
     form:
         user:

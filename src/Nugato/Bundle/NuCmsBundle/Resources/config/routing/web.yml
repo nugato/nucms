@@ -26,5 +26,9 @@ nucms_web_single_page_locale:
 nucms_web_locale_switch:
     path: /locale-switch/{code}
     methods: [GET]
-    defaults:
-        _controller: nucms.controller.web.locale_switch:switch
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\LocaleSwitchController:switch' }
+
+nucms_web_contact_send:
+    path: /contact-form/send
+    methods: [POST]
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\ContactController:sendForm' }

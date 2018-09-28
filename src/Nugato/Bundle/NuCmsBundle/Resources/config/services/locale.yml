@@ -3,16 +3,16 @@
 
 services:
     # Locale Contexts
-    nucms.context.locale.request_based_with_default:
-        class: Nugato\Bundle\NuCmsBundle\Context\RequestBasedWithDefaultLocaleContext
+    Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface: '@Nugato\Bundle\NuCmsBundle\Context\RequestBasedWithDefaultLocaleContext'
+    Nugato\Bundle\NuCmsBundle\Context\RequestBasedWithDefaultLocaleContext:
         arguments:
             - '@request_stack'
             - '@sylius.locale_provider'
         tags:
             - { name: sylius.context.locale, priority: 127 }
 
-    nucms.context.locale.admin_based:
-        class: Nugato\Bundle\NuCmsBundle\Context\AdminBasedLocaleContext
+    Nugato\Bundle\NuCmsBundle\Context\AdminLocaleContextInterface: '@Nugato\Bundle\NuCmsBundle\Context\AdminBasedLocaleContext'
+    Nugato\Bundle\NuCmsBundle\Context\AdminBasedLocaleContext:
         arguments:
             - '@security.token_storage'
         tags:

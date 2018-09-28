@@ -16,14 +16,14 @@ namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 use Nugato\Bundle\NuCmsBundle\Component\Navigation\Entity\NavigationInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationItemRepositoryInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Navigation\Repository\NavigationRepositoryInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
+use Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class NavigationController extends Controller
 {
     /**
-     * @var LocaleContextInterface
+     * @var WebLocaleContextInterface
      */
     private $localeContext;
 
@@ -38,7 +38,7 @@ class NavigationController extends Controller
     private $navigationRepository;
 
     public function __construct(
-        LocaleContextInterface $localeContext,
+        WebLocaleContextInterface $localeContext,
         NavigationRepositoryInterface $navigationRepository,
         NavigationItemRepositoryInterface $navigationItemRepository
     ) {

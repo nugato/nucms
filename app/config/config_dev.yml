@@ -41,5 +41,5 @@ doctrine:
     dbal:
         dbname: "%database_name%_dev"
 
-#swiftmailer:
-#    delivery_addresses: ['me@example.com']
+swiftmailer:
+    delivery_addresses: ['%nucms_email_receiver%']
