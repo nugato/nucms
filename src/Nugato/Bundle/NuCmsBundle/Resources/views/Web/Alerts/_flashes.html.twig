@@ -1,0 +1,7 @@
+{% for label, messages in app.flashes(['success', 'warning', 'error']) %}
+    {% for flash in messages %}
+        <div class="alert alert-{{ label }} t-alert_flashes-{{ label }}">
+            {{ flash|trans }}
+        </div>
+    {% endfor %}
+{% endfor %}

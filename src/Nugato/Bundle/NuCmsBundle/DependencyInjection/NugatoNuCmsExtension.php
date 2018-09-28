@@ -18,11 +18,6 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-/**
- * This is the class that loads and manages your bundle configuration.
- *
- * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
- */
 class NugatoNuCmsExtension extends Extension
 {
     /**
@@ -35,5 +30,16 @@ class NugatoNuCmsExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $this->loadPageConfigs($config, $container);
+    }
+
+    private function loadPageConfigs(array $config, ContainerBuilder $container): void
+    {
+        $templates = $config['page']['templates'] ?? [
+                'nucms.ui.page.templates.default' => '@NugatoNuCms/Web/Page/Template/default.html.twig',
+            ];
+
+        $container->setParameter('nucms.page.templates', $templates);
     }
 }

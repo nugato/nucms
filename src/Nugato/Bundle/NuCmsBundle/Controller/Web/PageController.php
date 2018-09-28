@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Controller\Web;
 
+use Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolverInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepositoryInterface;
+use Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface;
 use Nugato\Bundle\NuCmsBundle\Entity\PageInterface;
 use Nugato\Bundle\NuCmsBundle\Repository\PageRepositoryInterface;
-use Sylius\Component\Locale\Context\LocaleContextInterface;
 use Sylius\Component\Locale\Provider\LocaleProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,7 +27,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PageController extends Controller
 {
     /**
-     * @var LocaleContextInterface
+     * @var WebLocaleContextInterface
      */
     private $localeContext;
 
@@ -45,16 +46,23 @@ class PageController extends Controller
      */
     private $settingsRepository;
 
+    /**
+     * @var PageTemplateResolverInterface
+     */
+    private $pageTemplateResolver;
+
     public function __construct(
-        LocaleContextInterface $localeContext,
+        WebLocaleContextInterface $localeContext,
         LocaleProviderInterface $localeProvider,
         PageRepositoryInterface $pageRepository,
-        SettingsRepositoryInterface $settingsRepository
+        SettingsRepositoryInterface $settingsRepository,
+        PageTemplateResolverInterface $pageTemplateResolver
     ) {
         $this->localeContext = $localeContext;
         $this->localeProvider = $localeProvider;
         $this->pageRepository = $pageRepository;
         $this->settingsRepository = $settingsRepository;
+        $this->pageTemplateResolver = $pageTemplateResolver;
     }
 
     public function homePage(Request $request): Response
@@ -85,7 +93,7 @@ class PageController extends Controller
         $page->setCurrentLocale($this->localeContext->getLocaleCode());
 
         return $this->render(
-            '@NugatoNuCms/Web/page.html.twig',
+            $this->pageTemplateResolver->resolveTemplateName($page),
             [
                 'page' => $page,
                 'settings' => $this->getSettings(),
@@ -95,6 +103,14 @@ class PageController extends Controller
 
     private function getSettings(): array
     {
-        return $this->settingsRepository->findAllByLocale($this->localeContext->getLocaleCode());
+        $result = [];
+        /** @var SettingsInterface[] $settings */
+        $settings = $this->settingsRepository->findAllByLocale($this->localeContext->getLocaleCode());
+
+        foreach ($settings as $setting) {
+            $result[$setting->getCode()] = $setting;
+        }
+
+        return $result;
     }
 }

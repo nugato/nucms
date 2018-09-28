@@ -15,7 +15,6 @@ nucms:
         save: Zapisz
         locales: Języki
         createdAt: Utworzono
-        title: Tytuł
         content: Treść
         slug: Adres URL
         url: Adres URL
@@ -45,8 +44,21 @@ nucms:
                 files: Pliki
                 settings: Ustawienia
         taxons: Kategorie
+        page_templates:
+            default: Domyślny
+            contact: Kontakt
     web:
+        contact_with_us: Skontaktuj się z nami
         search: Szukaj
+        send: Wyślij
+        contact: Kontakt
+        form:
+            contact_form:
+                name: Imię
+                phone: Telefon
+                email: E-mail
+                message: Wiadomość
+                success: Wiadomość została wysłana. Dziękujemy.
     form:
         settings:
             type:

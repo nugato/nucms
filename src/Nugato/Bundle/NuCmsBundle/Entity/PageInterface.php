@@ -49,4 +49,19 @@ interface PageInterface extends SlugAwareInterface, ResourceInterface, Translata
      * @return \DateTimeInterface|null
      */
     public function getUpdatedAt(): ?\DateTimeInterface;
+
+    /**
+     * @param string $template
+     */
+    public function setTemplate(string $template): void;
+
+    /**
+     * @return string
+     */
+    public function getTemplate(): ?string;
+
+    /**
+     * @return bool
+     */
+    public function hasTemplateSelected(): bool;
 }
