@@ -50,7 +50,7 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
 
     public function load(array $options): void
     {
-        $pages = (isset($options['custom'])) ? $options['custom'] : [];
+        $pages = $options['custom'] ?? [];
 
         foreach ($pages as $pageData) {
             $page = $this->createPage($pageData);
@@ -67,6 +67,10 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
         $page = $this->pageFactory->createNew();
 
         $page->setCode($pageData['code']);
+
+        if (isset($pageData['template'])) {
+            $page->setTemplate($pageData['template']);
+        }
 
         foreach ($pageData['translations'] as $locale => $translationData) {
             /** @var PageTranslationInterface $pageTranslation */
@@ -91,6 +95,7 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
                     ->arrayPrototype()
                         ->children()
                             ->scalarNode('code')->cannotBeEmpty()->end()
+                            ->scalarNode('template')->end()
                             ->arrayNode('translations')
                                 ->arrayPrototype()
                                     ->children()

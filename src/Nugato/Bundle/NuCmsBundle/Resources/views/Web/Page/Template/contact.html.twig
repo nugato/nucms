@@ -8,7 +8,9 @@
             <span class="badge badge-secondary">Created at {{ page.createdAt|date('Y-m-d') }}</span>
         </header>
         <main>
-            {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\ContactController:renderForm')) }}
+            <div class="mb-4">
+                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\ContactController:renderForm')) }}
+            </div>
 
             {{ page.content|raw }}
         </main>
