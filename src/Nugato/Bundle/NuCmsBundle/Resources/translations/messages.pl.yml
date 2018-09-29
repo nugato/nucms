@@ -54,6 +54,7 @@ nucms:
         contact: Kontakt
         form:
             contact_form:
+                subject: Formularz kontaktowy
                 name: Imię
                 phone: Telefon
                 email: E-mail

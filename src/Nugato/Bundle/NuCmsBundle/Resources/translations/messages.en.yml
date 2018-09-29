@@ -60,6 +60,7 @@ nucms:
         contact: Contact
         form:
             contact_form:
+                subject: Contact form
                 name: Name
                 phone: Phone
                 email: E-mail
