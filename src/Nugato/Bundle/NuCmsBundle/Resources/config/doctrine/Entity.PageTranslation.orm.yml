@@ -28,6 +28,13 @@ Nugato\Bundle\NuCmsBundle\Entity\PageTranslation:
                     updatable: false
                     fields:
                         - title
+        metaTitle:
+            type: string
+            length: 255
+            nullable: true
+        metaDescription:
+            type: text
+            nullable: true
     indexes:
         search_idx:
             columns: title, slug, locale

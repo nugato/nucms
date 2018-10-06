@@ -15,7 +15,6 @@ nucms:
         save: Save
         locales: Locales
         createdAt: Created at
-        title: Title
         content: Content
         slug: Slug
         url: Adres URL
@@ -28,6 +27,8 @@ nucms:
         file: File
         files: Files
         type: Type
+        meta_title: SEO - title
+        meta_description: SEO - description
         locales_fields:
             name: Name
         login:
@@ -60,6 +61,7 @@ nucms:
         contact: Contact
         form:
             contact_form:
+                subject: Contact form
                 name: Name
                 phone: Phone
                 email: E-mail

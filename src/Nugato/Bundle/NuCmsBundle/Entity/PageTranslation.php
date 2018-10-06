@@ -13,10 +13,13 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetatagsTrait;
 use Sylius\Component\Resource\Model\AbstractTranslation;
 
 class PageTranslation extends AbstractTranslation implements PageTranslationInterface
 {
+    use SeoMetatagsTrait;
+
     /**
      * @var int
      */

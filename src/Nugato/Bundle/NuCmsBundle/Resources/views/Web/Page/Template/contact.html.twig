@@ -1,5 +1,12 @@
 {% extends '@NugatoNuCms/Web/Layout/containerWidth.html.twig' %}
 
+{% block title %}
+    {{ page.metaTitle is not empty ? page.metaTitle : parent() }}
+{% endblock %}
+{% block meta_description %}
+    {{ page.metaDescription is not empty ? page.metaDescription : parent() }}
+{% endblock %}
+
 {% block content %}
 
     <article class="mt-5">
@@ -8,7 +15,9 @@
             <span class="badge badge-secondary">Created at {{ page.createdAt|date('Y-m-d') }}</span>
         </header>
         <main>
-            {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\ContactController:renderForm')) }}
+            <div class="mb-4">
+                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\ContactController:renderForm')) }}
+            </div>
 
             {{ page.content|raw }}
         </main>

@@ -50,7 +50,7 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
 
     public function load(array $options): void
     {
-        $pages = (isset($options['custom'])) ? $options['custom'] : [];
+        $pages = $options['custom'] ?? [];
 
         foreach ($pages as $pageData) {
             $page = $this->createPage($pageData);
@@ -68,6 +68,10 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
 
         $page->setCode($pageData['code']);
 
+        if (isset($pageData['template'])) {
+            $page->setTemplate($pageData['template']);
+        }
+
         foreach ($pageData['translations'] as $locale => $translationData) {
             /** @var PageTranslationInterface $pageTranslation */
             $pageTranslation = $this->pageTranslationFactory->createNew();
@@ -76,6 +80,13 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
             $pageTranslation->setTitle($translationData['title']);
             $pageTranslation->setSlug($translationData['slug']);
             $pageTranslation->setContent($translationData['content']);
+
+            if (isset($translationData['meta_title'])) {
+                $pageTranslation->setMetaTitle($translationData['meta_title']);
+            }
+            if (isset($translationData['meta_description'])) {
+                $pageTranslation->setMetaDescription($translationData['meta_description']);
+            }
 
             $page->addTranslation($pageTranslation);
         }
@@ -91,12 +102,15 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
                     ->arrayPrototype()
                         ->children()
                             ->scalarNode('code')->cannotBeEmpty()->end()
+                            ->scalarNode('template')->end()
                             ->arrayNode('translations')
                                 ->arrayPrototype()
                                     ->children()
                                         ->scalarNode('title')->cannotBeEmpty()->end()
                                         ->scalarNode('slug')->cannotBeEmpty()->end()
                                         ->scalarNode('content')->cannotBeEmpty()->end()
+                                        ->scalarNode('meta_title')->end()
+                                        ->scalarNode('meta_description')->end()
                                     ->end()
                                 ->end()
                             ->end()

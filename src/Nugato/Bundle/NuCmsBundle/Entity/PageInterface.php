@@ -13,12 +13,13 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetatagsInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
 use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface, CodeAwareInterface
+interface PageInterface extends SlugAwareInterface, ResourceInterface, TranslatableInterface, CodeAwareInterface, SeoMetatagsInterface
 {
     /**
      * @param string $title

@@ -103,6 +103,8 @@ sylius_fixtures:
                                     en_US:
                                         title: "About us"
                                         slug: "about-us"
+                                        meta_title: "SEO - about us title"
+                                        meta_description: "SEO - about us description"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
                                     pl_PL:
@@ -137,6 +139,21 @@ sylius_fixtures:
                                         slug: "oferta-sklepy-internetowe"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                            contact:
+                                code: "contact"
+                                template: "contact"
+                                translations:
+                                    en_US:
+                                        title: "Contact"
+                                        slug: "contact"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+                                    pl_PL:
+                                        title: "Kontakt"
+                                        slug: "kontakt"
+                                        content: |
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
+
 
                 settings:
                     options:
