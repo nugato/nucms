@@ -29,6 +29,8 @@ final class PageTranslationType extends AbstractResourceType
             ->add('title', TextType::class, ['label' => 'nucms.ui.title'])
             ->add('content', TextareaType::class, ['label' => 'nucms.ui.content'])
             ->add('slug', TextType::class, ['label' => 'nucms.ui.slug'])
+            ->add('metaTitle', TextType::class, ['label' => 'nucms.ui.meta_title'])
+            ->add('metaDescription', TextType::class, ['label' => 'nucms.ui.meta_description'])
         ;
     }
 

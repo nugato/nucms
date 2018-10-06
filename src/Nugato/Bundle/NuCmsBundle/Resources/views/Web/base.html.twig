@@ -10,6 +10,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     {% block metatags %}
+        <meta name="description" content="{% block meta_description %}{% endblock %}">
     {% endblock %}
 
     {% block stylesheets %}

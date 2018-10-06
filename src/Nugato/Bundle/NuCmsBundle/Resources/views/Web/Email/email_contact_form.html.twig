@@ -1,10 +1,10 @@
 {% block subject %}
-    Contact form
+    {{ 'nucms.web.form.contact_form.subject'|trans }}
 {% endblock %}
 
 {% block body %}
-    <b>Name</b>: {{ name }} <br>
-    <b>Phone</b>: {{ phone }} <br>
-    <b>Email</b>: {{ email }} <br>
-    <b>Message</b>: <br>{{ message }}
+    <b>{{ 'nucms.web.form.contact_form.name'|trans }}</b>: {{ name }} <br>
+    <b>{{ 'nucms.web.form.contact_form.phone'|trans }}</b>: {{ phone }} <br>
+    <b>{{ 'nucms.web.form.contact_form.email'|trans }}</b>: {{ email }} <br>
+    <b>{{ 'nucms.web.form.contact_form.message'|trans }}</b>: <br>{{ message }}
 {% endblock %}
