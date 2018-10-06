@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Core\Entity;
 
-trait SetMetaTagsTranslatableTrait
+trait SeoMetaTagsTranslatableTrait
 {
     /**
      * @var string

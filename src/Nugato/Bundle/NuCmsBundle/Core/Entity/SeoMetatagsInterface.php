@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Core\Entity;
 
-interface SetMetatagsInterface
+interface SeoMetatagsInterface
 {
     public function getMetaTitle(): ?string;
 
