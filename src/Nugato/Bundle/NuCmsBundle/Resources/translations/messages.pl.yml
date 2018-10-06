@@ -27,6 +27,8 @@ nucms:
         file: Plik
         files: Pliki
         type: Typ
+        meta_title: SEO - tytuł
+        meta_description: SEO - opis
         locales_fields:
             name: Nazwa
         login:

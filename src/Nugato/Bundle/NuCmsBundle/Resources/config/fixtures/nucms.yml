@@ -103,6 +103,8 @@ sylius_fixtures:
                                     en_US:
                                         title: "About us"
                                         slug: "about-us"
+                                        meta_title: "SEO - about us title"
+                                        meta_description: "SEO - about us description"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
                                     pl_PL:

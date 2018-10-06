@@ -81,6 +81,13 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
             $pageTranslation->setSlug($translationData['slug']);
             $pageTranslation->setContent($translationData['content']);
 
+            if (isset($translationData['meta_title'])) {
+                $pageTranslation->setMetaTitle($translationData['meta_title']);
+            }
+            if (isset($translationData['meta_description'])) {
+                $pageTranslation->setMetaDescription($translationData['meta_description']);
+            }
+
             $page->addTranslation($pageTranslation);
         }
 
@@ -102,6 +109,8 @@ final class PageFixture extends AbstractFixture implements FixtureInterface
                                         ->scalarNode('title')->cannotBeEmpty()->end()
                                         ->scalarNode('slug')->cannotBeEmpty()->end()
                                         ->scalarNode('content')->cannotBeEmpty()->end()
+                                        ->scalarNode('meta_title')->end()
+                                        ->scalarNode('meta_description')->end()
                                     ->end()
                                 ->end()
                             ->end()

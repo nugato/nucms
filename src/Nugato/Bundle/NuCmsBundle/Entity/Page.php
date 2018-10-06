@@ -13,11 +13,13 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Core\Entity\SetMetaTagsTranslatableTrait;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
 class Page implements PageInterface
 {
+    use SetMetaTagsTranslatableTrait;
     use TimestampableTrait;
     use TranslatableTrait {
         __construct as private initializeTranslationsCollection;
