@@ -1,0 +1,14 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+nucms_admin_blog_post:
+    type: sylius.resource
+    resource: |
+        alias: nucms.blog_post
+        section: admin
+        templates: '@NugatoNuCms/Admin/Crud'
+        grid: nucms_admin_blog_post
+        redirect: update
+        vars:
+            all:
+                header: nucms.ui.blog_posts

@@ -45,10 +45,16 @@ class AdminBuilder implements ContainerAwareInterface
             'extras' => ['icon' => 'file'],
         ]);
 
+        $menu->addChild('blog', [
+            'label' => 'nucms.ui.menu.items.blog_posts',
+            'route' => 'nucms_admin_blog_post_index',
+            'extras' => ['icon' => 'book'],
+        ]);
+
         $menu->addChild('taxon', [
             'label' => 'nucms.ui.menu.items.taxons',
             'route' => 'nucms_admin_taxon_index',
-            'extras' => ['icon' => 'book'],
+            'extras' => ['icon' => 'tree'],
         ]);
 
         $menu->addChild('locale', [

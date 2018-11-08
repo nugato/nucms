@@ -1,0 +1,41 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\PostTranslation:
+    type: entity
+    table: nucms_blog_post_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        content:
+            type: text
+            nullable: true
+        slug:
+            type: string
+            length: 255
+            unique: true
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    updatable: false
+                    fields:
+                        - title
+        metaTitle:
+            type: string
+            length: 255
+            nullable: true
+        metaDescription:
+            type: text
+            nullable: true
+    indexes:
+        search_idx:
+            columns: title, slug, locale
+    lifecycleCallbacks: {  }

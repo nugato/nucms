@@ -29,6 +29,8 @@ nucms:
         type: Type
         meta_title: SEO - title
         meta_description: SEO - description
+        blog: Blog
+        blog_posts: Blog - Posts
         locales_fields:
             name: Name
         login:
@@ -40,6 +42,7 @@ nucms:
             items:
                 dashboard: Dashboard
                 pages: Pages
+                blog_posts: Blog - posts
                 locales: Locales
                 taxons: Categories
                 navigations: Navigations

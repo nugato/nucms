@@ -1,0 +1,15 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_resource:
+    resources:
+        nucms.blog_post:
+            driver: doctrine/orm
+            classes:
+                model: Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post
+                form: Nugato\Bundle\NuCmsBundle\Component\Blog\Form\PostType
+                repository: Nugato\Bundle\NuCmsBundle\Component\Blog\Repository\PostRepository
+            translation:
+                classes:
+                    model: Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\PostTranslation
+                    form: Nugato\Bundle\NuCmsBundle\Component\Blog\Form\PostTranslationType

@@ -1,0 +1,33 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post:
+    type: entity
+    table: nucms_blog_post
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Blog\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        code:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            nullable: true
+            gedmo:
+                timestampable:
+                    on: update
+    uniqueConstraints:
+        search_idx:
+            columns:
+                - code
+    lifecycleCallbacks: {  }
