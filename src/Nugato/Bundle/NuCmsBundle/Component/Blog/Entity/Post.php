@@ -16,6 +16,7 @@ namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetaTagsTranslatableTrait;
+use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 use Sylius\Component\Taxonomy\Model\TaxonInterface;
@@ -47,6 +48,11 @@ class Post implements PostInterface
      * @var Collection|TaxonInterface[]
      */
     protected $taxons;
+
+    /**
+     * @var FileInterface|null
+     */
+    protected $image;
 
     public function __construct()
     {
@@ -132,6 +138,16 @@ class Post implements PostInterface
     public function hasTaxon(TaxonInterface $taxon): bool
     {
         return $this->taxons->contains($taxon);
+    }
+
+    public function setImage(?FileInterface $image): void
+    {
+        $this->image = $image;
+    }
+
+    public function getImage(): ?FileInterface
+    {
+        return $this->image;
     }
 
     protected function createTranslation(): PostTranslation

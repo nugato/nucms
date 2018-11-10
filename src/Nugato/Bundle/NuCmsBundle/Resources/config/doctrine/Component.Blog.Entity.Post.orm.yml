@@ -34,6 +34,13 @@ Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post:
                 referencedColumnName: id
                 nullable: true
                 onDelete: CASCADE
+        image:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\File\File
+            joinColumn:
+                name: image
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
     manyToMany:
         taxons:
             targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Taxon

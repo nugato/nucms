@@ -15,6 +15,7 @@ namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Entity;
 
 use Doctrine\Common\Collections\Collection;
 use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetatagsInterface;
+use Nugato\Bundle\NuCmsBundle\Entity\File\FileInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\SlugAwareInterface;
@@ -46,4 +47,8 @@ interface PostInterface extends ResourceInterface, TranslatableInterface, Timest
     public function removeTaxon(TaxonInterface $taxon): void;
 
     public function hasTaxon(TaxonInterface $taxon): bool;
+
+    public function setImage(FileInterface $image): void;
+
+    public function getImage(): ?FileInterface;
 }

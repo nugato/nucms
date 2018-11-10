@@ -42,91 +42,58 @@ class File implements FileInterface
      */
     protected $file;
 
-    /**
-     * {@inheritdoc}
-     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setExtension(string $extension): void
     {
         $this->extension = $extension;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getExtension(): ?string
     {
-        return (!is_null($this->extension)) ? strtolower($this->extension) : null;
+        return ($this->extension !== null) ? strtolower($this->extension) : null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setPath(string $path): void
     {
         $this->path = $path;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getPath(): ?string
     {
         return $this->path;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function setFile(\SplFileInfo $file): void
     {
         $this->file = $file;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getFile(): ?\SplFileInfo
     {
         return $this->file;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function hasFile(): bool
     {
         return null !== $this->file;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isImage(): bool
     {
-        return in_array($this->getExtension(), self::IMAGE_EXTENSIONS);
+        return \in_array($this->getExtension(), self::IMAGE_EXTENSIONS, true);
     }
 }

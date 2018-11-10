@@ -32,6 +32,7 @@ nucms:
         blog: Blog
         blog_posts: Blog - posty
         main_taxon: Kategoria główna
+        image: Zdjęcie
         locales_fields:
             name: Nazwa
         login:

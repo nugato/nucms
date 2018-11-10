@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Form;
 
+use Nugato\Bundle\NuCmsBundle\Entity\File\File;
 use Nugato\Bundle\NuCmsBundle\Entity\Taxon;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
@@ -33,6 +34,7 @@ final class PostType extends AbstractResourceType
                     'class' => Taxon::class,
                     'choice_label' => 'name',
                     'label' => 'nucms.ui.main_taxon',
+                    'required' => false
                 ]
             )
             ->add(
@@ -44,6 +46,16 @@ final class PostType extends AbstractResourceType
                     'label' => 'nucms.ui.taxons',
                     'multiple' => true,
                     'expanded' => true,
+                ]
+            )
+            ->add(
+                'image',
+                EntityType::class,
+                [
+                    'class' => File::class,
+                    'choice_label' => 'title',
+                    'label' => 'nucms.ui.image',
+                    'required' => false
                 ]
             )
             ->add(
