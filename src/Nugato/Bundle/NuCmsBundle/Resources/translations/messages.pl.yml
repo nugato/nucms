@@ -31,6 +31,7 @@ nucms:
         meta_description: SEO - opis
         blog: Blog
         blog_posts: Blog - posty
+        main_taxon: Kategoria główna
         locales_fields:
             name: Nazwa
         login:

@@ -26,12 +26,26 @@ final class PostType extends AbstractResourceType
     {
         $builder
             ->addEventSubscriber(new AddCodeFormSubscriber())
-            ->add('mainTaxon', EntityType::class, array(
-                'class' => Taxon::class,
-                'choice_label' => 'name',
-                // 'multiple' => true,
-                // 'expanded' => true,
-            ))
+            ->add(
+                'mainTaxon',
+                EntityType::class,
+                [
+                    'class' => Taxon::class,
+                    'choice_label' => 'name',
+                    'label' => 'nucms.ui.main_taxon',
+                ]
+            )
+            ->add(
+                'taxons',
+                EntityType::class,
+                [
+                    'class' => Taxon::class,
+                    'choice_label' => 'name',
+                    'label' => 'nucms.ui.taxons',
+                    'multiple' => true,
+                    'expanded' => true,
+                ]
+            )
             ->add(
                 'translations',
                 ResourceTranslationsType::class,

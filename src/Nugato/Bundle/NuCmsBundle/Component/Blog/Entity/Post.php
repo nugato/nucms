@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetaTagsTranslatableTrait;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
@@ -41,9 +43,16 @@ class Post implements PostInterface
      */
     protected $mainTaxon;
 
+    /**
+     * @var Collection|TaxonInterface[]
+     */
+    protected $taxons;
+
     public function __construct()
     {
         $this->initializeTranslationsCollection();
+
+        $this->taxons = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -99,6 +108,30 @@ class Post implements PostInterface
     public function getMainTaxon(): ?TaxonInterface
     {
         return $this->mainTaxon;
+    }
+
+    public function getTaxons(): Collection
+    {
+        return $this->taxons;
+    }
+
+    public function addTaxon(TaxonInterface $taxon): void
+    {
+        if (!$this->hasTaxon($taxon)) {
+            $this->taxons->add($taxon);
+        }
+    }
+
+    public function removeTaxon(TaxonInterface $taxon): void
+    {
+        if ($this->hasTaxon($taxon)) {
+            $this->taxons->removeElement($taxon);
+        }
+    }
+
+    public function hasTaxon(TaxonInterface $taxon): bool
+    {
+        return $this->taxons->contains($taxon);
     }
 
     protected function createTranslation(): PostTranslation

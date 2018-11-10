@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetatagsInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
@@ -34,4 +35,15 @@ interface PostInterface extends ResourceInterface, TranslatableInterface, Timest
     public function setMainTaxon(TaxonInterface $taxon): void;
 
     public function getMainTaxon(): ?TaxonInterface;
+
+    /**
+     * @return Collection|TaxonInterface[]
+     */
+    public function getTaxons(): Collection;
+
+    public function addTaxon(TaxonInterface $taxon): void;
+
+    public function removeTaxon(TaxonInterface $taxon): void;
+
+    public function hasTaxon(TaxonInterface $taxon): bool;
 }

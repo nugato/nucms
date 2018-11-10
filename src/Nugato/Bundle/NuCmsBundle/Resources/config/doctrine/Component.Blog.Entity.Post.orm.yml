@@ -34,6 +34,17 @@ Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post:
                 referencedColumnName: id
                 nullable: true
                 onDelete: CASCADE
+    manyToMany:
+        taxons:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+            joinTable:
+                name: nucms_blog_post_taxon
+                joinColumns:
+                    blog_post_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    taxon_id:
+                        referencedColumnName: id
     uniqueConstraints:
         search_idx:
             columns:
