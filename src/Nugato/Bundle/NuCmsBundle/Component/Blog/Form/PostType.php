@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Form;
 
+use Nugato\Bundle\NuCmsBundle\Entity\Taxon;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class PostType extends AbstractResourceType
@@ -24,6 +26,12 @@ final class PostType extends AbstractResourceType
     {
         $builder
             ->addEventSubscriber(new AddCodeFormSubscriber())
+            ->add('mainTaxon', EntityType::class, array(
+                'class' => Taxon::class,
+                'choice_label' => 'name',
+                // 'multiple' => true,
+                // 'expanded' => true,
+            ))
             ->add(
                 'translations',
                 ResourceTranslationsType::class,

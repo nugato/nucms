@@ -16,6 +16,7 @@ namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Entity;
 use Nugato\Bundle\NuCmsBundle\Core\Entity\SeoMetaTagsTranslatableTrait;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
+use Sylius\Component\Taxonomy\Model\TaxonInterface;
 
 class Post implements PostInterface
 {
@@ -34,6 +35,11 @@ class Post implements PostInterface
      * @var string
      */
     protected $code;
+
+    /**
+     * @var TaxonInterface|null
+     */
+    protected $mainTaxon;
 
     public function __construct()
     {
@@ -85,8 +91,18 @@ class Post implements PostInterface
         $this->code = $code;
     }
 
-    protected function createTranslation(): PageTranslation
+    public function setMainTaxon(TaxonInterface $mainTaxon): void
     {
-        return new PageTranslation();
+        $this->mainTaxon = $mainTaxon;
+    }
+
+    public function getMainTaxon(): ?TaxonInterface
+    {
+        return $this->mainTaxon;
+    }
+
+    protected function createTranslation(): PostTranslation
+    {
+        return new PostTranslation();
     }
 }
