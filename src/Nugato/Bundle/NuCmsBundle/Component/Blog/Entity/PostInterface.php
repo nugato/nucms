@@ -33,6 +33,10 @@ interface PostInterface extends ResourceInterface, TranslatableInterface, Timest
 
     public function getContent(): ?string;
 
+    public function setShortDescription(string $shortDescription): void;
+
+    public function getShortDescription(): ?string;
+
     public function setMainTaxon(TaxonInterface $taxon): void;
 
     public function getMainTaxon(): ?TaxonInterface;

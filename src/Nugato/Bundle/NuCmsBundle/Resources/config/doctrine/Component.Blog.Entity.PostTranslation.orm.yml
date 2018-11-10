@@ -28,6 +28,9 @@ Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\PostTranslation:
                     updatable: false
                     fields:
                         - title
+        shortDescription:
+            type: text
+            nullable: true
         metaTitle:
             type: string
             length: 255

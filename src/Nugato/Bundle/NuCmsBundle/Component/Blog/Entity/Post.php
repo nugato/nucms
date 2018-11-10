@@ -86,6 +86,16 @@ class Post implements PostInterface
         $this->getTranslation()->setContent($content);
     }
 
+    public function getShortDescription(): ?string
+    {
+        return $this->getTranslation()->getShortDescription();
+    }
+
+    public function setShortDescription(string $shortDescription): void
+    {
+        $this->getTranslation()->setShortDescription($shortDescription);
+    }
+
     public function getSlug(): ?string
     {
         return $this->getTranslation()->getSlug();

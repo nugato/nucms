@@ -27,4 +27,8 @@ interface PostTranslationInterface extends SlugAwareInterface, ResourceInterface
     public function setContent(string $content): void;
 
     public function getContent(): ?string;
+
+    public function setShortDescription(string $shortDescription): void;
+
+    public function getShortDescription(): ?string;
 }

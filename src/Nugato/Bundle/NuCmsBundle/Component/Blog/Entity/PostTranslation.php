@@ -40,6 +40,11 @@ class PostTranslation extends AbstractTranslation implements PostTranslationInte
      */
     protected $slug;
 
+    /**
+     * @var string
+     */
+    protected $shortDescription;
+
     public function getId(): int
     {
         return $this->id;
@@ -73,5 +78,15 @@ class PostTranslation extends AbstractTranslation implements PostTranslationInte
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    public function setShortDescription(string $shortDescription): void
+    {
+        $this->shortDescription = $shortDescription;
     }
 }

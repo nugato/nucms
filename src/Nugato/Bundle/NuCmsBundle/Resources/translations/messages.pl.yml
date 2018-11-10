@@ -33,6 +33,9 @@ nucms:
         blog_posts: Blog - posty
         main_taxon: Kategoria główna
         image: Zdjęcie
+        short_description: Krótki opis
+        read_more: Czytaj więcej
+        return: Powrót
         locales_fields:
             name: Nazwa
         login:

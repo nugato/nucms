@@ -24,6 +24,7 @@ final class PostTranslationType extends AbstractResourceType
     {
         $builder
             ->add('title', TextType::class, ['label' => 'nucms.ui.title'])
+            ->add('shortDescription', TextareaType::class, ['label' => 'nucms.ui.short_description'])
             ->add('content', TextareaType::class, ['label' => 'nucms.ui.content'])
             ->add('slug', TextType::class, ['label' => 'nucms.ui.slug'])
             ->add('metaTitle', TextType::class, ['label' => 'nucms.ui.meta_title'])

@@ -10,19 +10,3 @@ services:
     Nugato\Bundle\NuCmsBundle\Controller\Web\:
         resource: '../../../Controller/Web'
         tags: ['controller.service_arguments']
-
-    Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:
-        arguments:
-            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
-            - '@sylius.locale_provider'
-            - '@nucms.repository.page'
-        tags: ['controller.service_arguments']
-
-    Nugato\Bundle\NuCmsBundle\Controller\Web\LocaleSwitchController:
-        arguments:
-            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
-            - '@sylius.locale_provider'
-        tags: ['controller.service_arguments']
-
-    Nugato\Bundle\NuCmsBundle\Controller\Web\NavigationController:
-        tags: ['controller.service_arguments']
