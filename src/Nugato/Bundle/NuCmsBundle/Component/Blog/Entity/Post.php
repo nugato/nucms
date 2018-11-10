@@ -35,11 +35,6 @@ class Post implements PostInterface
      */
     protected $code;
 
-    /**
-     * @var string
-     */
-    protected $template;
-
     public function __construct()
     {
         $this->initializeTranslationsCollection();

@@ -153,8 +153,6 @@ sylius_fixtures:
                                         slug: "kontakt"
                                         content: |
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tempor diam id est vestibulum rhoncus. In at augue faucibus, tempor nulla in, ultricies turpis. Donec porttitor tempus varius.
-
-
                 settings:
                     options:
                         custom:
@@ -166,3 +164,24 @@ sylius_fixtures:
                                         content: "123123123"
                                     pl_PL:
                                         content: "123123123"
+                blog_post:
+                    options:
+                        custom:
+                            post_1:
+                                code: "post_1"
+                                translations:
+                                    en_US:
+                                        title: "Post 1"
+                                        slug: "post-1"
+                                    pl_PL:
+                                        title: "Post 1"
+                                        slug: "post-1-pl"
+                            post_2:
+                                code: "post_2"
+                                translations:
+                                    en_US:
+                                        title: "Post 2"
+                                        slug: "post-2"
+                                    pl_PL:
+                                        title: "Post 2"
+                                        slug: "post-2-pl"

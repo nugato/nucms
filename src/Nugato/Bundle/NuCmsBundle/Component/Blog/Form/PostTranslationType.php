@@ -20,9 +20,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class PostTranslationType extends AbstractResourceType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -33,9 +30,6 @@ final class PostTranslationType extends AbstractResourceType
             ->add('metaDescription', TextType::class, ['label' => 'nucms.ui.meta_description']);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getBlockPrefix()
     {
         return 'nucms_blog_post_translation';
