@@ -1,0 +1,26 @@
+{% extends '@NugatoNuCms/Web/Layout/containerWidth.html.twig' %}
+
+{% block title %}
+    {{ post.metaTitle is not empty ? post.metaTitle : parent() }}
+{% endblock %}
+{% block meta_description %}
+    {{ post.metaDescription is not empty ? post.metaDescription : parent() }}
+{% endblock %}
+
+{% block content %}
+
+    <article class="mt-5">
+        <header class="mb-3">
+            {% if returnUri %}
+                <a href="{{ returnUri }}">{{ 'nucms.ui.return'|trans }}</a>
+            {% endif %}
+            <h1 class="t-page_title_div">{{ post.title|capitalize }}</h1>
+            <span class="badge badge-secondary">Created at {{ post.createdAt|date('Y-m-d') }}</span>
+        </header>
+        <main>
+            {{ post.content|raw }}
+        </main>
+    </article>
+
+{% endblock %}
+

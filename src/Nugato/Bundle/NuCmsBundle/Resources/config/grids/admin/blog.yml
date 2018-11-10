@@ -1,0 +1,45 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+sylius_grid:
+    grids:
+        nucms_admin_blog_post:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post
+                    repository:
+                        method: createListQueryBuilder
+                        arguments: ["%locale%"]
+            sorting:
+                createdAt: desc
+            fields:
+                title:
+                    type: string
+                    label: nucms.ui.title
+                    sortable: translation.title
+                createdAt:
+                    type: datetime
+                    label: nucms.ui.createdAt
+                    sortable: true
+            filters:
+                title:
+                    type: string
+            actions:
+                main:
+                    create:
+                        type: create
+                        label: nucms.ui.create
+                        enabled: true
+                        position: 100
+                item:
+                    update:
+                        type: update
+                        enabled: true
+                        position: 100
+                        options: { }
+                    delete:
+                        type: delete
+                        enabled: true
+                        position: 101
+                        options: { }

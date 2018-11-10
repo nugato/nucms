@@ -83,7 +83,7 @@ class Kernel extends HttpKernel
      */
     public function getCacheDir(): string
     {
-        return dirname($this->getRootDir()) . '/var/cache/' . $this->getEnvironment();
+        return '/tmp/symfony/'.$this->environment;
     }
 
     /**

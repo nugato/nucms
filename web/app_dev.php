@@ -3,7 +3,7 @@
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
-if (strpos($_SERVER['SERVER_NAME'], '.lc') === false || PHP_SAPI === 'cli-server') {
+if (strpos($_SERVER['SERVER_NAME'], '.lc') === false && strpos($_SERVER['HTTP_HOST'], '.lc') === false && PHP_SAPI === 'cli-server') {
     header('HTTP/1.0 403 Forbidden');
     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 }

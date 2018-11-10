@@ -32,3 +32,15 @@ nucms_web_contact_send:
     path: /contact-form/send
     methods: [POST]
     defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\ContactController:sendForm' }
+
+nucms_web_blog_posts_by_taxon:
+    path: /blog/{slug}
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:postByTaxon', _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_blog_post_show:
+    path: /blog/post/{slug}
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:postShow', _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
