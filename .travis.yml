@@ -5,7 +5,7 @@ dist: precise
 sudo: required
 
 php:
-    - 7.1
+    - 7.2
 
 branches:
     only:
@@ -33,12 +33,11 @@ install:
 before_script:
     # Create config files
     - cp phpspec.yml.dist phpspec.yml
-    - cp app/config/parameters.yml.travis app/config/parameters.yml
 
     # Build database and assets
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:create --env=test
-    - bin/console assets:install web --env=test
+    - bin/console assets:install public --env=test
 
     # Run webserver
     - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1 &
@@ -46,4 +45,3 @@ before_script:
 script:
     - composer validate --strict
     - bin/phpspec run --no-interaction -f dot
-    - bin/behat --strict -vvv --no-interaction || bin/behat --strict -vvv --no-interaction --rerun

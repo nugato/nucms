@@ -1,0 +1,20 @@
+# This file is part of the NuCms package.
+# (c) Jacek Bednarek
+
+services:
+    # Form
+    Nugato\Bundle\NuCmsBundle\Component\Blog\Form\PostType:
+        arguments: ['%nucms.model.blog_post.class%', ['sylius']]
+        tags: [{ name: form.type }]
+    Nugato\Bundle\NuCmsBundle\Component\Blog\Form\PostTranslationType:
+        arguments: ['%nucms.model.blog_post_translation.class%', ['sylius']]
+        tags: [{ name: form.type }]
+
+    # Fixtures
+    nucms.fixture.blog_post:
+        class: Nugato\Bundle\NuCmsBundle\Component\Blog\Fixture\PostFixture
+        arguments:
+            - '@nucms.factory.blog_post'
+            - '@nucms.factory.blog_post_translation'
+            - '@nucms.manager.blog_post'
+        tags: [sylius_fixtures.fixture]

@@ -37,3 +37,6 @@ nucms_admin_file:
 
 nucms_admin_settings:
     resource: admin/settings.yml
+
+nucms_admin_blog:
+    resource: admin/blog.yml

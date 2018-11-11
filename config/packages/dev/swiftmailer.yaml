@@ -1,0 +1,2 @@
+swiftmailer:
+    delivery_addresses: ['%env(resolve:NUCMS_EMAIL_RECEIVER)%']
