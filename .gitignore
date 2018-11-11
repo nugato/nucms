@@ -1,19 +1,12 @@
 # Files
-/app/config/parameters.yml
 /behat.yml
 /phpunit.xml
 /phpspec.yml
 /.web-server-pid
 
 # Directories
-/web/assets
-/web/bundles
-/web/css
-/web/js
-/var/*
-/vendor
+/public/assets
 /node_modules
-/web/upload/*
 /docker
 
 # Bin
@@ -31,8 +24,29 @@
 phploy.ini
 
 # Upload
-/web/media/cache/xs/*
-/web/media/cache/sm/*
-/web/media/cache/md/*
-/web/media/cache/lg/*
+/public/upload/*
+/public/media/cache/xs/*
+/public/media/cache/sm/*
+/public/media/cache/md/*
+/public/media/cache/lg/*
 !.gitkeep
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.*.local
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###

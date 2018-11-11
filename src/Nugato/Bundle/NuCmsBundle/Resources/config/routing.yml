@@ -4,6 +4,7 @@
 nucms_admin:
     prefix: /admin
     resource: routing/admin.yml
+    trailing_slash_on_root: false
 
 nucms_web:
     prefix: /
@@ -12,6 +13,3 @@ nucms_web:
 nucms_api:
     prefix: /api/v1
     resource: routing/api.yml
-
-_liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.yaml"

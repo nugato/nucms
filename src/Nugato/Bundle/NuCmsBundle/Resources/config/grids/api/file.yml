@@ -7,7 +7,7 @@ sylius_grid:
             driver:
                 name: doctrine/orm
                 options:
-                    class: '%nucms.model.file.class%'
+                    class: Nugato\Bundle\NuCmsBundle\Entity\File\File
             sorting:
                 id: desc
             fields:

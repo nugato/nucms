@@ -1,6 +1,0 @@
-# This file is part of the NuCms package.
-# (c) Jacek Bednarek
-
-imports:
-    - src/Nugato/Behat/Resources/config/profiles/travis.yml
-    - src/Nugato/Behat/Resources/config/suites.yml
