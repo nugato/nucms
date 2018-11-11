@@ -7,6 +7,47 @@ services:
         autoconfigure: true
         public: false
 
+    #    Nugato\Bundle\NuCmsBundle\Controller\Web\:
+    #        resource: '../../../Controller/Web'
+    #        tags: ['controller.service_arguments']
+
     Nugato\Bundle\NuCmsBundle\Controller\Web\:
         resource: '../../../Controller/Web'
+        tags: ['controller.service_arguments']
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\PageController:
+        arguments:
+            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
+            - '@sylius.locale_provider'
+            - '@nucms.repository.page'
+            - '@nucms.repository.settings'
+            - '@Nugato\Bundle\NuCmsBundle\Component\Page\Service\PageTemplateResolverInterface'
+        tags: ['controller.service_arguments']
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\LocaleSwitchController:
+        arguments:
+            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
+            - '@sylius.locale_provider'
+        tags: ['controller.service_arguments']
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\NavigationController:
+        arguments:
+            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
+            - '@nucms.repository.navigation'
+            - '@nucms.repository.navigation_item'
+        tags: ['controller.service_arguments']
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\ContactController:
+        arguments:
+            - '@form.factory'
+            - '@sylius.email_sender'
+        tags: ['controller.service_arguments']
+
+    Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:
+        arguments:
+            - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
+            - '@sylius.repository.taxon'
+            - '@nucms.repository.blog_post'
+            - '@nucms.repository.settings'
+            - '@session'
         tags: ['controller.service_arguments']
