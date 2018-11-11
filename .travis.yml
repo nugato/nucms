@@ -37,7 +37,7 @@ before_script:
     # Build database and assets
     - bin/console doctrine:database:create --env=test
     - bin/console doctrine:schema:create --env=test
-    - bin/console assets:install web --env=test
+    - bin/console assets:install public --env=test
 
     # Run webserver
     - bin/console server:run 127.0.0.1:8080 -d web --env=test --quiet > /dev/null 2>&1 &
