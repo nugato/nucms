@@ -1,9 +1,18 @@
 {% if taxons %}
     <h3>{{ 'nucms.ui.taxons'|trans }}</h3>
     {% for taxon in taxons %}
+        {% set link = path('nucms_web_blog_posts_by_taxon', {'slug': taxon.slug}) %}
         <div class="card mb-3" style="width: 18rem;">
+            <a href="{{ link }}">
+                {% if taxon.image %}
+                    <img class="card-img-top" src="{{ taxon.image.path|imagine_filter('md') }}"
+                         alt="{{ taxon.image.title }}">
+                {% else %}
+                    <img class="card-img-top" src="https://via.placeholder.com/246x100">
+                {% endif %}
+            </a>
             {% if taxon.image %}
-                <a href="{{ path('nucms_web_blog_posts_by_taxon', {'slug': taxon.slug}) }}">
+                <a href="{{ link }}">
                     <img class="card-img-top" src="{{ taxon.image.path|imagine_filter('md') }}"
                          alt="{{ taxon.image.title }}">
                 </a>
@@ -11,8 +20,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ taxon.name }}</h5>
                 <p class="card-text">{{ taxon.description }}</p>
-                <a href="{{ path('nucms_web_blog_posts_by_taxon', {'slug': taxon.slug}) }}"
-                   class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+                <a href="{{ link }}" class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
             </div>
         </div>
     {% endfor %}
