@@ -6,7 +6,9 @@
         <div class="container">
             <h1 class="jumbotron-heading">Lorem ipsum</h1>
             <p class="lead text-muted">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget vehicula tortor, eu hendrerit erat. In vestibulum mi non diam accumsan, eu egestas tellus sollicitudin. Nulla porta, orci ullamcorper efficitur luctus, orci diam gravida nibh, eget hendrerit massa lacus eu metus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget vehicula tortor, eu hendrerit erat.
+                In vestibulum mi non diam accumsan, eu egestas tellus sollicitudin. Nulla porta, orci ullamcorper
+                efficitur luctus, orci diam gravida nibh, eget hendrerit massa lacus eu metus.
             </p>
             <p>
                 <a href="#" class="btn btn-primary">Button 1</a>
@@ -16,40 +18,35 @@
     </section>
 
     <div class="container">
-        <article>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget vehicula tortor, eu hendrerit erat.
-                In vestibulum mi non diam accumsan, eu egestas tellus sollicitudin. Nulla porta, orci ullamcorper
-                efficitur luctus, orci diam gravida nibh, eget hendrerit massa lacus eu metus. Aliquam erat volutpat.
-                Donec dolor tellus, blandit in enim id, malesuada molestie odio. Nullam vitae justo et est luctus
-                volutpat. Nunc ante felis, sollicitudin quis magna eu, tempor lacinia eros. Nullam efficitur, felis
-                congue pellentesque pretium, magna dui vulputate leo, vel vehicula purus enim non dolor. Duis ac
-                vestibulum eros, ut mattis elit. Nam suscipit efficitur justo, ac suscipit elit iaculis id.</p>
-            <p>In hac habitasse platea dictumst. Sed a laoreet purus. Pellentesque imperdiet iaculis placerat. Donec et
-                tortor tempor, maximus ligula id, viverra tortor. Etiam eu libero lorem. Curabitur efficitur vulputate
-                efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Fusce ex sem, laoreet vel euismod a, fermentum id magna.</p>
-            <p>Aenean sit amet tortor luctus, imperdiet quam eu, euismod massa. Interdum et malesuada fames ac ante
-                ipsum primis in faucibus. Nam eu felis id mi iaculis elementum vitae cursus nunc. Nam nec accumsan
-                felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Aenean non mauris facilisis, pulvinar tellus a, placerat odio. Phasellus rutrum et turpis eget
-                imperdiet. Sed sed sem quis eros tempor viverra sodales mattis lectus. Morbi fringilla diam mi, quis
-                ultricies urna facilisis sit amet. Mauris turpis nisi, porta nec suscipit nec, eleifend vitae sapien.
-                Vivamus in nulla vel turpis aliquam euismod.</p>
-            <p>Vivamus porttitor commodo felis. Suspendisse libero lorem, aliquet lobortis dictum sodales, gravida nec
-                lectus. Mauris vehicula ante massa, at dictum neque porttitor eget. Maecenas volutpat rhoncus sapien a
-                facilisis. Etiam fermentum posuere tempor. Integer dictum tellus vel pellentesque mattis. Sed eu
-                porttitor nisl. Mauris suscipit lobortis diam vestibulum convallis. Nunc sodales neque scelerisque
-                sapien tincidunt, a scelerisque erat semper. Praesent quam mi, blandit et magna eu, sagittis tincidunt
-                ipsum. Vivamus nec rhoncus nunc.</p>
-            <p>Morbi convallis libero a cursus pharetra. Nam nunc nisl, faucibus a finibus id, convallis quis mi.
-                Vivamus vestibulum leo tellus, ac faucibus dolor tempor ut. Morbi bibendum, nibh et ullamcorper
-                tincidunt, arcu tellus placerat lacus, nec varius purus tortor et turpis. Donec faucibus vel est
-                accumsan vulputate. Aliquam placerat tellus et nulla iaculis bibendum. Mauris interdum pellentesque
-                lectus nec tincidunt. Cras dictum nunc elit, ut tincidunt mauris convallis ut. Donec posuere mi augue,
-                nec gravida tellus ullamcorper id. Duis vitae vulputate urna, ut dictum magna. Integer augue libero,
-                mattis blandit commodo nec, posuere vel urna. Aliquam tincidunt libero nec nisl luctus, quis varius
-                turpis eleifend. Donec at est lectus. Donec tincidunt finibus mi at elementum.</p>
-        </article>
+        <div class="row">
+            <div class="col-sm-8">
+                <article>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget vehicula tortor, eu hendrerit
+                        erat.
+                        In vestibulum mi non diam accumsan, eu egestas tellus sollicitudin. Nulla porta, orci
+                        ullamcorper
+                        efficitur luctus, orci diam gravida nibh, eget hendrerit massa lacus eu metus. Aliquam erat
+                        volutpat.
+                        Donec dolor tellus, blandit in enim id, malesuada molestie odio. Nullam vitae justo et est
+                        luctus
+                        volutpat. Nunc ante felis, sollicitudin quis magna eu, tempor lacinia eros. Nullam efficitur,
+                        felis
+                        congue pellentesque pretium, magna dui vulputate leo, vel vehicula purus enim non dolor. Duis ac
+                        vestibulum eros, ut mattis elit. Nam suscipit efficitur justo, ac suscipit elit iaculis id.</p>
+                    <p>In hac habitasse platea dictumst. Sed a laoreet purus. Pellentesque imperdiet iaculis placerat.
+                        Donec et
+                        tortor tempor, maximus ligula id, viverra tortor. Etiam eu libero lorem. Curabitur efficitur
+                        vulputate
+                        efficitur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                        himenaeos.
+                        Fusce ex sem, laoreet vel euismod a, fermentum id magna.</p>
+                </article>
+            </div>
+
+            <div class="col-sm-4">
+                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\BlogController:latestPosts', {'limit': 2, 'template': '@NugatoNuCms/Web/Blog/Partial/_latestPosts.html.twig'})) }}
+            </div>
+        </div>
     </div>
 
 {% endblock %}

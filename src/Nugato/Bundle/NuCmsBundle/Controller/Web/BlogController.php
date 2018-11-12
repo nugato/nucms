@@ -66,8 +66,28 @@ class BlogController extends Controller
         $this->session = $session;
     }
 
-    public function postByTaxon(Request $request, string $slug): Response
+    public function posts(Request $request): Response
     {
+        $template = $request->attributes->get('template', '@NugatoNuCms/Web/Blog/posts.html.twig');
+
+        $posts = $this->postRepository->findAllByLocale(
+            $this->localeContext->getLocaleCode(),
+            (int)$request->query->get('limit', 10),
+            (int)$request->query->get('page', 1)
+        );
+
+        return $this->render(
+            $template,
+            [
+                'posts' => $posts,
+                'settings' => $this->getSettings(),
+            ]
+        );
+    }
+
+    public function postsByTaxon(Request $request, string $slug): Response
+    {
+        $template = $request->attributes->get('template', '@NugatoNuCms/Web/Blog/postsByTaxon.html.twig');
         $this->session->set('blog_index_slug', $request->getUri());
         $taxon = $this->taxonRepository->findOneBySlug($slug, $this->localeContext->getLocaleCode());
         if (!$taxon) {
@@ -82,8 +102,9 @@ class BlogController extends Controller
         );
 
         return $this->render(
-            '@NugatoNuCms/Web/Blog/index.html.twig',
+            $template,
             [
+                'taxon' => $taxon,
                 'posts' => $posts,
                 'settings' => $this->getSettings(),
             ]
@@ -113,6 +134,23 @@ class BlogController extends Controller
             [
                 'returnUri' => $returnUri,
                 'post' => $post,
+                'settings' => $this->getSettings(),
+            ]
+        );
+    }
+
+    public function latestPosts(Request $request): Response
+    {
+        $template = $request->attributes->get('template', '@NugatoNuCms/Web/Blog/Partial/_latestPosts.html.twig');
+        $limit = $request->attributes->get('limit', 10);
+        $page = $request->attributes->get('page', 1);
+
+        $posts = $this->postRepository->findAllByLocale($this->localeContext->getLocaleCode(), (int)$limit, (int)$page);
+
+        return $this->render(
+            $template,
+            [
+                'posts' => $posts,
                 'settings' => $this->getSettings(),
             ]
         );

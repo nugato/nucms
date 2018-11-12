@@ -2,9 +2,9 @@
 # (c) Jacek Bednarek
 
 nucms_admin_partial_taxon:
-    resource: "partial/taxon.yml"
+    resource: "partial/taxon.yaml"
     prefix: /taxons
 
 nucms_admin_partial_navigation:
-    resource: "partial/navigation.yml"
+    resource: "partial/navigation.yaml"
     prefix: /navigations

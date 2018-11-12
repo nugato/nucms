@@ -13,10 +13,14 @@ declare(strict_types=1);
 
 namespace Nugato\Bundle\NuCmsBundle\Entity;
 
+use Nugato\Bundle\NuCmsBundle\Core\Entity\ImageAwareInterface;
+use Nugato\Bundle\NuCmsBundle\Core\Entity\ImageAwareTrait;
 use Sylius\Component\Taxonomy\Model\Taxon as BaseTaxon;
 
-class Taxon extends BaseTaxon
+class Taxon extends BaseTaxon implements ImageAwareInterface
 {
+    use ImageAwareTrait;
+
     public function __construct()
     {
         parent::__construct();

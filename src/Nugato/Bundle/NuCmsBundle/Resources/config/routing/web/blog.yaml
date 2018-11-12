@@ -1,0 +1,17 @@
+nucms_web_blog_posts:
+    path: /
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:posts', _locale: '%locale%', template: '@NugatoNuCms/Web/Blog/posts.html.twig' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_blog_posts_by_taxon:
+    path: /{slug}
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:postsByTaxon', _locale: '%locale%', template: '@NugatoNuCms/Web/Blog/postsByTaxon.html.twig' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_blog_post_show:
+    path: /post/{slug}
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:postShow', _locale: '%locale%' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$

@@ -6,3 +6,11 @@ Nugato\Bundle\NuCmsBundle\Entity\Taxon:
     table: nucms_taxon
     repositoryClass: Sylius\Bundle\TaxonomyBundle\Doctrine\ORM\TaxonRepository
     lifecycleCallbacks: {  }
+    manyToOne:
+        image:
+            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\File\File
+            joinColumn:
+                name: image
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE

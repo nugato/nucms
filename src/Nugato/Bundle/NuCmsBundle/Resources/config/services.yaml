@@ -2,4 +2,6 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'fixtures/*.yml' }
+    - { resource: "services/*.yaml" }
+
+services:

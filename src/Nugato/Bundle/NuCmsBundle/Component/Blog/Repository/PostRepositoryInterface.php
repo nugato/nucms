@@ -24,5 +24,7 @@ interface PostRepositoryInterface extends RepositoryInterface
 
     public function findBySlug(string $slug, string $locale): ?PostInterface;
 
+    public function findAllByLocale(string $locale, int $limit = 10, int $page = 1): iterable;
+
     public function findAllByTaxon(TaxonInterface $taxon, string $locale, int $limit = 10, int $page = 1): iterable;
 }

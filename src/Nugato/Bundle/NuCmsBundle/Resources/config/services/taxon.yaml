@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # Form
+    Nugato\Bundle\NuCmsBundle\Form\TaxonType:
+        arguments: ['%nucms.model.taxon.class%', ['sylius']]
+        tags: [{ name: form.type }]

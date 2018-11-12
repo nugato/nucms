@@ -2,5 +2,5 @@
 # (c) Jacek Bednarek
 
 nucms_admin_ajax_taxon:
-    resource: "ajax/taxon.yml"
+    resource: "ajax/taxon.yaml"
     prefix: /taxons

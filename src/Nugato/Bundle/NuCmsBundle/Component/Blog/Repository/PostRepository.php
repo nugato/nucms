@@ -29,14 +29,19 @@ class PostRepository extends TranslatableEntityRepository implements PostReposit
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
-    /**
-     * @param TaxonInterface $taxon
-     * @param string $locale
-     * @param int $limit
-     * @param int $page
-     *
-     * @return iterable
-     */
+    public function findAllByLocale(string $locale, int $limit = 10, int $page = 1): iterable
+    {
+        $queryBuilder = $this->createQueryBuilderWithTranslation($locale);
+        $queryBuilder
+            ->orderBy('o.createdAt', 'ASC');
+
+        $paginator = $this->getPaginator($queryBuilder);
+        $paginator->setMaxPerPage($limit);
+        $paginator->setCurrentPage($page);
+
+        return $paginator;
+    }
+
     public function findAllByTaxon(TaxonInterface $taxon, string $locale, int $limit = 10, int $page = 1): iterable
     {
         $queryBuilder = $this->createQueryBuilderWithTranslation($locale);

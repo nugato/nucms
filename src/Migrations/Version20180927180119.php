@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Nugato\NuCmsBundle\Migrations;
+namespace Nugato\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;

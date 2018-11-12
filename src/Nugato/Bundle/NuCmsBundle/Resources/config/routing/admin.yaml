@@ -2,11 +2,11 @@
 # (c) Jacek Bednarek
 
 nucms_admin_partial:
-    resource: admin/partial.yml
+    resource: admin/partial.yaml
     prefix: /_partial
 
 nucms_admin_ajax:
-    resource: admin/ajax.yml
+    resource: admin/ajax.yaml
     prefix: /ajax
     defaults:
         _format: json
@@ -18,25 +18,25 @@ nucms_admin_dashboard:
         _controller: NugatoNuCmsBundle:Admin\Dashboard:index
 
 nucms_admin_security:
-    resource: admin/security.yml
+    resource: admin/security.yaml
 
 nucms_admin_locale:
-    resource: admin/locale.yml
+    resource: admin/locale.yaml
 
 nucms_admin_page:
-    resource: admin/page.yml
+    resource: admin/page.yaml
 
 nucms_admin_taxon:
-    resource: admin/taxon.yml
+    resource: admin/taxon.yaml
 
 nucms_admin_navigation:
-    resource: admin/navigation.yml
+    resource: admin/navigation.yaml
 
 nucms_admin_file:
-    resource: admin/file.yml
+    resource: admin/file.yaml
 
 nucms_admin_settings:
-    resource: admin/settings.yml
+    resource: admin/settings.yaml
 
 nucms_admin_blog:
-    resource: admin/blog.yml
+    resource: admin/blog.yaml
