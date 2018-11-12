@@ -10,9 +10,6 @@ class TaxonRepository extends BaseTaxonRepository implements TaxonRepositoryInte
 {
     use TranslatableRepositoryTrait;
 
-    /**
-     * {@inheritdoc}
-     */
     public function findAllByParentCode(
         string $parentCode,
         ?string $locale = null,
