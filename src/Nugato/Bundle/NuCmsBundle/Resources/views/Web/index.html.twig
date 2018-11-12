@@ -44,7 +44,9 @@
             </div>
 
             <div class="col-sm-4">
-                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\BlogController:latestPosts', {'limit': 2, 'template': '@NugatoNuCms/Web/Blog/Partial/_latestPosts.html.twig'})) }}
+                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\BlogController:partialLatestPosts', {'limit': 2, 'template': '@NugatoNuCms/Web/Blog/Partial/_latestPosts.html.twig'})) }}
+
+                {{ render(controller('Nugato\\Bundle\\NuCmsBundle\\Controller\\Web\\BlogController:partialTaxons', {'code': 'categories', 'limit': 2, 'template': '@NugatoNuCms/Web/Blog/Partial/_taxons.html.twig'})) }}
             </div>
         </div>
     </div>

@@ -15,3 +15,9 @@ nucms_web_blog_post_show:
     defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:postShow', _locale: '%locale%' }
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
+
+nucms_web_blog_taxons:
+    path: /
+    defaults: { _controller: 'Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:taxons', _locale: '%locale%', template: '@NugatoNuCms/Web/Blog/taxons.html.twig' }
+    requirements:
+        _locale: ^[a-z]{2}(?:_[A-Z]{2})?$

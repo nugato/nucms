@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Nugato\Bundle\NuCmsBundle\Component\Blog\Form;
 
 use Nugato\Bundle\NuCmsBundle\Entity\File\File;
-use Nugato\Bundle\NuCmsBundle\Entity\Taxon;
+use Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;

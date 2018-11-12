@@ -1,15 +1,19 @@
-{% for post in posts %}
-    <div class="card mb-3" style="width: 18rem;">
-        {% if post.image %}
-            <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}">
-                <img class="card-img-top" src="{{ post.image.path|imagine_filter('md') }}" alt="{{ post.image.title }}">
-            </a>
-        {% endif %}
-        <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</h5>
-            <p class="card-text">{{ post.shortDescription|raw }}</p>
-            <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}"
-               class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+{% if posts %}
+    <h3>{{ 'nucms.ui.latest_posts'|trans }}</h3>
+    {% for post in posts %}
+        <div class="card mb-3" style="width: 18rem;">
+            {% if post.image %}
+                <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}">
+                    <img class="card-img-top" src="{{ post.image.path|imagine_filter('md') }}"
+                         alt="{{ post.image.title }}">
+                </a>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.shortDescription|raw }}</p>
+                <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}"
+                   class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+            </div>
         </div>
-    </div>
-{% endfor %}
+    {% endfor %}
+{% endif %}

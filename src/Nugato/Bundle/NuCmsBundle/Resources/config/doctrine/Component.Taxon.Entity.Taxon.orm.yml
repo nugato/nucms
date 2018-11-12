@@ -1,10 +1,10 @@
 # This file is part of the NuCms package.
 # (c) Jacek Bednarek
 
-Nugato\Bundle\NuCmsBundle\Entity\Taxon:
+Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon:
     type: entity
     table: nucms_taxon
-    repositoryClass: Sylius\Bundle\TaxonomyBundle\Doctrine\ORM\TaxonRepository
+    repositoryClass: Nugato\Bundle\NuCmsBundle\Component\Taxon\Repository\TaxonRepository
     lifecycleCallbacks: {  }
     manyToOne:
         image:

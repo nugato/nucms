@@ -12,6 +12,7 @@
         <h1 class="t-page_title_div">{{ taxon.name|capitalize }}</h1>
     </header>
 
+    {% if posts %}
     <div class="row">
         {% for post in posts %}
             <div class="col-sm-3">
@@ -36,4 +37,7 @@
     <div class="mt-5">
         {{ pagerfanta(posts, 'twitter_bootstrap4', options|default({})) }}
     </div>
+    {% else %}
+        <div class="alert alert-info">{{ 'nucms.ui.no_posts'|trans }}</div>
+    {% endif %}
 {% endblock %}

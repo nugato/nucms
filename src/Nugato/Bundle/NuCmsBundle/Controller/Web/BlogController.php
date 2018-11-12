@@ -17,8 +17,8 @@ use Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\PostInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Blog\Repository\PostRepositoryInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Settings\Entity\SettingsInterface;
 use Nugato\Bundle\NuCmsBundle\Component\Settings\Repository\SettingsRepositoryInterface;
+use Nugato\Bundle\NuCmsBundle\Component\Taxon\Repository\TaxonRepositoryInterface;
 use Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface;
-use Sylius\Component\Taxonomy\Repository\TaxonRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -139,7 +139,7 @@ class BlogController extends Controller
         );
     }
 
-    public function latestPosts(Request $request): Response
+    public function partialLatestPosts(Request $request): Response
     {
         $template = $request->attributes->get('template', '@NugatoNuCms/Web/Blog/Partial/_latestPosts.html.twig');
         $limit = $request->attributes->get('limit', 10);
@@ -151,6 +151,29 @@ class BlogController extends Controller
             $template,
             [
                 'posts' => $posts,
+                'settings' => $this->getSettings(),
+            ]
+        );
+    }
+
+    public function partialTaxons(Request $request): Response
+    {
+        $template = $request->attributes->get('template', '@NugatoNuCms/Web/Blog/Partial/_taxons.html.twig');
+        $code = $request->attributes->get('code', '');
+        $limit = $request->attributes->get('limit', 10);
+        $page = $request->attributes->get('page', 1);
+
+        $taxons = $this->taxonRepository->findAllByParentCode(
+            $code,
+            $this->localeContext->getLocaleCode(),
+            $limit,
+            $page
+        );
+
+        return $this->render(
+            $template,
+            [
+                'taxons' => $taxons,
                 'settings' => $this->getSettings(),
             ]
         );

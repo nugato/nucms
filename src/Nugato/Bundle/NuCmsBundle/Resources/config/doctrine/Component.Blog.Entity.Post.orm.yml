@@ -28,7 +28,7 @@ Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post:
                     on: update
     manyToOne:
         mainTaxon:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon
             joinColumn:
                 name: main_taxon
                 referencedColumnName: id
@@ -43,7 +43,7 @@ Nugato\Bundle\NuCmsBundle\Component\Blog\Entity\Post:
                 onDelete: CASCADE
     manyToMany:
         taxons:
-            targetEntity: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+            targetEntity: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon
             joinTable:
                 name: nucms_blog_post_taxon
                 joinColumns:
