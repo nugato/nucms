@@ -6,11 +6,12 @@ sylius_resource:
         nucms.taxon:
             driver: doctrine/orm
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                model: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon
                 form: Nugato\Bundle\NuCmsBundle\Form\TaxonType
+                repository: Nugato\Bundle\NuCmsBundle\Component\Taxon\Repository\TaxonRepository
             translation:
                 classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation
+                    model: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\TaxonTranslation
                     form: Sylius\Bundle\TaxonomyBundle\Form\Type\TaxonTranslationType
 
 sylius_taxonomy:
@@ -18,7 +19,8 @@ sylius_taxonomy:
     resources:
         taxon:
             classes:
-                model: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                model: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon
+                repository: Nugato\Bundle\NuCmsBundle\Component\Taxon\Repository\TaxonRepository
             translation:
                 classes:
-                    model: Nugato\Bundle\NuCmsBundle\Entity\TaxonTranslation
+                    model: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\TaxonTranslation

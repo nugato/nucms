@@ -49,9 +49,9 @@ final class PostFixture extends AbstractFixture
 
     public function load(array $options): void
     {
-        $post = $options['custom'] ?? [];
+        $posts = $options['custom'] ?? [];
 
-        foreach ($post as $postData) {
+        foreach ($posts as $postData) {
             $post = $this->createPost($postData);
 
             $this->postManager->persist($post);

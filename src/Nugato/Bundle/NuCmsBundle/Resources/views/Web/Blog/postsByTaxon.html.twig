@@ -12,28 +12,34 @@
         <h1 class="t-page_title_div">{{ taxon.name|capitalize }}</h1>
     </header>
 
-    <div class="row">
-        {% for post in posts %}
-            <div class="col-sm-3">
-                <div class="card" style="width: 18rem;">
-                    {% if post.image %}
-                        <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}">
-                            <img class="card-img-top" src="{{ post.image.path|imagine_filter('md') }}"
-                                 alt="{{ post.image.title }}">
+    {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+                {% set link = path('nucms_web_blog_post_show', {'slug': post.slug}) %}
+                <div class="col-sm-3">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ link }}">
+                            {% if post.image %}
+                                <img class="card-img-top" src="{{ post.image.path|imagine_filter('md') }}" alt="{{ post.image.title }}">
+                            {% else %}
+                                <img class="card-img-top" src="https://via.placeholder.com/286">
+                            {% endif %}
                         </a>
-                    {% endif %}
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.shortDescription|raw }}</p>
-                        <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}"
-                           class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.shortDescription|raw }}</p>
+                            <a href="{{ link }}"
+                               class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
 
-    <div class="mt-5">
-        {{ pagerfanta(posts, 'twitter_bootstrap4', options|default({})) }}
-    </div>
+        <div class="mt-5">
+            {{ pagerfanta(posts, 'twitter_bootstrap4', options|default({})) }}
+        </div>
+    {% else %}
+        <div class="alert alert-info">{{ 'nucms.ui.no_posts'|trans }}</div>
+    {% endif %}
 {% endblock %}

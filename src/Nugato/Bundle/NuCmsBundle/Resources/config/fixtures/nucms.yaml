@@ -94,6 +94,39 @@ sylius_fixtures:
                                                 name: "Sklepy internetowe"
                                                 url: "oferta-sklepy-internetowe"
 
+                taxon:
+                    options:
+                        custom:
+                            categories:
+                                code: "categories"
+                                translations:
+                                    en_US:
+                                        name: "Categories"
+                                        slug: "categories"
+                                        description: "Categories"
+                                    pl_PL:
+                                        name: "Kategorie"
+                                        slug: "kategorie"
+                                        description: "Kategorie description"
+                                children:
+                                    category_1:
+                                        code: "category_1"
+                                        translations:
+                                            en_US:
+                                                name: "Category 1"
+                                                slug: "category-1"
+                                            pl_PL:
+                                                name: "Kategoria 1"
+                                                slug: "kategoria-1"
+                                    category_2:
+                                        code: "category_2"
+                                        translations:
+                                            en_US:
+                                                name: "Category 2"
+                                                slug: "category-2"
+                                            pl_PL:
+                                                name: "Kategoria 2"
+                                                slug: "kategoria-2"
                 page:
                     options:
                         custom:

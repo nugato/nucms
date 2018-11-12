@@ -4,7 +4,7 @@ sylius_grid:
             driver:
                 name: doctrine/orm
                 options:
-                    class: Nugato\Bundle\NuCmsBundle\Entity\Taxon
+                    class: Nugato\Bundle\NuCmsBundle\Component\Taxon\Entity\Taxon
                     repository:
                         method: createListQueryBuilder
             fields:

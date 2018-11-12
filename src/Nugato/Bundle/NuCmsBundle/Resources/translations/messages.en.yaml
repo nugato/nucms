@@ -36,6 +36,8 @@ nucms:
         short_description: Short description
         read_more: Read more
         return: Return
+        no_posts: There are no posts yet
+        latest_posts: Latest posts
         locales_fields:
             name: Name
         login:

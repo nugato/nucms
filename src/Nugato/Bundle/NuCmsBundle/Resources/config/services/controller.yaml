@@ -46,7 +46,7 @@ services:
     Nugato\Bundle\NuCmsBundle\Controller\Web\BlogController:
         arguments:
             - '@Nugato\Bundle\NuCmsBundle\Context\WebLocaleContextInterface'
-            - '@sylius.repository.taxon'
+            - '@nucms.repository.taxon'
             - '@nucms.repository.blog_post'
             - '@nucms.repository.settings'
             - '@session'
