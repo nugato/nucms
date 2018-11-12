@@ -1,0 +1,39 @@
+{% extends '@NugatoNuCms/Web/Layout/containerWidth.html.twig' %}
+
+{% block title %}
+    {{ taxon.name|capitalize }}
+{% endblock %}
+{% block meta_description %}
+    {{ taxon.description is not empty ? taxon.description|striptags : parent() }}
+{% endblock %}
+
+{% block content %}
+    <header class="mb-3">
+        <h1 class="t-page_title_div">{{ taxon.name|capitalize }}</h1>
+    </header>
+
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    {% if post.image %}
+                        <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}">
+                            <img class="card-img-top" src="{{ post.image.path|imagine_filter('md') }}"
+                                 alt="{{ post.image.title }}">
+                        </a>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.shortDescription|raw }}</p>
+                        <a href="{{ path('nucms_web_blog_post_show', {'slug': post.slug}) }}"
+                           class="btn btn-primary">{{ 'nucms.ui.read_more'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-5">
+        {{ pagerfanta(posts, 'twitter_bootstrap4', options|default({})) }}
+    </div>
+{% endblock %}

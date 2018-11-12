@@ -2,7 +2,7 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'resources/*.yml' }
+    - { resource: 'resources/*.yaml' }
 
 sylius_resource:
     translation:

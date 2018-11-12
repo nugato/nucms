@@ -23,6 +23,3 @@ Installation
 `bin/console doctrine:migration:migrate`
 
 `bin/console sylius:fixtures:load nucms`
-
-- *Production Domain*: nucms.lc
-- *Developer Domain*: nucms.lc/app_dev.php

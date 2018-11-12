@@ -2,8 +2,8 @@
 # (c) Jacek Bednarek
 
 imports:
-    - { resource: 'grids/admin/*.yml' }
-    - { resource: 'grids/api/*.yml' }
+    - { resource: 'grids/admin/*.yaml' }
+    - { resource: 'grids/api/*.yaml' }
 
 sylius_grid:
     templates:
